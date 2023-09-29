@@ -1,0 +1,17 @@
+{
+  "UiSearchServiceLabel": "Find a service",
+  "Title1": "Home",
+  "Title2": "About",
+  "Btn": "Test",
+  "nav": {
+    "service": "Service",
+    "freeNumbers": "Free Numbers",
+    "news": "News",
+    "api": "API",
+    "about": "About",
+    "publicOffer": "Public offer",
+    "personalInformation": "Personal Information",
+    "returnsPolicy": "Returns Policy"
+  },
+  "logout": "log in"
+}

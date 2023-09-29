@@ -1,0 +1,30 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@intlify/vue-i18n-loader": "^4.2.0",
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/i18n": "^8.0.0-rc.4",
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "nuxt": "^3.7.1",
+    "sass": "^1.66.1",
+    "sass-loader": "^10.4.1"
+  },
+  "overrides": {
+    "vue": "latest"
+  },
+  "dependencies": {
+    "@nuxt/ui": "^2.8.1",
+    "@pinia/nuxt": "^0.4.11",
+    "@vue/language-plugin-pug": "^1.8.11",
+    "pinia": "^2.1.6",
+    "vite-plugin-pug": "^0.3.2"
+  }
+}

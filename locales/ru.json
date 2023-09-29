@@ -1,0 +1,17 @@
+{
+  "UiSearchServiceLabel": "Найти сервис",
+  "Title1": "Главная",
+  "Title2": "О компании",
+  "Btn": "Тест",
+  "nav": {
+    "service": "Сервисы",
+    "freeNumbers": "Бесплатные номера",
+    "news": "Новости",
+    "api": "API",
+    "about": "О нас",
+    "publicOffer": "Публичная оферта",
+    "personalInformation": "Персональные данные",
+    "returnsPolicy": "Политика возвратов"
+  },
+  "logout": "Войти"
+}

@@ -1,6 +1,7 @@
 <template lang="pug">
 .header-profile
-  IconTheProfile
+  UDropdown(:items="items" :popper="{ placement: 'bottom-start' }")
+    IconTheProfile
 
   .header-profile__middle
     span ID: 643248
@@ -10,8 +11,37 @@
 
 </template>
 
-<script>
-
+<script setup>
+import {useUserStore} from "~/store/user.js";
+const store = useUserStore()
+const items = [
+  [
+    {
+      label: 'Персональные данные',
+      click: () => {
+        console.log('Персональные данные')
+      }
+    },
+    {
+      label: 'История активаций',
+      click: () => {
+        console.log('История активаций')
+      }
+    },
+    {
+      label: 'Безопасность',
+      click: () => {
+        console.log('Безопасность')
+      }
+    }
+  ],
+  [
+    {
+      label: 'Выход',
+      click: store.actionIsLoggedIn
+    }
+  ]
+]
 </script>
 
 <style scoped lang="scss">

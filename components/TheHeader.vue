@@ -1,7 +1,7 @@
 <template lang="pug">
 header.header
   .header__container
-
+    UiBtnBlue(size="lg" label="burger" variant="soft" @click="" )
     NuxtLink(:to="localePath('/')" class="header-logo")
       IconTheLogoLight(v-if="isDark")
       IconTheLogoDark(v-else)
@@ -12,63 +12,63 @@ header.header
       NuxtLink(:to="localePath('/news')" class="header-nav__link") {{ $t('nav.news') }}
       NuxtLink(:to="localePath('/api')" class="header-nav__link") {{ $t('nav.api') }}
       NuxtLink(:to="localePath('/about')" class="header-nav__link") {{ $t('nav.about') }}
+      NuxtLink(:to="localePath('/demo')" class="header-nav__link")  Demo
 
     .header-elementsLeft
-      UiTheLangSwitcher
-
+      UiTheLangSwitcher(class="hidden sm:block")
       UiBtnBlue(size="lg" :label="$t('logout')" variant="soft" @click="store.actionIsLoggedIn"  v-if="!store.getIsLoggedIn")
-
-      TheHeaderProfile(v-if="store.getIsLoggedIn" )
+      TheHeaderProfile(v-if="store.getIsLoggedIn")
 </template>
 
 <script setup>
-import { useUserStore } from "~/store/user.js";
-
+import {useUserStore} from "~/store/user.js";
+const { t } = useI18n()
 const localePath = useLocalePath()
 const {isDark} = useDarkMode()
 const store = useUserStore()
 
-
+const navLink = [
+  {path: '/service', name: t('nav.service')},
+  {path: '/freeNumbers', name: t('nav.freeNumbers')},
+  {path: '/news', name: t('nav.news')},
+  {path: '/api', name: t('nav.api')},
+  {path: '/about', name: t('nav.about')},
+  {path: '/demo', name: 'Demo'},
+]
 </script>
 
 <style scoped lang="scss">
-@import "~/assets/css/mixins.scss";
 
-.header{
-  padding-top: rem(36);
-  padding-bottom: rem(36);
+.header {
+  @apply py-9 bg-white dark:bg-stone-400;
 
-  &__container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  &__container {
+    @apply flex items-end justify-center;
   }
-  &-logo{
-    margin-right: rem(48);
-  }
-  &-nav{
-    display: flex;
-    gap: rem(12);
 
-    &__link{
-      padding: rem(8) rem(10);
+  &-logo {
+    @apply mr-12;
+  }
+
+  &-nav {
+    @apply hidden lg:flex gap-3 ;
+
+    &__link {
 
       @media (any-hover: hover) {
         &:hover {
-          @apply text-sky-600
+          @apply text-sky-600;
         }
       }
 
-      &.router-link-active{
-        @apply text-sky-600
+      &.router-link-active {
+        @apply text-sky-600;
       }
     }
   }
-  &-elementsLeft{
-    display: flex;
-    gap: rem(16);
-    margin-left: auto;
-    align-items: center;
+
+  &-elementsLeft {
+    @apply flex gap-4 ml-auto items-center;
   }
 }
 </style>

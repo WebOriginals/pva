@@ -77,6 +77,8 @@ export default <Partial<Config>>{
                     950: '#422006',
                 },
             },
+
+
         }
     }
 }

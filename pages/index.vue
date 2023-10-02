@@ -11,15 +11,12 @@ div.__container
         UiSearchService(size="md")
 
       .grid.grid-cols-2.gap-6.mb-8(class="w-2/3")
-        //UButton(color="primary" variant="solid") {{ $t('logout') }}
-        //UButton(icon="i-heroicons-pencil-square" size="xl" color="green" variant="solid" :label="$t('logout')" :trailing="false" )
         UiBtnBlue(size="xxl" label="Button")
         UiBtnBlue(disabled label="Button")
         UiBtnBlue(size="xl" label="Button")
         UiBtnBlue(disabled label="Button")
         UiBtnBlue(size="lg" label="Button")
         UiBtnBlue(disabled label="Button")
-
         UiBtnBlue(size="md" icon="icon-pva__copy" label="Button")
         UiBtnBlue(disabled icon="icon-pva__copy" label="Button")
         UiBtnBlue(size="sm" label="Button")
@@ -39,7 +36,6 @@ div.__container
         UiBtnBlue(disabled label="Button" variant="outline")
         UiBtnBlue(size="lg" label="Button" variant="outline")
         UiBtnBlue(disabled label="Button" variant="outline")
-
         UiBtnBlue(size="md" icon="icon-pva__copy" label="Button" variant="outline")
         UiBtnBlue(disabled icon="icon-pva__copy" label="Button" variant="outline")
         UiBtnBlue(size="sm" label="Button" variant="outline")
@@ -59,7 +55,6 @@ div.__container
         UiBtnBlue(disabled label="Button" variant="soft")
         UiBtnBlue(size="lg" label="Button" variant="soft")
         UiBtnBlue(disabled label="Button" variant="soft")
-
         UiBtnBlue(size="md" icon="icon-pva__copy" label="Button" variant="soft")
         UiBtnBlue(disabled icon="icon-pva__copy" label="Button" variant="soft")
         UiBtnBlue(size="sm" label="Button" variant="soft")

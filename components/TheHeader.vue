@@ -16,7 +16,7 @@ header.header
     .header-elementsLeft
       UiTheLangSwitcher
 
-      UButton(color="sky" variant="soft" @click="store.actionIsLoggedIn"  v-if="!store.getIsLoggedIn") {{ $t('logout') }}
+      UiBtnBlue(size="lg" :label="$t('logout')" variant="soft" @click="store.actionIsLoggedIn"  v-if="!store.getIsLoggedIn")
 
       TheHeaderProfile(v-if="store.getIsLoggedIn" )
 </template>

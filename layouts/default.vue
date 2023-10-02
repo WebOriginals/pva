@@ -12,9 +12,7 @@
 </script>
 
 <style  lang="scss">
-body{
-  background: #EEF5FF;
-}
+
 .wrapper {
   min-height: 100vh;
   display: flex;

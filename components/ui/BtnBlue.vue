@@ -25,6 +25,33 @@ const props = defineProps({
   }
 })
 
+const solid = {
+  disabled: "disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 ",
+  dark: "dark:text-red dark:bg-{color}-950",
+  darkFocus: "dark:focus-visible:outline-{color}-400",
+  darkHover: "dark:hover:bg-{color}-500",
+  light: "shadow-sm text-white bg-{color}-500",
+  lightFocus: "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{color}-500",
+  lightHover: "hover:bg-{color}-600",
+}
+const outline = {
+  disabled: "disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 dark:disabled:ring-2 dark:disabled:ring-sky-300 disabled:ring-2 disabled:ring-sky-300 dark:disabled:text-sky-400",
+  dark: "dark:text-sky-950 dark:ring-sky-950",
+  darkFocus: "dark:focus-visible:ring-{color}-400",
+  darkHover: "dark:hover:bg-{color}-500 dark:hover:text-white dark:hover:ring-sky-500",
+  light: "ring-2 ring-inset ring-current text-sky-500",
+  lightFocus: "focus-visible:ring-2 focus-visible:ring-sky-500",
+  lightHover: "hover:ring-sky-600 hover:bg-sky-600 hover:text-white",
+}
+const soft = {
+  disabled: "dark:disabled:bg-transparent disabled:ring-sky-300 dark:disabled:text-sky-400 disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 ",
+  dark: "dark:text-sky-400 dark:bg-sky-700",
+  darkFocus: "dark:focus-visible:ring-sky-400",
+  darkHover: "dark:hover:bg-{color}-500 dark:hover:text-white",
+  light: "text-sky-500",
+  lightFocus: "focus-visible:ring-2 focus-visible:ring-sky-500",
+  lightHover: "hover:bg-sky-100 hover:text-sky-600",
+}
 const btnStyle = {
   base: "focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed justify-center",
   size: {
@@ -42,22 +69,10 @@ const btnStyle = {
   },
   rounded: props.rounded,
   font: 'font-semibold',
-  color: {
-    white: {
-      solid: "shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 text-gray-900 dark:text-white bg-white hover:bg-gray-50 disabled:bg-sky-300 dark:bg-gray-900 dark:hover:bg-gray-800/50 dark:disabled:bg-sky-300 focus-visible:ring-2 focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400",
-    },
-    gray: {
-      solid: "shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 text-gray-700 dark:text-gray-200 bg-gray-50 hover:bg-gray-100 disabled:bg-sky-300 dark:bg-gray-800 dark:hover:bg-gray-700/50 dark:disabled:bg-sky-3000 focus-visible:ring-2 focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400",
-
-    },
-    black: {
-      solid: "shadow-sm text-white dark:text-gray-900 bg-gray-900 hover:bg-gray-800 disabled:bg-sky-300 dark:bg-white dark:hover:bg-gray-100 dark:disabled:bg-sky-300 focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400",
-    }
-  },
   variant: {
-    solid: "shadow-sm text-white dark:text-gray-900 bg-{color}-500 hover:bg-{color}-600 disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100  dark:bg-{color}-950 dark:hover:bg-{color}-500 dark:disabled:bg-sky-300 dark:disabled:text-sky-400 dark:disabled:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{color}-500 dark:focus-visible:outline-{color}-400",
-    outline: "ring-2 ring-inset ring-current text-{color}-500 dark:text-{color}-400 hover:ring-sky-600 hover:bg-sky-600 hover:text-white disabled:ring-transparent disabled:text-sky-400 disabled:bg-sky-300 dark:hover:bg-{color}-950 dark:disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-{color}-500 dark:focus-visible:ring-{color}-400",
-    soft: " text-{color}-500 dark:text-{color}-400  hover:bg-sky-100 hover:text-sky-600 disabled:ring-transparent disabled:text-sky-400 disabled:bg-sky-300 dark:hover:bg-{color}-950 dark:disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-{color}-500 dark:focus-visible:ring-{color}-400",
+    solid: `${solid.light} ${solid.lightFocus} ${solid.lightHover} ${solid.dark} ${solid.darkFocus} ${solid.darkHover} ${solid.disabled}`,
+    outline: `${outline.light} ${outline.lightFocus} ${outline.lightHover} ${outline.dark} ${outline.darkFocus} ${outline.darkHover} ${outline.disabled}`,
+    soft: `${soft.light} ${soft.lightFocus} ${soft.lightHover} ${soft.dark} ${soft.darkFocus} ${soft.darkHover} ${soft.disabled}`,
   },
 }
 </script>

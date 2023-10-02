@@ -1,14 +1,14 @@
 <template lang="pug">
 UAccordion(:items="items" :ui="accordionStyle" )
   template(#default="{ item, index, open }")
-    UButton( variant="ghost" class="accordion-title flex justify-between group hover:bg-transparent p-0 hover:outline-none" :ui="{ rounded :'rounded-none', padding: { sm:'p-3' } }")
+    UButton( variant="ghost" class="accordion-title flex justify-between group hover:bg-transparent p-0 hover:outline-none w- dark:hover:bg-transparent" :ui="{ rounded :'rounded-none', padding: { sm:'p-3' } }")
       span(class="text-black truncate group-hover:text-primary-500 font-semibold text-xl  ") {{ item.label }}
       template(#trailing)
-        div(class="w-8 h-8 rounded-full bg-primary-50 dark:bg-primary-400 flex items-center justify-center -my-1 group-hover:bg-primary-500")
-          UIcon(:name="item.icon" class="w-4 h-4 text-primary-500 transform transition-transform  duration-200 origin-center group-hover:text-white"  :class="[open && 'origin-center rotate-45 ']")
+        div(class="w-8 h-8 rounded-full bg-primary-50 dark:bg-primary-800 flex items-center justify-center -my-1 group-hover:bg-primary-500")
+          UIcon(:name="item.icon" class="w-4 h-4 text-primary-500 transform transition-transform  duration-200 origin-center group-hover:text-white  dark:text-white"  :class="[open && 'origin-center rotate-45 ']")
   template(#item="{ item }")
     .accordion-content
-      p(class="text-stone-500 dark:text-white pt-8 text-base ") {{ item.content }}
+      p(class="text-stone-500 dark:text-stone-500 pt-8 text-base ") {{ item.content }}
 
 </template>
 
@@ -53,6 +53,7 @@ const items = [
 }
 .accordion-title{
   width: 100%;
+
   &:focus, &:focus-visible{
     --tw-ring-opacity: 0;
     outline: none!important;

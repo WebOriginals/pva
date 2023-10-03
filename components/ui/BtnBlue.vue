@@ -45,7 +45,7 @@ const outline = {
 }
 const soft = {
   disabled: "dark:disabled:bg-transparent disabled:ring-sky-300 dark:disabled:text-sky-400 disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 ",
-  dark: "dark:text-sky-400 dark:bg-sky-700",
+  dark: "dark:text-white dark:bg-sky-400",
   darkFocus: "dark:focus-visible:ring-sky-400",
   darkHover: "dark:hover:bg-{color}-500 dark:hover:text-white",
   light: "text-sky-500",

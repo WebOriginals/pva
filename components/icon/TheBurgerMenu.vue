@@ -1,19 +1,15 @@
 <template lang="pug">
 #nav-icon1
-  span.bg-black
-  span.bg-black
-  span.bg-black
+  span.bg-black(class="dark:bg-white")
+  span.bg-black(class="dark:bg-white")
+  span.bg-black(class="dark:bg-white")
 </template>
-
-<script setup>
-
-</script>
 
 <style scoped >
 
 #nav-icon1 {
-  width: 18px;
-  height: 12px;
+  width: 30px;
+  height: 20px;
   position: relative;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
@@ -24,13 +20,13 @@
   -o-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
   cursor: pointer;
-  margin: 5px 12px 5px 0;
+  margin: 0 26px 0 0;
 }
 
 #nav-icon1 span {
   display: block;
   position: absolute;
-  height: 2px;
+  height: 3px;
   width: 100%;
   border-radius: 9px;
   opacity: 1;
@@ -50,15 +46,15 @@
 }
 
 #nav-icon1 span:nth-child(2) {
-  top: 5px;
+  top: 8px;
 }
 
 #nav-icon1 span:nth-child(3) {
-  top: 10px;
+  top: 16px;
 }
 
 #nav-icon1.open span:nth-child(1) {
-  top: 5px;
+  top: 8px;
   -webkit-transform: rotate(135deg);
   -moz-transform: rotate(135deg);
   -o-transform: rotate(135deg);
@@ -71,7 +67,7 @@
 }
 
 #nav-icon1.open span:nth-child(3) {
-  top: 5px;
+  top: 8px;
   -webkit-transform: rotate(-135deg);
   -moz-transform: rotate(-135deg);
   -o-transform: rotate(-135deg);

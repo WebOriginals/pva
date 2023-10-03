@@ -3,9 +3,12 @@ header.header
   .header__container
     IconTheBurgerMenu(class="lg:hidden" :class="{ open : IsOpenMenu }" @click="openMenu")
 
-    NuxtLink(:to="localePath('/')" class="header-logo")
+    NuxtLink(v-if="width > 640" :to="localePath('/')" class="header-logo")
       IconTheLogoLight(v-if="isDark")
       IconTheLogoDark(v-else)
+    NuxtLink(v-else :to="localePath('/')" class="header-logo rr")
+      IconTheLogoLightMini(v-if="isDark")
+      IconTheLogoDarkMini(v-else)
 
     nav.header__nav.header-nav
       NuxtLink(:to="localePath('/service')" class="header-nav__link" v-if="store.getIsLoggedIn" ) {{ $t('nav.service') }}
@@ -16,7 +19,7 @@ header.header
       NuxtLink(:to="localePath('/demo')" class="header-nav__link")  Demo
 
     .header-elementsLeft
-      UiTheLangSwitcher(class="hidden sm:block")
+      UiTheLangSwitcher(class="hidden sm:block langSelect")
       UiBtnBlue(size="lg" :label="$t('logout')" variant="soft" @click="store.actionIsLoggedIn"  v-if="!store.getIsLoggedIn")
       TheHeaderProfile(v-if="store.getIsLoggedIn")
 
@@ -29,7 +32,7 @@ header.header
         NuxtLink(:to="localePath('/about')" class="header-mobile-nav__link") {{ $t('nav.about') }}
         NuxtLink(:to="localePath('/demo')" class="header-mobile-nav__link")  Demo
       .header-mobile__wrapper
-        UiTheLangSwitcher
+        UiTheLangSwitcher.w-32(class="langSelect")
 
 </template>
 
@@ -49,26 +52,40 @@ const navLink = [
   {path: '/about', name: t('nav.about')},
   {path: '/demo', name: 'Demo'},
 ]
-
 const IsOpenMenu = ref(false)
 
 const openMenu = () => {
   IsOpenMenu.value = !IsOpenMenu.value
   emit("lockScroll", IsOpenMenu)
 }
+
+const width = ref(null);
+
+const onResize = () => {
+  width.value = window.innerWidth;
+};
+
+onMounted(() => {
+  onResize();
+  window.addEventListener('resize', onResize);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', onResize);
+});
 </script>
 
 <style scoped lang="scss">
 
 .header {
-  @apply py-9 bg-white dark:bg-stone-400;
+  @apply py-6 bg-white dark:bg-gradient-to-r dark:from-sky-950 dark:to-sky-900;
 
   &__container {
-    @apply flex items-end justify-center;
+    @apply flex items-center justify-center h-12;
   }
 
   &-logo {
-    @apply mr-12;
+    @apply mr-12 -mt-1.5;
   }
 
   &-nav {
@@ -78,12 +95,12 @@ const openMenu = () => {
 
       @media (any-hover: hover) {
         &:hover {
-          @apply text-sky-600;
+          @apply text-sky-600 dark:text-sky-400;
         }
       }
 
       &.router-link-active {
-        @apply text-sky-600;
+        @apply text-sky-600 dark:text-sky-400;
       }
     }
   }
@@ -93,19 +110,25 @@ const openMenu = () => {
   }
 
   &-mobile{
-    height: calc(100vh - 114px);
-    @apply w-full sm:w-72 bg-white absolute border-t-2 border-sky-50 left-0 top-28;
+    height: calc(100vh - 96px);
+    @apply w-full sm:w-72 bg-white absolute border-t-2 border-sky-50 left-0 top-24 z-10 dark:bg-sky-950 dark:border-sky-400;
 
     &-nav{
       @apply py-6 grid;
 
       &__link{
         @apply py-4 px-6;
+
+        @media (any-hover: hover) {
+          &:hover {
+            @apply text-sky-600 dark:text-sky-400;
+          }
+        }
       }
     }
 
     &__wrapper{
-      @apply py-8 px-3 border-t-2 border-sky-50 sm:hidden;
+      @apply py-8 px-3 border-t-2 border-sky-50 sm:hidden dark:border-sky-400;
     }
   }
 }

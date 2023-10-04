@@ -1,5 +1,5 @@
 <template lang="pug">
-header.header
+header.header(:class="{ 'sticky-header': isSticky }")
   .header__container
     IconTheBurgerMenu(class="lg:hidden" :class="{ open : IsOpenMenu }" @click="openMenu")
 
@@ -21,7 +21,7 @@ header.header
     .header-elementsLeft
       UiTheLangSwitcher(class="hidden sm:block langSelect")
       UiBtnBlue(size="lg" :label="$t('logout')" variant="soft" @click="store.actionIsLoggedIn"  v-if="!store.getIsLoggedIn")
-      TheHeaderProfile(v-if="store.getIsLoggedIn")
+      UiTheHeaderProfile(v-if="store.getIsLoggedIn")
 
     .header__mobile.header-mobile(v-if="IsOpenMenu" :class="{ IsOpenMenu: open }" class="lg:hidden")
       nav.header-mobile__nav.header-mobile-nav
@@ -38,11 +38,13 @@ header.header
 
 <script setup>
 import {useUserStore} from "~/store/user.js";
-const emit = defineEmits(["setName"])
+
+const emit = defineEmits(["lockScroll"])
 const { t } = useI18n()
 const localePath = useLocalePath()
 const {isDark} = useDarkMode()
 const store = useUserStore()
+
 
 const navLink = [
   {path: '/service', name: t('nav.service')},
@@ -53,13 +55,12 @@ const navLink = [
   {path: '/demo', name: 'Demo'},
 ]
 const IsOpenMenu = ref(false)
+const width = ref(null);
 
 const openMenu = () => {
   IsOpenMenu.value = !IsOpenMenu.value
   emit("lockScroll", IsOpenMenu)
 }
-
-const width = ref(null);
 
 const onResize = () => {
   width.value = window.innerWidth;
@@ -73,12 +74,38 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('resize', onResize);
 });
+
+
+const isSticky = ref(false);
+
+const handleScroll = () => {
+  if (window.scrollY > 200) {
+    isSticky.value = true;
+  } else {
+    isSticky.value = false;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+
+
 </script>
 
 <style scoped lang="scss">
 
 .header {
   @apply py-6 bg-white dark:bg-gradient-to-r dark:from-sky-950 dark:to-sky-900;
+
+  &.sticky-header {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    @apply fixed top-0 left-0 w-full bg-white dark:bg-gradient-to-r dark:from-sky-950 dark:to-sky-900 z-10 py-3;
+}
 
   &__container {
     @apply flex items-center justify-center h-12;

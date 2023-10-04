@@ -5,7 +5,7 @@
 
   .header-profile__middle
     span ID: 643248
-    span.color-blue $8 016 128
+    span.text-sky-500.font-semibold $8 016 128
 
   IconTheTopUpBalance.header-profile__topUpBalance
 

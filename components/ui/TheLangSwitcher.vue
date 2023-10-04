@@ -58,23 +58,20 @@ USelectMenu( v-model="currLoc" :options="locales" variant="none" :trailing="true
 </template>
 
 <style lang="scss">
-//[data-headlessui-state="open"]
+
 .langSelect {
-  border-radius: 8px;
+  @apply rounded-lg;
 
   .icon-pva__arrow_down{
     font-size: 4px;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @apply text-black flex items-center justify-center dark:text-white;
   }
 
   &[data-headlessui-state="open"]{
-    background: #EEF5FF;
+    @apply bg-sky-50 dark:bg-sky-700;
 
     .icon-pva__arrow_down{
-      transform: scaleY(-1);
+      @apply -scale-y-100;
     }
   }
 }

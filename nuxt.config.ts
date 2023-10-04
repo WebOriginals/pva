@@ -25,31 +25,19 @@ export default defineNuxtConfig({
             {
                 flag: "/_nuxt/assets/img/flag/ru.png",
                 code: "ru",
-                iso: "ru",
+                iso: "ru_RU",
                 name: "Россия",
                 file: "ru.json"
             },
             {
                 flag: "/_nuxt/assets/img/flag/uk.png",
                 code: "en",
-                iso: "en",
+                iso: "en-US",
                 name: "English",
                 file: "en.json"
             }
         ],
         defaultLocale: {name: "Россия", code: "ru", flag:"/_nuxt/assets/img/flag/ru.png"},
-    },
-
-    app: {
-        head: {
-            title: "Nuxt title",
-            meta: [
-                {
-                    name: "description",
-                    content: "Nuxt description"
-                }
-            ]
-        }
     },
 
     tailwindcss: {

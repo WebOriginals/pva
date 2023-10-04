@@ -39,62 +39,45 @@ header.header(:class="{ 'sticky-header': isSticky }")
 <script setup>
 import {useUserStore} from "~/store/user.js";
 
-const emit = defineEmits(["lockScroll"])
+const emit = defineEmits()
 const { t } = useI18n()
 const localePath = useLocalePath()
 const {isDark} = useDarkMode()
 const store = useUserStore()
 
 
-const navLink = [
-  {path: '/service', name: t('nav.service')},
-  {path: '/freeNumbers', name: t('nav.freeNumbers')},
-  {path: '/news', name: t('nav.news')},
-  {path: '/api', name: t('nav.api')},
-  {path: '/about', name: t('nav.about')},
-  {path: '/demo', name: 'Demo'},
-]
 const IsOpenMenu = ref(false)
 const width = ref(null);
-
 const openMenu = () => {
   IsOpenMenu.value = !IsOpenMenu.value
   emit("lockScroll", IsOpenMenu)
 }
-
 const onResize = () => {
   width.value = window.innerWidth;
 };
-
 onMounted(() => {
   onResize();
   window.addEventListener('resize', onResize);
 });
-
 onBeforeUnmount(() => {
   window.removeEventListener('resize', onResize);
 });
 
 
 const isSticky = ref(false);
-
 const handleScroll = () => {
-  if (window.scrollY > 200) {
+  if (window.scrollY > 0) {
     isSticky.value = true;
   } else {
     isSticky.value = false;
   }
 };
-
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
 });
-
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
 });
-
-
 </script>
 
 <style scoped lang="scss">

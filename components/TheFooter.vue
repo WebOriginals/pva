@@ -3,8 +3,19 @@ footer.footer
 
   .footer__top
     .footer__container.top
-      NuxtLink(:to="localePath('/')" class="footer-logo")
-        IconTheLogoLight
+      .footer-top-mobile
+        NuxtLink(:to="localePath('/')" class="footer-logo")
+          IconTheLogoLight
+
+        ul.footer-top-mobile__socialMedia.footer-top-mobile-socialMedia
+          NuxtLink(:to="localePath('/')" class="footer-top-mobile-socialMedia__link")
+            IconTheVK
+          NuxtLink(:to="localePath('/')" class="footer-top-mobile-socialMedia__link")
+            IconTheInstagram
+          NuxtLink(:to="localePath('/')" class="footer-top-mobile-socialMedia__link")
+            IconTheFB
+          NuxtLink(:to="localePath('/')" class="footer-top-mobile-socialMedia__link")
+            IconTheTW
 
       nav.footer__nav.footer-nav
         NuxtLink(:to="localePath('/service')" class="footer-nav__link" v-if="store.getIsLoggedIn" ) {{ $t('nav.service') }}
@@ -25,7 +36,7 @@ footer.footer
 
   .footer__bottom
       .footer__container.bottom
-        .footer__info © 2023. PVABOOM
+        .footer__info © {{new Date().getFullYear()}}. PVABOOM
 
         ul.footer__socialMedia.footer-doc
           NuxtLink(:to="localePath('/')" class="footer-doc__link") {{ $t('nav.publicOffer') }}
@@ -34,9 +45,11 @@ footer.footer
 
           NuxtLink(:to="localePath('/')" class="footer-doc__link") {{ $t('nav.returnsPolicy') }}
 
-        .footer__paymentSystems
-          IconTheVisa
-          IconTheMastercard
+        .footer-bottom-mobile
+          .footer-bottom-mobile__info © {{new Date().getFullYear()}}. PVABOOM
+          .footer__paymentSystems
+            IconTheVisa
+            IconTheMastercard
 </template>
 
 <script setup>
@@ -44,82 +57,94 @@ import {useUserStore} from "~/store/user.js";
 
 const localePath = useLocalePath()
 const store = useUserStore()
+
 </script>
 
 <style scoped lang="scss">
 @import "~/assets/css/mixins.scss";
 
 .footer {
-  background: var(--gradien, linear-gradient(82deg, #000C36 0%, #001769 100%));
-  color: white;
+  @apply text-white  bg-gradient-to-r from-sky-950 to-sky-900;
 
+  &-logo{
+    @apply flex justify-center;
+  }
   &__container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 
-    &.top{
-      @include adaptiveValue(padding-top, 68, 20);
-      @include adaptiveValue(padding-bottom, 64, 20);
+    &.top {
+      @apply py-16 grid justify-center sm:flex items-center sm:justify-between;
     }
 
-    &.bottom{
-      @include adaptiveValue(padding-top, 24, 20);
-      @include adaptiveValue(padding-bottom, 24, 20);
+    &.bottom {
+      @apply py-6  grid justify-items-center sm:flex items-center sm:justify-between;
     }
   }
 
+  &-top-mobile {
+    @apply grid gap-6;
+
+    &-socialMedia {
+      @apply flex gap-2 items-center justify-center lg:hidden;
+    }
+  }
+
+  &-bottom-mobile {
+    @apply flex justify-between gap-6 pt-6 w-full sm:w-auto sm:grid;
+
+
+    &__paymentSystems {
+      @apply flex gap-2 lg:hidden;
+    }
+
+    &__info{
+      @apply flex lg:hidden text-sky-400 text-xs ;
+    }
+  }
+
+
   &__bottom {
-    border-top: 1px solid #324072;
+    @apply border-t border-sky-700;
   }
 
   &-nav{
-    display: flex;
-    gap: rem(28);
+    @apply grid justify-items-center gap-3 flex-wrap pt-12 sm:flex  sm:gap-6 sm:pt-0;
 
     &__link{
-      padding: rem(8) rem(10);
-      font-size: rem(16);
+      @apply block text-base py-2 px-2.5;
 
       @media (any-hover: hover) {
         &:hover {
-          color: #1B4DFF;
+          @apply text-sky-400;
         }
       }
     }
   }
 
   &-doc{
-    display: flex;
-    gap: rem(12);
+    @apply grid justify-items-center sm:flex gap-3;
 
     &__link{
-      padding: rem(8) rem(10);
-      font-size: rem(12);
+
+      @apply text-xs  py-2 px-2.5;
 
       @media (any-hover: hover) {
         &:hover {
-          color: #1B4DFF;
+          @apply text-sky-400;
         }
       }
     }
   }
 
   &-socialMedia{
-    display: flex;
-    align-items: center;
-    gap: rem(8);
+    @apply hidden lg:flex gap-2 items-center;
   }
 
   &__info{
-    font-size: rem(12);
-    color:#8E9AC7;
-
+    @apply hidden lg:flex text-sky-400 text-xs ;
   }
 
   &__paymentSystems{
-    display: flex;
-    gap: rem(12);
+    @apply flex gap-2 justify-center;
   }
 }
 

@@ -5,6 +5,14 @@ div
 </template>
 
 <script setup>
+const { t } = useI18n()
+useHead({
+  title: t('Title2'),
+  meta: [
+    { name: 'description', content: 'My amazing site2.' }
+  ],
+})
+
 const localePath = useLocalePath()
 </script>
 

@@ -69,6 +69,7 @@ const store = useUserStore()
   &-logo{
     @apply flex justify-center;
   }
+
   &__container {
 
     &.top {
@@ -101,7 +102,6 @@ const store = useUserStore()
     }
   }
 
-
   &__bottom {
     @apply border-t border-sky-700;
   }
@@ -124,7 +124,6 @@ const store = useUserStore()
     @apply grid justify-items-center sm:flex gap-3;
 
     &__link{
-
       @apply text-xs  py-2 px-2.5;
 
       @media (any-hover: hover) {

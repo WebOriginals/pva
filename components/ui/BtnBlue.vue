@@ -27,9 +27,9 @@ const props = defineProps({
 
 const solid = {
   disabled: "disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 ",
-  dark: "dark:text-red dark:bg-{color}-950",
+  dark: "dark:text-red dark:bg-{color}-500",
   darkFocus: "dark:focus-visible:outline-{color}-400",
-  darkHover: "dark:hover:bg-{color}-500",
+  darkHover: "dark:hover:bg-{color}-600",
   light: "shadow-sm text-white bg-{color}-500",
   lightFocus: "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{color}-500",
   lightHover: "hover:bg-{color}-600",

@@ -61,8 +61,6 @@ const store = useUserStore()
 </script>
 
 <style scoped lang="scss">
-@import "~/assets/css/mixins.scss";
-
 .footer {
   @apply text-white  bg-gradient-to-r from-sky-950 to-sky-900;
 

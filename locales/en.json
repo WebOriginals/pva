@@ -13,5 +13,39 @@
     "personalInformation": "Personal Information",
     "returnsPolicy": "Returns Policy"
   },
-  "logout": "log in"
+  "logout": "log in",
+  "main": {
+    "first": {
+      "title": "Receive SMS online to virtual numbers",
+      "subTitle": "Temporary, disposable numbers for more than a thousand services and two hundred countries. Choose leaders - PvaBoom is more than just a service!",
+      "btn": "Get a number"
+    },
+    "firstSub": {
+      "firstSubList": {
+        "elementOne": {
+          "title": "180+",
+          "description": "More than 180 countries. You will definitely find something for yourself"
+        },
+        "elementTwo": {
+          "title": "1000+",
+          "description": "Verification for more than a thousand different services"
+        },
+        "elementThree": {
+          "title": "5 years",
+          "description": "We have been a leader in the market for 5 years"
+        }
+      },
+      "firstSubListTwo": {
+        "elementOne": {
+          "description": "PvaBoom is your reliable friend for purchasing virtual phone numbers. We offer a simple and effective solution to ensure your anonymity and security in the online world."
+        },
+        "elementTwo": {
+          "description": "With PvaBoom you can get virtual numbers for registration and verification on various services, such as social networks, instant messengers, payment systems and others."
+        },
+        "elementThree": {
+          "description": "PvaBoom is a service that values its customers and offers high quality service. Our team of more than 100 people carefully monitors the performance of the service."
+        }
+      }
+    }
+  }
 }

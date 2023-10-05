@@ -1,19 +1,5 @@
 <template lang="pug">
-section
-  .__container
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa debitis doloribus eius expedita fugiat ipsam laboriosam, neque odit quis quisquam vel. Aliquam cupiditate harum illo nobis non odit perferendis. </p>>
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa debitis doloribus eius expedita fugiat ipsam laboriosam, neque odit quis quisquam vel. Aliquam cupiditate harum illo nobis non odit perferendis. </p>>
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa debitis doloribus eius expedita fugiat ipsam laboriosam, neque odit quis quisquam vel. Aliquam cupiditate harum illo nobis non odit perferendis. </p>>
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa debitis doloribus eius expedita fugiat ipsam laboriosam, neque odit quis quisquam vel. Aliquam cupiditate harum illo nobis non odit perferendis. </p>>
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa debitis doloribus eius expedita fugiat ipsam laboriosam, neque odit quis quisquam vel. Aliquam cupiditate harum illo nobis non odit perferendis. </p>>
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa debitis doloribus eius expedita fugiat ipsam laboriosam, neque odit quis quisquam vel. Aliquam cupiditate harum illo nobis non odit perferendis. </p>>
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa debitis doloribus eius expedita fugiat ipsam laboriosam, neque odit quis quisquam vel. Aliquam cupiditate harum illo nobis non odit perferendis. </p>>
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa debitis doloribus eius expedita fugiat ipsam laboriosam, neque odit quis quisquam vel. Aliquam cupiditate harum illo nobis non odit perferendis. </p>>
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa debitis doloribus eius expedita fugiat ipsam laboriosam, neque odit quis quisquam vel. Aliquam cupiditate harum illo nobis non odit perferendis. </p>>
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa debitis doloribus eius expedita fugiat ipsam laboriosam, neque odit quis quisquam vel. Aliquam cupiditate harum illo nobis non odit perferendis. </p>>
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa debitis doloribus eius expedita fugiat ipsam laboriosam, neque odit quis quisquam vel. Aliquam cupiditate harum illo nobis non odit perferendis. </p>>
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa debitis doloribus eius expedita fugiat ipsam laboriosam, neque odit quis quisquam vel. Aliquam cupiditate harum illo nobis non odit perferendis. </p>>
-
+MainTheFirst
 </template>
 
 <script setup lang="ts">

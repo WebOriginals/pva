@@ -2,7 +2,6 @@
 .__container
   h1.text-3xl.font-bold.underline {{Demo}}
 
-  UiColorModeButton
   section.buttons.pt-8.pb-8.bg-white.rounded-lg
     div.__container
       .grid.grid-cols-1.gap-4.mb-8

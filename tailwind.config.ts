@@ -78,7 +78,9 @@ export default <Partial<Config>>{
                 },
             },
 
-
+        },
+        fontFamily: {
+            main: ['Gilroy', 'sans-serif'],
         }
     }
 }

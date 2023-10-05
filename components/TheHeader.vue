@@ -22,6 +22,7 @@ header.header(:class="{ 'sticky-header': isSticky }")
       UiTheLangSwitcher(class="hidden sm:block langSelect")
       UiBtnBlue(size="lg" :label="$t('logout')" variant="soft" @click="store.actionIsLoggedIn"  v-if="!store.getIsLoggedIn")
       UiTheHeaderProfile(v-if="store.getIsLoggedIn")
+      UiColorModeButton
 
     .header__mobile.header-mobile(v-if="IsOpenMenu" :class="{ IsOpenMenu: open }" class="lg:hidden")
       nav.header-mobile__nav.header-mobile-nav

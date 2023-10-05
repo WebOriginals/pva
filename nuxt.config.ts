@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     modules: [
         "@pinia/nuxt",
         "@nuxtjs/i18n",
-        "@nuxt/ui"
+        "@nuxt/ui",
+        "nuxt-swiper"
     ],
 
     pinia: {

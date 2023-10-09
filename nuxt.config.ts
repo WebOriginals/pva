@@ -3,9 +3,9 @@
 import colors from 'tailwindcss/colors'
 import { excludeColors } from './assets/colorsSettings/colors'
 export default defineNuxtConfig({
-    devtools: {enabled: true},
+    devtools: {enabled: false},
 
-    css: ["~/assets/css/main.scss"],
+    css: ["~/assets/css/tailwind.scss"],
 
     modules: [
         "@pinia/nuxt",
@@ -22,6 +22,9 @@ export default defineNuxtConfig({
         lazy: true,
         langDir: "locales",
         strategy: "prefix_except_default",
+        compilation: {
+            strictMessage: false,
+        },
         locales: [
             {
                 flag: "/_nuxt/assets/img/flag/ru.png",

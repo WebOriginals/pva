@@ -1,48 +1,29 @@
 <template lang="pug">
-UAccordion(:items="items" :ui="accordionStyle" )
+UAccordion(:items="props.questionItems" :ui="accordionStyle" )
   template(#default="{ item, index, open }")
-    UButton( variant="ghost" class="accordion-title flex justify-between group hover:bg-transparent p-0 hover:outline-none w- dark:hover:bg-transparent" :ui="{ rounded :'rounded-none', padding: { sm:'p-3' } }")
-      span(class="text-black truncate group-hover:text-primary-500 font-semibold text-xl  ") {{ item.label }}
+    UButton( variant="ghost" class="accordion-title flex justify-between group hover:bg-transparent p-0 hover:outline-none  dark:hover:bg-transparent" :ui="{ rounded :'rounded-none', padding: { sm:'p-3' } }")
+      span(class="text-black text-left group-hover:text-primary-500 font-semibold text-xl ") {{ $rt(item.label) }}
       template(#trailing)
-        div(class="w-8 h-8 rounded-full bg-primary-50 dark:bg-primary-800 flex items-center justify-center -my-1 group-hover:bg-primary-500")
-          UIcon(:name="item.icon" class="w-4 h-4 text-primary-500 transform transition-transform  duration-200 origin-center group-hover:text-white  dark:text-white"  :class="[open && 'origin-center rotate-45 ']")
+        div(class="w-8 h-8 rounded-full bg-primary-50 dark:bg-primary-800 flex shrink-0 items-center justify-center -my-1 group-hover:bg-primary-500")
+          UIcon(:name="$rt(item.icon)" class="w-4 h-4 text-primary-500 transform transition-transform  duration-200 origin-center group-hover:text-white  dark:text-white"  :class="[open && 'origin-center rotate-45 ']")
   template(#item="{ item }")
     .accordion-content
-      p(class="text-stone-500 dark:text-stone-500 pt-8 text-base ") {{ item.content }}
+      p(class="text-stone-500 dark:text-stone-500 pt-8 text-base ") {{ $rt(item.content) }}
 
 </template>
 
 <script setup>
+const props =defineProps({
+  questionItems: {
+    type: Array,
+    required: true,
+  }
+})
+
 const accordionStyle = {
   wrapper: "w-full grid grid-cols-1 gap-4",
   wrapperItem: "blocWr"
 }
-const items = [
-  {
-    label: 'Getting Started',
-    icon: 'icon-pva__plus',
-    defaultOpen: true,
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
-  },
-  {
-    label: 'Installation',
-    icon: 'icon-pva__plus',
-    defaultOpen: false,
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
-  },
-  {
-    label: 'Getting Started',
-    icon: 'icon-pva__plus',
-    defaultOpen: false,
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
-  },
-  {
-    label: 'Getting Started',
-    icon: 'icon-pva__plus',
-    defaultOpen: false,
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
-  },
-]
 </script>
 
 <style  lang="scss">

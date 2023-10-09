@@ -4,11 +4,13 @@ section.getNumber
     h2(v-html="$t('main.getNumber.titleH2')")
     .getNumber__grid.getNumber-grid
       .getNumber-grid__service.getNumber-grid-service
-        UiSearchService.search(size="xxl")
+        UiSearchService.search(size="xxl" v-model="searchValue")
 
         .getNumber-grid-service__wrapper.scrollCust
           .services
-            UiServiceCard(v-for="account in accounts" :key="account.id" :account="account")
+            p(v-if="pending" ) "идет загрузка"
+            template(v-else)
+              UiServiceCard(v-for="account in accounts" :key="account.id" :account="account")
 
       .getNumber-grid__description
         h4 {{ $t('main.getNumber.titleH3') }}
@@ -18,9 +20,13 @@ section.getNumber
 
 <script setup>
 
-const { data: accounts } = await useFetch('/api/accounts',{
+const { pending,  data: accounts } = await useLazyFetch('/api/mainAccounts/accounts',{
   transform: (_accounts) => _accounts.data
 })
+
+const searchValue = ref('')
+
+
 
 </script>
 

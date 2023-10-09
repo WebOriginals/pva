@@ -1,4 +1,4 @@
-import data from "./accounts.json";
+import data from "./news.json";
 export default defineEventHandler(() => {
     return {data}
 })

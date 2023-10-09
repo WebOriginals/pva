@@ -1,3 +1,4 @@
+//Documentation for UDropdown https://ui.nuxt.com/elements/dropdown
 <template lang="pug">
 .header-profile
   UDropdown(:items="items" :popper="{ placement: 'bottom-start' }")

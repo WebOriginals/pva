@@ -1,3 +1,4 @@
+//Documentation for Button https://ui.nuxt.com/elements/button
 <template lang="pug">
 UButton(:ui="btnStyle" :label="props.label" :size="props.size" :icon="props.icon" :variant="props.variant")
 </template>

@@ -27,28 +27,28 @@ const props = defineProps({
 
 const solid = {
   disabled: "disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 ",
-  dark: "dark:text-red dark:bg-{color}-500",
+  dark: "dark:text-red dark:bg-{color}-500 w-full sm:w-auto min-w-[240px]",
   darkFocus: "dark:focus-visible:outline-{color}-400",
   darkHover: "dark:hover:bg-{color}-600",
-  light: "shadow-sm text-white bg-{color}-500",
+  light: "shadow-sm text-white bg-{color}-500 w-full sm:w-auto min-w-[240px]",
   lightFocus: "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{color}-500",
   lightHover: "hover:bg-{color}-600",
 }
 const outline = {
   disabled: "disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 dark:disabled:ring-2 dark:disabled:ring-sky-300 disabled:ring-2 disabled:ring-sky-300 dark:disabled:text-sky-400",
-  dark: "dark:text-sky-950 dark:ring-sky-950",
+  dark: "dark:text-sky-950 dark:ring-sky-950 ",
   darkFocus: "dark:focus-visible:ring-{color}-400",
   darkHover: "dark:hover:bg-{color}-500 dark:hover:text-white dark:hover:ring-sky-500",
-  light: "ring-2 ring-inset ring-current text-sky-500",
+  light: "ring-2 ring-inset ring-current text-sky-500 ",
   lightFocus: "focus-visible:ring-2 focus-visible:ring-sky-500",
   lightHover: "hover:ring-sky-600 hover:bg-sky-600 hover:text-white",
 }
 const soft = {
   disabled: "dark:disabled:bg-transparent disabled:ring-sky-300 dark:disabled:text-sky-400 disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 ",
-  dark: "dark:text-white dark:bg-sky-400",
+  dark: "dark:text-white dark:bg-sky-400 ",
   darkFocus: "dark:focus-visible:ring-sky-400",
   darkHover: "dark:hover:bg-{color}-500 dark:hover:text-white",
-  light: "text-sky-500",
+  light: "text-sky-500 ",
   lightFocus: "focus-visible:ring-2 focus-visible:ring-sky-500",
   lightHover: "hover:bg-sky-100 hover:text-sky-600",
 }
@@ -61,11 +61,11 @@ const btnStyle = {
     xxl: 'text-base'
   },
   padding: {
-    sm: 'p-0.5',
-    md: 'p-1',
-    lg: 'p-2',
-    xl: 'p-3',
-    xxl: 'p-4'
+    sm: 'py-0.5 px-1',
+    md: 'p-1 px-2',
+    lg: 'py-2 px-4',
+    xl: 'py-3 px-6',
+    xxl: 'py-4 px-8'
   },
   rounded: props.rounded,
   font: 'font-semibold',

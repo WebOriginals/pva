@@ -1,8 +1,11 @@
 <template lang="pug">
 MainTheFirst
+MainGetNumber
+MainTheQuestion
 </template>
 
 <script setup lang="ts">
+
 useHead({
   title: 'My App',
   meta: [

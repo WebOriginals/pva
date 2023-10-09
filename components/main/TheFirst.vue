@@ -74,9 +74,6 @@ import 'swiper/css/pagination';
     @apply text-sky-400 mb-8;
   }
 
-  &__btn {
-    @apply w-full sm:w-60;
-  }
 }
 
 .first-sub {

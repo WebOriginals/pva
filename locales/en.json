@@ -46,6 +46,65 @@
           "description": "PvaBoom is a service that values its customers and offers high quality service. Our team of more than 100 people carefully monitors the performance of the service."
         }
       }
+    },
+    "getNumber": {
+      "titleH2": "Registration using a Virtual number",
+      "titleH3": "Savings and Convenience: PvaBoom - Your way to getting virtual numbers.",
+      "description": "<p>The PvaBoom service provides discounts, cashback and wholesale prices for its regular customers, allowing them to save money and get additional benefits.</p> <p>For software developers involved in auto registration, our service provides an API and excellent conditions for integrating the service into their own software.</p> <p>PvaBoom supports more than 1000 sites and applications for registering and verifying accounts. In addition, there is an “Any Other” option, which allows you to use virtual numbers for services not included in the standard list.</p>",
+      "btn": "Get a number"
+    },
+    "question": {
+      "title": "FAQ",
+      "questionItems": [
+        {
+          "label": 'What is a virtual number and what is it for?',
+          "icon": 'icon-pva__plus',
+          "defaultOpen": true,
+          "content": 'A virtual number is a temporary phone number that can be used to register and verify accounts in thousands of different services. It allows you to ensure anonymity and protect personal data when working with various platforms.'
+        },
+        {
+          "label": 'Как я могу использовать виртуальные номера?',
+          "icon": 'icon-pva__plus',
+          "defaultOpen": false,
+          "content": 'A virtual number is a temporary phone number that can be used to register and verify accounts in thousands of different services. It allows you to ensure anonymity and protect personal data when working with various platforms.'
+        },
+        {
+          "label": 'Как долго я могу использовать виртуальный номер?',
+          "icon": 'icon-pva__plus',
+          "defaultOpen": false,
+          "content": 'A virtual number is a temporary phone number that can be used to register and verify accounts in thousands of different services. It allows you to ensure anonymity and protect personal data when working with various platforms.'
+        },
+        {
+          "label": 'Сколько стран поддерживает PvaBoom?',
+          "icon": 'icon-pva__plus',
+          "defaultOpen": false,
+          "content": 'A virtual number is a temporary phone number that can be used to register and verify accounts in thousands of different services. It allows you to ensure anonymity and protect personal data when working with various platforms.'
+        },
+        {
+          "label": 'Какие способы оплаты доступны?',
+          "icon": 'icon-pva__plus',
+          "defaultOpen": false,
+          "content": 'A virtual number is a temporary phone number that can be used to register and verify accounts in thousands of different services. It allows you to ensure anonymity and protect personal data when working with various platforms.'
+        },
+        {
+          "label": 'Безопасно ли использование виртуальных номеров?',
+          "icon": 'icon-pva__plus',
+          "defaultOpen": false,
+          "content": 'A virtual number is a temporary phone number that can be used to register and verify accounts in thousands of different services. It allows you to ensure anonymity and protect personal data when working with various platforms.'
+        },
+        {
+          "label": 'Как я могу связаться с поддержкой, если у меня возникли вопросы?',
+          "icon": 'icon-pva__plus',
+          "defaultOpen": false,
+          "content": 'A virtual number is a temporary phone number that can be used to register and verify accounts in thousands of different services. It allows you to ensure anonymity and protect personal data when working with various platforms.'
+        },
+        {
+          "label": 'Поддерживаете ли вы интеграцию с API для автоматической регистрации?',
+          "icon": 'icon-pva__plus',
+          "defaultOpen": false,
+          "content": 'A virtual number is a temporary phone number that can be used to register and verify accounts in thousands of different services. It allows you to ensure anonymity and protect personal data when working with various platforms.'
+        }
+      ]
     }
   }
 }

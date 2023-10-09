@@ -1,3 +1,4 @@
+//Documentation for Accordion https://ui.nuxt.com/elements/accordion
 <template lang="pug">
 UAccordion(:items="props.questionItems" :ui="accordionStyle" )
   template(#default="{ item, index, open }")

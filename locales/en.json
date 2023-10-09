@@ -53,6 +53,9 @@
       "description": "<p>The PvaBoom service provides discounts, cashback and wholesale prices for its regular customers, allowing them to save money and get additional benefits.</p> <p>For software developers involved in auto registration, our service provides an API and excellent conditions for integrating the service into their own software.</p> <p>PvaBoom supports more than 1000 sites and applications for registering and verifying accounts. In addition, there is an “Any Other” option, which allows you to use virtual numbers for services not included in the standard list.</p>",
       "btn": "Get a number"
     },
+    "newsSpoller": {
+      "title": "Last news",
+    },
     "question": {
       "title": "FAQ",
       "questionItems": [

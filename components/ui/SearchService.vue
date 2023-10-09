@@ -4,7 +4,6 @@ defineProps({
     type: String,
   }
 })
-const searchValue = ref('')
 const styleInput = {
   base: 'relative block w-full disabled:cursor-not-allowed disabled:opacity-75',
   rounded: 'rounded-lg',
@@ -34,5 +33,5 @@ const styleInput = {
 </script>
 
 <template lang="pug">
-UInput(v-model="searchValue" icon='icon-pva__search' trailing :size='size', variant='none' :placeholder="$t('UiSearchServiceLabel')" :ui="styleInput")
+UInput(  icon='icon-pva__search' trailing :size='size', variant='none' :placeholder="$t('UiSearchServiceLabel')" :ui="styleInput")
 </template>

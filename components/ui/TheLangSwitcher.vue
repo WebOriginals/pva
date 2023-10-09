@@ -1,3 +1,4 @@
+//Documentation for SelectMenu https://ui.nuxt.com/forms/select-menu
 <script setup lang="ts">
 const {locales, locale, setLocale} = useI18n();
 

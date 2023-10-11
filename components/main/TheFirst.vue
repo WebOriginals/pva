@@ -60,6 +60,10 @@ import 'swiper/css/pagination';
   @include adaptiveValue(padding-top, 130, 90);
   @apply bg-gradient-to-r from-sky-950 to-sky-900 text-white pb-56;
 
+  &__container{
+    @apply lg:min-h-[345px]
+  }
+
   &__wrapper {
     max-width: rem(650);
   }

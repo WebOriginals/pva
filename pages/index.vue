@@ -1,7 +1,11 @@
 <template lang="pug">
 MainTheFirst
 MainGetNumber
+MainTheSteps
+MainTheNumberSales
+MainTheNews
 MainTheQuestion
+
 </template>
 
 <script setup lang="ts">

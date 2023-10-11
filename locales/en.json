@@ -53,8 +53,30 @@
       "description": "<p>The PvaBoom service provides discounts, cashback and wholesale prices for its regular customers, allowing them to save money and get additional benefits.</p> <p>For software developers involved in auto registration, our service provides an API and excellent conditions for integrating the service into their own software.</p> <p>PvaBoom supports more than 1000 sites and applications for registering and verifying accounts. In addition, there is an “Any Other” option, which allows you to use virtual numbers for services not included in the standard list.</p>",
       "btn": "Get a number"
     },
-    "newsSpoller": {
+    "steps": {
+      "title": "Three steps to get your <br> Virtual number",
+      "list": [
+        {
+          "title": "Select service and country",
+          "description": "Go to the PvaBoom website and register (if you have not already done so). After that, select the country for which you need a number, as well as the specific service or site where you want to receive an SMS code. PvaBoom supports verification on many popular online platforms, such as social networks, instant messengers, payment systems and others."
+        },
+        {
+          "title": "Get number",
+          "description": "The system will then provide you with a temporary phone number that you can use to receive SMS. Simply copy it and paste the content (virtual number) into the request field in the service of your choice, and click on the confirm button."
+        },
+        {
+          "title": "Receive SMS",
+          "description": "Once you have confirmed the number, just wait for an SMS from the selected service. When the message arrives at the virtual number you specified, it will be automatically displayed on the PvaBoom website. You need to enter the received code on the website of the service for which you registered and confirm your account."
+        }
+      ]
+    },
+    "numberSales": {
+      "title": "The number of virtual numbers that were sold today!",
+      "description": "Statistics of the total number of virtual numbers sold for the current day. We are proud that our PvaBoom service provides many users with unique virtual numbers to maintain anonymity and security across thousands of services."
+    },
+    "news": {
       "title": "Last news",
+      "btn": "All news"
     },
     "question": {
       "title": "FAQ",

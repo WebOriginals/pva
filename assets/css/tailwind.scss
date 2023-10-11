@@ -15,27 +15,27 @@
   }
   h1{
     @include adaptiveValue(font-size, 40, 24);
-    @apply leading-[48px] ;
+    @apply leading-[48px] font-semibold;
   }
   h2{
     @include adaptiveValue(font-size, 40, 24);
-    @apply leading-[48px];
+    @apply leading-[48px] font-semibold;
   }
   h3{
-    @include adaptiveValue(font-size, 32, 40);
-    @apply leading-10 ;
+    @include adaptiveValue(font-size, 32, 22);
+    @apply leading-10 font-semibold;
   }
   h4{
     @include adaptiveValue(font-size, 24, 20);
-    @apply leading-8 ;
+    @apply leading-8 font-semibold;
   }
   h5{
-    @include adaptiveValue(font-size, 20, 40);
-    @apply leading-7 ;
+    @include adaptiveValue(font-size, 20, 18);
+    @apply leading-7 font-semibold;
   }
   h6{
-    @include adaptiveValue(font-size, 16, 40);
-    @apply leading-6 ;
+    @include adaptiveValue(font-size, 16, 16);
+    @apply leading-6 font-semibold;
   }
   p{
     @apply leading-6 text-stone-500 text-base;

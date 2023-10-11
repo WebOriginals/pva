@@ -26,6 +26,8 @@
     "@vue/language-plugin-pug": "^1.8.11",
     "nuxt-swiper": "^1.2.2",
     "pinia": "^2.1.6",
-    "vite-plugin-pug": "^0.3.2"
+    "vite-plugin-pug": "^0.3.2",
+    "apexcharts": "^3.38.0",
+    "vue3-apexcharts": "^1.4.1"
   }
 }

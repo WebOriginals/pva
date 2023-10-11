@@ -1,18 +1,21 @@
 [
   {
     "id": 281496,
+    "img": "_nuxt/assets/img/bg-new.jpg",
     "title": "Lorem ipsum dolor sit amet consectetur1",
     "teg": "Tag name3",
     "date": "8 сентября 2024"
   },
   {
     "id": 281488,
+    "img": "_nuxt/assets/img/bg-new.jpg",
     "title": "Lorem ipsum dolor sit amet consectetur2",
     "teg": "Tag name2",
     "date": "8 сентября 2024"
   },
   {
     "id": 281490,
+    "img": "_nuxt/assets/img/bg-new.jpg",
     "title": "Lorem ipsum dolor sit amet consectetur3",
     "teg": "Tag name1",
     "date": "8 сентября 2024"

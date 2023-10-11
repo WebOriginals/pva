@@ -1,14 +1,11 @@
 <template lang="pug">
-
 p {{$route.params.id}}
 </template>
 
-<script>
-export default {
-  name: "[id["
-}
+<script setup>
+
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

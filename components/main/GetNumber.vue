@@ -26,8 +26,6 @@ const { pending,  data: accounts } = await useLazyFetch('/api/mainAccounts/accou
 
 const searchValue = ref('')
 
-
-
 </script>
 
 <style scoped lang="scss">
@@ -35,7 +33,7 @@ const searchValue = ref('')
 
 .getNumber{
   @include adaptiveValue(padding-top, 160, 96);
-  @include adaptiveValue(padding-bottom, 160, 96);
+  @include adaptiveValue(padding-bottom, 80, 48);
   h2{
     @apply text-center;
   }

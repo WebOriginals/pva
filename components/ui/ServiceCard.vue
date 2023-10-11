@@ -39,7 +39,7 @@ const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico
   }
 
   &__name{
-    @apply truncate text-ellipsis overflow-hidden mr-2 md:mr-0;
+    @apply truncate mr-2 md:mr-0;
   }
 
   &__quantity{

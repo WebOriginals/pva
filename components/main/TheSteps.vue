@@ -24,6 +24,10 @@ section.steps
   @include adaptiveValue(padding-top, 80, 48);
   position: relative;
 
+  @media only screen and (max-width: 1024px) {
+    margin-bottom: 96px;
+  }
+
   h2{
     @apply text-center;
   }

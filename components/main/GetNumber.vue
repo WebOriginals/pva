@@ -80,7 +80,7 @@ const  redirectServices = () => {
       }
 
       .btn{
-        @apply min-w-[240px] w-fit;
+        @apply min-w-[240px] w-full lg:w-fit;
       }
     }
   }

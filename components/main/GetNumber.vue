@@ -10,7 +10,7 @@ section.getNumber
           .services
             p(v-if="pending" ) "идет загрузка"
             template(v-else)
-              UiServiceCard(v-for="account in accounts" :key="account.id" :account="account")
+              UiServiceCard(v-for="account in filteredItems" :key="account.id" :account="account")
 
       .getNumber-grid__description
         h4 {{ $t('main.getNumber.titleH3') }}
@@ -24,7 +24,14 @@ const { pending,  data: accounts } = await useLazyFetch('/api/mainAccounts/accou
   transform: (_accounts) => _accounts.data
 })
 
-const searchValue = ref('')
+
+const searchValue = ref('');
+
+const filteredItems = computed( () => {
+  return  [...accounts.value].filter((item) =>
+      item.servName.toLowerCase().includes(searchValue.value.toLowerCase())
+  );
+});
 
 </script>
 

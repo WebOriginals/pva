@@ -15,7 +15,7 @@ const styleInput = {
     },
   },
   variant: {
-    none: 'bg-sky-50 border-2 border-transparent focus:border-sky-600 focus:border-2 focus:shadow-none'
+    none: 'bg-sky-50 border-2 border-transparent focus:border-sky-600 focus:border-2 focus:shadow-none dark:text-sky-700'
   },
   size: {
     md: "text-base",
@@ -33,5 +33,5 @@ const styleInput = {
 </script>
 
 <template lang="pug">
-UInput(  icon='icon-pva__search' trailing :size='size', variant='none' :placeholder="$t('UiSearchServiceLabel')" :ui="styleInput")
+UInput(icon='icon-pva__search' trailing :size='size', variant='none' :placeholder="$t('UiSearchServiceLabel')" :ui="styleInput")
 </template>

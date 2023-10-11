@@ -13,11 +13,14 @@ MainTheQuestion
 useHead({
   title: 'My App',
   meta: [
-    { name: 'description', content: 'My amazing site.' }
+    {name: 'description', content: 'My amazing site.'}
   ],
-})
-const localePath = useLocalePath()
-const { data } = await useFetch('/api/hello')
+});
+const localePath = useLocalePath();
+const {data} = await useFetch('/api/hello');
+
+
+
 </script>
 
 <style scoped>

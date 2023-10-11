@@ -3,7 +3,6 @@
 import colors from 'tailwindcss/colors'
 import { excludeColors } from './assets/colorsSettings/colors'
 export default defineNuxtConfig({
-    devtools: {enabled: false},
 
     css: ["~/assets/css/tailwind.scss"],
 
@@ -22,6 +21,7 @@ export default defineNuxtConfig({
         lazy: true,
         langDir: "locales",
         strategy: "prefix_except_default",
+        dynamicRouteParams: true,
         compilation: {
             strictMessage: false,
         },

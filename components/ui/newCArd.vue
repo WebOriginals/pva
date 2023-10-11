@@ -39,7 +39,7 @@ const props = defineProps({
   }
 
   &__title{
-    @apply truncate;
+    @apply truncate dark:text-black;
   }
 
   &__grid{

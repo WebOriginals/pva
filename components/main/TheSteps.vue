@@ -40,7 +40,7 @@ section.steps
       }
 
       &__title{
-
+        @apply dark:text-black;
       }
     }
   }

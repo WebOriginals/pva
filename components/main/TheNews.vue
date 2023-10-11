@@ -9,7 +9,8 @@ section.newsSlider
       :breakpoints='{ 320: {slidesPerView: 1.2,}, 640: {slidesPerView: 1.5,}, 760: {slidesPerView: 2.3,}, 940: {slidesPerView: 3,}}'
     )
       swiper-slide(v-for="article in articles" :key="article.id")
-        UiNewCArd(:article="article" @click="redirectDetailedArticle(article.id)")
+        NuxtLink(:to="localePath('/news/'+article.id)" class="")
+          UiNewCArd(:article="article")
 
     .newsSlider__btn
       UiBtnBlue.btn(size="xxl" :label="$t('main.news.btn')" variant="outline" @click="redirectAllArticles")
@@ -21,9 +22,6 @@ const { pending,  data: articles } = await useLazyFetch('/api/mainNews/news',{
   transform: (_articles) => _articles.data
 })
 
-const redirectDetailedArticle = (id) => {
-  console.log(`открыть полную статью id:${id}`)
-}
 const redirectAllArticles = () => {
   const route = localeRoute({ name: 'news' })
   if (route) {

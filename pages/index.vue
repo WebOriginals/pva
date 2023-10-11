@@ -5,7 +5,6 @@ MainTheSteps
 MainTheNumberSales
 MainTheNews
 MainTheQuestion
-
 </template>
 
 <script setup lang="ts">
@@ -16,11 +15,6 @@ useHead({
     {name: 'description', content: 'My amazing site.'}
   ],
 });
-const localePath = useLocalePath();
-const {data} = await useFetch('/api/hello');
-
-
-
 </script>
 
 <style scoped>

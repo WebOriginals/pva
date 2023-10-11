@@ -12,7 +12,7 @@ section.newsSlider
         UiNewCArd(:article="article" @click="redirectDetailedArticle(article.id)")
 
     .newsSlider__btn
-      UiBtnBlue(size="xxl" :label="$t('main.news.btn')" variant="outline" @click="redirectAllArticles")
+      UiBtnBlue.btn(size="xxl" :label="$t('main.news.btn')" variant="outline" @click="redirectAllArticles")
 </template>
 
 <script setup>
@@ -48,8 +48,11 @@ const redirectAllArticles = () => {
 
   &__btn{
     @include adaptiveValue(padding-top, 48, 32);
-
     @apply flex justify-center;
+
+    .btn{
+      @apply  w-full md:w-[240px];
+    }
   }
 }
 </style>

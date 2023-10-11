@@ -104,6 +104,6 @@ const chartOptions = {
 
 <style  lang="scss">
 .arrow_box{
-  @apply py-2 px-4 rounded-lg;
+  @apply py-2 px-4 rounded-lg dark:text-black;
 }
 </style>

@@ -15,11 +15,11 @@ section.getNumber
       .getNumber-grid__description
         h4 {{ $t('main.getNumber.titleH3') }}
         .text(v-html="$t('main.getNumber.description')")
-        UiBtnBlue.btn(size="xxl" :label="$t('main.getNumber.btn')")
+        UiBtnBlue.btn(size="xxl" :label="$t('main.getNumber.btn')" @click="redirectServices")
 </template>
 
 <script setup>
-
+const localeRoute = useLocaleRoute()
 const { pending,  data: accounts } = await useLazyFetch('/api/mainAccounts/accounts',{
   transform: (_accounts) => _accounts.data
 })
@@ -33,6 +33,13 @@ const filteredItems = computed( () => {
   );
 });
 
+
+const  redirectServices = () => {
+  const route = localeRoute({ name: "service" })
+  if (route) {
+    return navigateTo(route.fullPath)
+  }
+}
 </script>
 
 <style scoped lang="scss">

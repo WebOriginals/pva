@@ -13,32 +13,43 @@
 </template>
 
 <script setup>
+const localeRoute = useLocaleRoute()
+const { t } = useI18n()
 import {useUserStore} from "~/store/user.js";
 const store = useUserStore()
 const items = [
   [
     {
-      label: 'Персональные данные',
+      label: t('nav.personalInformation'),
       click: () => {
-        console.log('Персональные данные')
+        const route = localeRoute({ name: 'personalInformation' })
+        if (route) {
+          return navigateTo(route.fullPath)
+        }
       }
     },
     {
-      label: 'История активаций',
+      label: t('nav.activationHistory'),
       click: () => {
-        console.log('История активаций')
+        const route = localeRoute({ name: 'activationHistory' })
+        if (route) {
+          return navigateTo(route.fullPath)
+        }
       }
     },
     {
-      label: 'Безопасность',
+      label: t('nav.safety'),
       click: () => {
-        console.log('Безопасность')
+        const route = localeRoute({ name: 'safety' })
+        if (route) {
+          return navigateTo(route.fullPath)
+        }
       }
     }
   ],
   [
     {
-      label: 'Выход',
+      label: t('nav.exit'),
       click: store.actionIsLoggedIn
     }
   ]

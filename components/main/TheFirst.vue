@@ -4,7 +4,7 @@ section.first
     .first__wrapper
       h1 {{ $t('main.first.title') }}
       p {{ $t('main.first.subTitle') }}
-      UiBtnBlue.first__btn(size="xxl" :label="$t('main.first.btn')")
+      UiBtnBlue.first__btn(size="xxl" :label="$t('main.first.btn')" @click="redirectAllArticles")
 
 section.first-sub
   .first-sub__wrapper
@@ -49,8 +49,16 @@ section.first-mobile-slider
 </template>
 
 <script setup>
+const localeRoute = useLocaleRoute()
 import {Pagination} from 'swiper/modules';
 import 'swiper/css/pagination';
+
+const redirectAllArticles = () => {
+  const route = localeRoute({ name: 'service' })
+  if (route) {
+    return navigateTo(route.fullPath)
+  }
+}
 </script>
 
 <style  lang="scss">

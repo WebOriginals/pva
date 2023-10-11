@@ -8,7 +8,8 @@
 </template>
 
 <script setup>
-const props =defineProps({
+const localeRoute = useLocaleRoute()
+const props = defineProps({
   account: {
     type: Object,
     required: true,
@@ -16,7 +17,10 @@ const props =defineProps({
 })
 
 const  redirectServices = () => {
-  console.log("6666");
+  const route = localeRoute({ name: "service" })
+  if (route) {
+    return navigateTo(route.fullPath)
+  }
 }
 const labelService = `от $ ${props.account.prices.def}`;
 const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/${props.account.service}0.webp`;
@@ -39,7 +43,7 @@ const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico
   }
 
   &__name{
-    @apply truncate mr-2 md:mr-0;
+    @apply truncate mr-2 md:mr-0 dark:text-stone-500;
   }
 
   &__quantity{
@@ -47,7 +51,7 @@ const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico
   }
 
   &__btn{
-    @apply ml-[auto] md:ml-0;
+    @apply ml-[auto] md:ml-0 min-w-[94px];
   }
 }
 </style>

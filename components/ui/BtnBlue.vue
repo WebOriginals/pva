@@ -37,7 +37,7 @@ const solid = {
 }
 const outline = {
   disabled: "disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 dark:disabled:ring-2 dark:disabled:ring-sky-300 disabled:ring-2 disabled:ring-sky-300 dark:disabled:text-sky-400",
-  dark: "dark:text-sky-950 dark:ring-sky-950 ",
+  dark: "dark:text-sky-500 dark:ring-sky-500 ",
   darkFocus: "dark:focus-visible:ring-{color}-400",
   darkHover: "dark:hover:bg-{color}-500 dark:hover:text-white dark:hover:ring-sky-500",
   light: "ring-2 ring-inset ring-current text-sky-500 ",

@@ -4,11 +4,13 @@
     img(:src="imgService")
   span.services-el__name {{ account.servName }}
   span.services-el__quantity  {{ account.count }} шт.
-  UiBtnBlue.services-el__btn(size="lg" :label="labelService" variant="outline" @click="redirectServices")
+  UiBtnBlue.services-el__btn(size="lg" :label="labelService" variant="outline" @click="$event => $router.push(`${locale}/service/${account.servName}`)")
+
 </template>
 
 <script setup>
 const localeRoute = useLocaleRoute()
+const { locale } = useI18n()
 const props = defineProps({
   account: {
     type: Object,
@@ -16,12 +18,6 @@ const props = defineProps({
   }
 })
 
-const  redirectServices = () => {
-  const route = localeRoute({ name: "service" })
-  if (route) {
-    return navigateTo(route.fullPath)
-  }
-}
 const labelService = `от $ ${props.account.prices.def}`;
 const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/${props.account.service}0.webp`;
 </script>

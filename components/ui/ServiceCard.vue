@@ -28,10 +28,10 @@ const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico
 .services-el{
   @include adaptiveValue(padding-top, 12, 8);
   @include adaptiveValue(padding-bottom, 12, 8);
-  @apply bg-sky-50 rounded-lg px-3 md:px-5 flex items-center gap-2;
+  @apply bg-sky-50 rounded-lg px-3 md:px-5 flex flex items-center gap-2;
 
   &__img{
-    @apply bg-sky-50 rounded-full overflow-hidden w-8 h-8;
+    @apply bg-sky-50 rounded-full overflow-hidden w-6 h-6 md:w-8 md:h-8 shrink-0;
 
     img{
       @apply max-w-full;
@@ -39,15 +39,15 @@ const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico
   }
 
   &__name{
-    @apply truncate mr-2 md:mr-0 dark:text-stone-500;
+    @apply truncate text-xs mr-2  md:mr-0 md:text-base dark:text-stone-500 ;
   }
 
   &__quantity{
-    @apply hidden md:block ml-[auto];
+    @apply hidden md:block ml-[auto] shrink-0;
   }
 
   &__btn{
-    @apply ml-[auto] md:ml-0 min-w-[94px];
+    @apply ml-[auto] text-xs min-w-[78px] md:ml-0 md:text-base md:min-w-[94px];
   }
 }
 </style>

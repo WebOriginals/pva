@@ -2,6 +2,7 @@
 section.getNumber
   .getNumber__container
     h2(v-html="$t('main.getNumber.titleH2')")
+
     .getNumber__grid.getNumber-grid
       .getNumber-grid__service.getNumber-grid-service
         UiSearchService.search(size="xxl" v-model="searchValue")

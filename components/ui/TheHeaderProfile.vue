@@ -17,12 +17,13 @@ const localeRoute = useLocaleRoute()
 const { t } = useI18n()
 import {useUserStore} from "~/store/user.js";
 const store = useUserStore()
-const items = [
-  [
+
+const items = computed( () => {
+  return [[
     {
       label: t('nav.personalInformation'),
       click: () => {
-        const route = localeRoute({ name: 'personalInformation' })
+        const route = localeRoute({name: 'personalInformation'})
         if (route) {
           return navigateTo(route.fullPath)
         }
@@ -31,7 +32,7 @@ const items = [
     {
       label: t('nav.activationHistory'),
       click: () => {
-        const route = localeRoute({ name: 'activationHistory' })
+        const route = localeRoute({name: 'activationHistory'})
         if (route) {
           return navigateTo(route.fullPath)
         }
@@ -40,20 +41,19 @@ const items = [
     {
       label: t('nav.safety'),
       click: () => {
-        const route = localeRoute({ name: 'safety' })
+        const route = localeRoute({name: 'safety'})
         if (route) {
           return navigateTo(route.fullPath)
         }
       }
     }
-  ],
-  [
+  ], [
     {
       label: t('nav.exit'),
       click: store.actionIsLoggedIn
     }
-  ]
-]
+  ]]
+})
 </script>
 
 <style scoped lang="scss">

@@ -1,0 +1,86 @@
+[
+  {
+    "id": 0,
+    "img": "_nuxt/assets/img/bg-new.jpg",
+    "title": "Lorem ipsum dolor sit amet consectetur1",
+    "teg": "Tag name3",
+    "date": "8 сентября 2024"
+  },
+  {
+    "id": 1,
+    "img": "_nuxt/assets/img/bg-new.jpg",
+    "title": "Lorem ipsum dolor sit amet consectetur2",
+    "teg": "Tag name2",
+    "date": "8 сентября 2024"
+  },
+  {
+    "id": 2,
+    "img": "_nuxt/assets/img/bg-new.jpg",
+    "title": "Lorem ipsum dolor sit amet consectetur3",
+    "teg": "Tag name1",
+    "date": "8 сентября 2024"
+  },
+  {
+    "id": 3,
+    "img": "_nuxt/assets/img/bg-new.jpg",
+    "title": "Lorem ipsum dolor sit amet consectetur1",
+    "teg": "Tag name3",
+    "date": "8 сентября 2024"
+  },
+  {
+    "id": 4,
+    "img": "_nuxt/assets/img/bg-new.jpg",
+    "title": "Lorem ipsum dolor sit amet consectetur2",
+    "teg": "Tag name2",
+    "date": "8 сентября 2024"
+  },
+  {
+    "id": 5,
+    "img": "_nuxt/assets/img/bg-new.jpg",
+    "title": "Lorem ipsum dolor sit amet consectetur3",
+    "teg": "Tag name1",
+    "date": "8 сентября 2024"
+  },
+  {
+    "id": 6,
+    "img": "_nuxt/assets/img/bg-new.jpg",
+    "title": "Lorem ipsum dolor sit amet consectetur1",
+    "teg": "Tag name3",
+    "date": "8 сентября 2024"
+  },
+  {
+    "id": 7,
+    "img": "_nuxt/assets/img/bg-new.jpg",
+    "title": "Lorem ipsum dolor sit amet consectetur2",
+    "teg": "Tag name2",
+    "date": "8 сентября 2024"
+  },
+  {
+    "id": 8,
+    "img": "_nuxt/assets/img/bg-new.jpg",
+    "title": "Lorem ipsum dolor sit amet consectetur3",
+    "teg": "Tag name1",
+    "date": "8 сентября 2024"
+  },
+  {
+    "id": 9,
+    "img": "_nuxt/assets/img/bg-new.jpg",
+    "title": "Lorem ipsum dolor sit amet consectetur1",
+    "teg": "Tag name3",
+    "date": "8 сентября 2024"
+  },
+  {
+    "id": 10,
+    "img": "_nuxt/assets/img/bg-new.jpg",
+    "title": "Lorem ipsum dolor sit amet consectetur2",
+    "teg": "Tag name2",
+    "date": "8 сентября 2024"
+  },
+  {
+    "id": 11,
+    "img": "_nuxt/assets/img/bg-new.jpg",
+    "title": "Lorem ipsum dolor sit amet consectetur3",
+    "teg": "Tag name1",
+    "date": "8 сентября 2024"
+  }
+]

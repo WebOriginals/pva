@@ -52,4 +52,9 @@ export default defineNuxtConfig({
         global: true,
         safelistColors: excludeColors(colors)
     },
+
+    extends: 'content-wind',
+    experimental: {
+        watcher: "parcel",
+    },
 })

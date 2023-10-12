@@ -1,4 +1,5 @@
 # Nuxt 3 Minimal Starter
+Парни, так я кастопизировал библиотеку https://ui.nuxt.com/ , папку node_modules пока прийдется подтянуть мою.
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 

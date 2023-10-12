@@ -4,7 +4,7 @@
     img(:src="imgService")
   span.services-el__name {{ account.servName }}
   span.services-el__quantity  {{ account.count }} шт.
-  UiBtnBlue.services-el__btn(size="lg" :label="labelService" variant="outline" @click="$event => $router.push(`${locale}/service/${account.servName}`)")
+  UiBtnBlue.services-el__btn(size="lg" :label="labelService" variant="outline" @click="() => $router.push(`${locale}/service/${account.servName}`)")
 
 </template>
 

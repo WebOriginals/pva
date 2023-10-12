@@ -1,6 +1,7 @@
 <template lang="pug">
 footer.footer
-
+  .footer__container(v-if="!store.getIsLoggedIn" )
+    UiThecallToAction
   .footer__top
     .footer__container.top
       .footer-top-mobile
@@ -63,6 +64,8 @@ const store = useUserStore()
 <style scoped lang="scss">
 .footer {
   @apply text-white  bg-gradient-to-r from-sky-950 to-sky-900;
+
+
 
   &-logo{
     @apply flex justify-center;

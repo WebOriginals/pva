@@ -9,7 +9,7 @@ div
     body
       .wrapper(:class="{ lock : lockScrollValue }")
         TheHeader(@lockScroll="lockScroll")
-        main.page
+        main.page(:class="{ pb150 : !store.getIsLoggedIn }")
             slot
         TheFooter
 
@@ -21,6 +21,9 @@ const head = useLocaleHead({
   identifierAttribute: 'id',
   addSeoAttributes: true
 })
+import {useUserStore} from "~/store/user.js";
+const store = useUserStore()
+
 const lockScrollValue = ref(false)
 const lockScroll = (value) => {
   lockScrollValue.value = value.value
@@ -30,17 +33,24 @@ const lockScroll = (value) => {
 <style  lang="scss">
 
 .wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  //min-height: 100vh;
+  //display: flex;
+  //flex-direction: column;
+  //overflow: hidden;
+  @apply overflow-hidden flex min-h-screen flex-col;
 
   > main {
-    flex: 1 1 auto;
+    //flex: 1 1 auto;
+    @apply flex-auto pb-16;
+
+    &.pb150{
+      @apply pb-48;
+    }
   }
 
   &.lock{
-    height: 100vh;
+    //height: 100vh;
+    @apply h-screen;
   }
 }
 </style>

@@ -10,7 +10,7 @@ MainTheQuestion
 <script setup lang="ts">
 
 useHead({
-  title: 'My App',
+  title: 'PVA',
   meta: [
     {name: 'description', content: 'My amazing site.'}
   ],

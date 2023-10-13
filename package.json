@@ -22,11 +22,18 @@
   },
   "dependencies": {
     "@nuxt/ui": "^2.8.1",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@pinia/nuxt": "^0.4.11",
+    "@typescript-eslint/parser": "^6.7.5",
     "@vue/language-plugin-pug": "^1.8.11",
     "apexcharts": "^3.38.0",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "nuxt-swiper": "^1.2.2",
     "pinia": "^2.1.6",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2",
     "vite-plugin-pug": "^0.3.2",
     "vue3-apexcharts": "^1.4.1"
   }

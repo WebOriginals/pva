@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 // @ts-ignore
-import colors from 'tailwindcss/colors'
+// import colors from 'tailwindcss/colors'
 import { excludeColors } from './assets/colorsSettings/colors'
 export default defineNuxtConfig({
 
@@ -48,9 +48,16 @@ export default defineNuxtConfig({
         configPath: './tailwind.config.ts',
     },
 
+    postcss: {
+        plugins: {
+            tailwindcss: {},
+            autoprefixer: {},
+        },
+    },
+
     ui: {
-        global: true,
-        safelistColors: excludeColors(colors)
+        // global: true,
+        // safelistColors: excludeColors(colors)
     },
 
     extends: 'content-wind',

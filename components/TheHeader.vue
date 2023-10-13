@@ -1,39 +1,42 @@
 <template lang="pug">
-header.header(:class="{ 'sticky-header': isSticky }")
-  .header__container
-    IconTheBurgerMenu(class="lg:hidden" :class="{ open : IsOpenMenu }" @click="openMenu")
+div.relative
+  header.header(:class="{ 'sticky-header': isSticky }")
+    .header__container
+      IconTheBurgerMenu(class="lg:hidden" :class="{ open : IsOpenMenu }" @click="openMenu")
 
-    NuxtLink(v-if="width > 640" :to="localePath('/')" class="header-logo")
-      IconTheLogoLight(v-if="isDark")
-      IconTheLogoDark(v-else)
-    NuxtLink(v-else :to="localePath('/')" class="header-logo rr")
-      IconTheLogoLightMini(v-if="isDark")
-      IconTheLogoDarkMini(v-else)
+      NuxtLink(v-if="width > 640" :to="localePath('/')" class="header-logo")
+        IconTheLogoLight(v-if="isDark")
+        IconTheLogoDark(v-else)
+      NuxtLink(v-else :to="localePath('/')" class="header-logo rr")
+        IconTheLogoLightMini(v-if="isDark")
+        IconTheLogoDarkMini(v-else)
 
-    nav.header__nav.header-nav
-      NuxtLink(:to="localePath('/service')" class="header-nav__link" v-if="store.getIsLoggedIn" ) {{ $t('nav.service') }}
-      NuxtLink(:to="localePath('/freeNumbers')" class="header-nav__link") {{ $t('nav.freeNumbers') }}
-      NuxtLink(:to="localePath('/news')" class="header-nav__link") {{ $t('nav.news') }}
-      NuxtLink(:to="localePath('/api')" class="header-nav__link") {{ $t('nav.api') }}
-      NuxtLink(:to="localePath('/about')" class="header-nav__link") {{ $t('nav.about') }}
-      NuxtLink(:to="localePath('/demo')" class="header-nav__link")  Demo
+      nav.header__nav.header-nav
+        NuxtLink(:to="localePath('/service')" class="header-nav__link" v-if="store.getIsLoggedIn" ) {{ $t('nav.service') }}
+        NuxtLink(:to="localePath('/freeNumbers')" class="header-nav__link") {{ $t('nav.freeNumbers') }}
+        NuxtLink(:to="localePath('/news')" class="header-nav__link") {{ $t('nav.news') }}
+        NuxtLink(:to="localePath('/api')" class="header-nav__link") {{ $t('nav.api') }}
+        NuxtLink(:to="localePath('/about')" class="header-nav__link") {{ $t('nav.about') }}
+        NuxtLink(:to="localePath('/demo')" class="header-nav__link")  Demo
 
-    .header-elementsLeft
-      UiTheLangSwitcher(class="hidden sm:block langSelect")
-      UiBtnBlue(size="lg" :label="$t('logout')" variant="soft" @click="store.actionIsLoggedIn"  v-if="!store.getIsLoggedIn")
-      UiTheHeaderProfile(v-if="store.getIsLoggedIn")
-      UiColorModeButton
+      .header-elementsLeft
+        UiTheLangSwitcher(class="hidden sm:block langSelect")
+        UiBtnBlue(size="lg" :label="$t('logout')" variant="soft" @click="store.actionIsLoggedIn"  v-if="!store.getIsLoggedIn")
+        UiTheHeaderProfile(v-if="store.getIsLoggedIn")
+        UiColorModeButton
 
-    .header__mobile.header-mobile(v-if="IsOpenMenu" :class="{ IsOpenMenu: open }" class="lg:hidden")
-      nav.header-mobile__nav.header-mobile-nav
-        NuxtLink(:to="localePath('/service')" class="header-mobile-nav__link" v-if="store.getIsLoggedIn" ) {{ $t('nav.service') }}
-        NuxtLink(:to="localePath('/freeNumbers')" class="header-mobile-nav__link") {{ $t('nav.freeNumbers') }}
-        NuxtLink(:to="localePath('/news')" class="header-mobile-nav__link") {{ $t('nav.news') }}
-        NuxtLink(:to="localePath('/api')" class="header-mobile-nav__link") {{ $t('nav.api') }}
-        NuxtLink(:to="localePath('/about')" class="header-mobile-nav__link") {{ $t('nav.about') }}
-        NuxtLink(:to="localePath('/demo')" class="header-mobile-nav__link")  Demo
-      .header-mobile__wrapper
-        UiTheLangSwitcher.w-32(class="langSelect")
+      .header__mobile.header-mobile(v-if="IsOpenMenu" :class="{ IsOpenMenu: open }" class="lg:hidden")
+        nav.header-mobile__nav.header-mobile-nav
+          NuxtLink(:to="localePath('/service')" class="header-mobile-nav__link" v-if="store.getIsLoggedIn" ) {{ $t('nav.service') }}
+          NuxtLink(:to="localePath('/freeNumbers')" class="header-mobile-nav__link") {{ $t('nav.freeNumbers') }}
+          NuxtLink(:to="localePath('/news')" class="header-mobile-nav__link") {{ $t('nav.news') }}
+          NuxtLink(:to="localePath('/api')" class="header-mobile-nav__link") {{ $t('nav.api') }}
+          NuxtLink(:to="localePath('/about')" class="header-mobile-nav__link") {{ $t('nav.about') }}
+          NuxtLink(:to="localePath('/demo')" class="header-mobile-nav__link")  Demo
+        .header-mobile__wrapper
+          UiTheLangSwitcher.w-32(class="langSelect")
+
+  #placeForalert
 
 </template>
 

@@ -4,7 +4,10 @@ section.news
     h1(v-html="$t('nav.news')")
 
     UiLoadingAnimation(v-if="pending")
-    UAlert(v-else-if="error" icon="i-heroicons-command-line" color="red" variant="solid" :title="error"  description="Сорян, что-то наш сервак поломался")
+    template(v-else-if="error")
+      Teleport(to="#placeForalert")
+        UiTheAlert(:color="'bg-red-600'" :label="`${error} запрос прошел неудачно`")
+
     .news__grid(v-else)
       template(v-for="article in articles" :key="article.id")
         NuxtLink(:to="localePath('/news/'+article.id)" class="")
@@ -18,6 +21,7 @@ const localePath = useLocalePath()
 const {status, error,  refresh, pending,  data: articles } = await useLazyFetch('/api/news/news', {
   transform: (_articles) => _articles.data
 })
+
 </script>
 
 <style scoped lang="scss">

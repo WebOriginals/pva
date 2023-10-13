@@ -17,6 +17,7 @@ section.newsSlider
 </template>
 
 <script setup>
+const localePath = useLocalePath()
 const localeRoute = useLocaleRoute()
 const { pending,  data: articles } = await useLazyFetch('/api/mainNews/news',{
   transform: (_articles) => _articles.data

@@ -2,16 +2,20 @@
 section.news
   .news__container
     h1(v-html="$t('nav.news')")
-    p(v-if="pending") идет загрузка
+
+    UiLoadingAnimation(v-if="pending")
+    UAlert(v-else-if="error" icon="i-heroicons-command-line" color="red" variant="solid" :title="error"  description="Сорян, что-то наш сервак поломался")
     .news__grid(v-else)
       template(v-for="article in articles" :key="article.id")
         NuxtLink(:to="localePath('/news/'+article.id)" class="")
           UiNewCArd(:article="article")
+
+    button(@click="refresh") Refresh data
 </template>
 
 <script setup>
-const localeRoute = useLocaleRoute()
-const { pending,  data: articles } = await useLazyFetch('/api/news/news',{
+const localePath = useLocalePath()
+const {status, error,  refresh, pending,  data: articles } = await useLazyFetch('/api/news/news', {
   transform: (_articles) => _articles.data
 })
 </script>

@@ -6,13 +6,16 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "devDependencies": {
     "@intlify/vue-i18n-loader": "^4.2.0",
     "@nuxt/devtools": "latest",
     "@nuxtjs/i18n": "^8.0.0-rc.4",
     "@nuxtjs/tailwindcss": "^6.8.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.0",
     "nuxt": "^3.7.1",
     "sass": "^1.66.1",
     "sass-loader": "^10.4.1"
@@ -30,11 +33,23 @@
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-vue": "^9.17.0",
     "nuxt-swiper": "^1.2.2",
     "pinia": "^2.1.6",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2",
     "vite-plugin-pug": "^0.3.2",
     "vue3-apexcharts": "^1.4.1"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "npm run lint:fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

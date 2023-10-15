@@ -54,7 +54,7 @@ footer.footer
 </template>
 
 <script setup>
-import {useUserStore} from "~/store/user.js";
+import { useUserStore } from 'store/user.js';
 
 const localePath = useLocalePath()
 const store = useUserStore()

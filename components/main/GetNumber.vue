@@ -44,7 +44,7 @@ const  redirectServices = () => {
 </script>
 
 <style scoped lang="scss">
-@import "~/assets/css/mixins.scss";
+@import "assets/css/mixins.scss";
 
 .getNumber{
   @include adaptiveValue(padding-top, 160, 96);

@@ -4,12 +4,12 @@
 			<div class="first__wrapper">
 				<h1>{{ $t('main.first.title') }}</h1>
 				<p>{{ $t('main.first.subTitle') }}</p>
-				<UiBtnBlue
+				<UiBaseButton
 					class="first__btn"
 					size="xxl"
 					:label="$t('main.first.btn')"
 					@click="redirectAllArticles"
-				></UiBtnBlue>
+				></UiBaseButton>
 			</div>
 		</div>
 	</section>

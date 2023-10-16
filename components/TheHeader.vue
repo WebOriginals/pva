@@ -43,14 +43,15 @@
 					<UiTheLangSwitcher
 						class="hidden sm:block langSelect"
 					></UiTheLangSwitcher>
-					<UiBtnBlue
+					<UiBaseButton
 						size="lg"
 						:label="$t('logout')"
 						variant="soft"
 						@click="store.actionIsLoggedIn"
 						v-if="!store.getIsLoggedIn"
-					></UiBtnBlue>
-					<UiTheHeaderProfile v-if="store.getIsLoggedIn"></UiTheHeaderProfile>
+					></UiBaseButton>
+
+          <TheHeaderDropdownForProfile v-if="store.getIsLoggedIn"></TheHeaderDropdownForProfile>
 					<UiColorModeButton></UiColorModeButton>
 				</div>
 				<div

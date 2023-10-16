@@ -4,12 +4,12 @@
       <h1 v-html="$t('nav.news')"></h1>
       <UiLoadingAnimation v-if="pending"></UiLoadingAnimation><template v-else-if="error">
       <Teleport to="#placeForalert">
-        <UiTheAlert :color="'bg-red-600'" :label="`${error} запрос прошел неудачно`"></UiTheAlert>
+        <UiBaseAlert :color="'bg-red-600'" :label="`${error} запрос прошел неудачно`"></UiBaseAlert>
       </Teleport>
     </template>
       <div class="news__grid" v-else><template v-for="article in articles" :key="article.id">
         <NuxtLink :to="localePath('/news/'+article.id)">
-          <UiNewCArd :article="article"></UiNewCArd>
+          <UiCardForArticle :article="article"></UiCardForArticle>
         </NuxtLink>
       </template></div><button @click="refresh">Refresh data</button>
     </div>

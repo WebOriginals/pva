@@ -4,20 +4,20 @@
 			<h2 v-html="$t('main.getNumber.titleH2')"></h2>
 			<div class="getNumber__grid getNumber-grid">
 				<div class="getNumber-grid__service getNumber-grid-service">
-					<UiSearchService
-						class="search"
-						size="xxl"
-						v-model="searchValue"
-					></UiSearchService>
+          <ServiceServicesSearchByProduct
+              class="search"
+              size="xxl"
+              v-model="searchValue"
+          ></ServiceServicesSearchByProduct>
 					<div class="getNumber-grid-service__wrapper scrollCust">
 						<div class="services">
 							<p v-if="pending">"идет загрузка"</p>
 							<template v-else>
-								<UiServiceCard
-									v-for="account in filteredItems"
-									:key="account.id"
-									:account="account"
-								></UiServiceCard>
+                <ServiceServicesViewCard
+                    v-for="account in filteredItems"
+                    :key="account.id"
+                    :account="account"
+                ></ServiceServicesViewCard>
 							</template>
 						</div>
 					</div>
@@ -25,12 +25,12 @@
 				<div class="getNumber-grid__description">
 					<h4>{{ $t('main.getNumber.titleH3') }}</h4>
 					<div class="text" v-html="$t('main.getNumber.description')"></div>
-					<UiBtnBlue
+					<UiBaseButton
 						class="btn"
 						size="xxl"
 						:label="$t('main.getNumber.btn')"
 						@click="redirectServices"
-					></UiBtnBlue>
+					></UiBaseButton>
 				</div>
 			</div>
 		</div>

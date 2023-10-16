@@ -15,18 +15,18 @@
 			>
 				<swiper-slide v-for="article in articles" :key="article.id">
 					<NuxtLink :to="localePath('/news/' + article.id)">
-						<UiNewCArd :article="article"></UiNewCArd>
+						<UiCardForArticle :article="article"></UiCardForArticle>
 					</NuxtLink>
 				</swiper-slide>
 			</swiper>
 			<div class="newsSlider__btn">
-				<UiBtnBlue
+				<UiBaseButton
 					class="btn"
 					size="xxl"
 					:label="$t('main.news.btn')"
 					variant="outline"
 					@click="redirectAllArticles"
-				></UiBtnBlue>
+				></UiBaseButton>
 			</div>
 		</div>
 	</section>

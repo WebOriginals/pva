@@ -5,15 +5,15 @@
 				<div class="numberSales-grid__info numberSales-grid-info">
 					<h4 v-html="$t('main.numberSales.title')"></h4>
 					<div class="numberSales-grid-info__countdown">
-						<UiTheShoppingCounter
-							v-for="num in generatedNumbers"
-							:number="num"
-						></UiTheShoppingCounter>
+            <UiNumberBuyAccountsToday
+                v-for="num in generatedNumbers"
+                :number="num"
+            ></UiNumberBuyAccountsToday>
 					</div>
 					<p v-html="$t('main.numberSales.description')"></p>
 				</div>
 				<div class="numberSales-grid__chart">
-					<UiTheChartSales></UiTheChartSales>
+          <UiSalesChartForToday></UiSalesChartForToday>
 				</div>
 			</div>
 		</div>

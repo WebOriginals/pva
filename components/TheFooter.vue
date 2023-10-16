@@ -1,7 +1,7 @@
 <template>
 	<footer class="footer">
 		<div class="footer__container" v-if="!store.getIsLoggedIn">
-			<UiThecallToAction></UiThecallToAction>
+      <TheFooterCallToAction></TheFooterCallToAction>
 		</div>
 		<div class="footer__top">
 			<div class="footer__container top">
@@ -106,6 +106,7 @@
 
 <script setup>
 import { useUserStore } from '~/store/user.js';
+
 const localePath = useLocalePath();
 const store = useUserStore();
 </script>

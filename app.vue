@@ -1,12 +1,9 @@
-<template lang="pug">
-NuxtLayout
-  NuxtPage
+<template>
+	<NuxtLayout>
+		<NuxtPage></NuxtPage>
+	</NuxtLayout>
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

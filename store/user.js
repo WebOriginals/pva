@@ -1,14 +1,12 @@
-import {defineStore} from "pinia";
+import { defineStore } from 'pinia';
 
 export const useUserStore = defineStore('user', () => {
-    const isLoggedIn = ref(false)
-
-    const getIsLoggedIn = computed(() => isLoggedIn.value )
-
-    function actionIsLoggedIn (){
-        console.log(555)
-      return   isLoggedIn.value = !isLoggedIn.value
-    }
-
-    return {isLoggedIn, getIsLoggedIn, actionIsLoggedIn}
-})
+	// eslint-disable-next-line no-undef
+	const isLoggedIn = ref(false);
+	// eslint-disable-next-line no-undef
+	const getIsLoggedIn = computed(() => isLoggedIn.value);
+	function actionIsLoggedIn() {
+		return (isLoggedIn.value = !isLoggedIn.value);
+	}
+	return { isLoggedIn, getIsLoggedIn, actionIsLoggedIn };
+});

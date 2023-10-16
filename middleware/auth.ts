@@ -1,6 +1,6 @@
-import { useUserStore } from "~/store/user.js";
-const localePath = useLocalePath()
-const store = useUserStore()
+import { useUserStore } from '~/store/user.js';
+const localePath = useLocalePath();
+const store = useUserStore();
 export default defineNuxtRouteMiddleware((to, from) => {
-    if (to.path !== localePath('/service')) navigateTo(localePath('/service'))
-})
+	if (to.path !== localePath('/service')) navigateTo(localePath('/service'));
+});

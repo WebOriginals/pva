@@ -1,90 +1,93 @@
 @font-face {
-  font-family: 'icomoon';
-  src:  url('~/assets/fonts/iconfonts/icomoon.eot?j1hg0l');
-  src:  url('~/assets/fonts/iconfonts/icomoon.eot?j1hg0l#iefix') format('embedded-opentype'),
-    url('~/assets/fonts/iconfonts/icomoon.ttf?j1hg0l') format('truetype'),
-    url('~/assets/fonts/iconfonts/icomoon.woff?j1hg0l') format('woff'),
-    url('~/assets/fonts/iconfonts/icomoon.svg?j1hg0l#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
+	font-family: 'icomoon';
+	src: url('~/assets/fonts/iconfonts/icomoon.eot?j1hg0l');
+	src:
+		url('~/assets/fonts/iconfonts/icomoon.eot?j1hg0l#iefix')
+			format('embedded-opentype'),
+		url('~/assets/fonts/iconfonts/icomoon.ttf?j1hg0l') format('truetype'),
+		url('~/assets/fonts/iconfonts/icomoon.woff?j1hg0l') format('woff'),
+		url('~/assets/fonts/iconfonts/icomoon.svg?j1hg0l#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
 }
 
-[class^="icon-"]::before, [class*=" icon-"]::before {
-  /* use !important to prevent issues with browser extensions that change iconfonts */
-  font-family: 'icomoon' !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+[class^='icon-']::before,
+[class*=' icon-']::before {
+	/* use !important to prevent issues with browser extensions that change iconfonts */
+	font-family: 'icomoon' !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
 
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .icon-pva__delete:before {
-  content: "\e900";
+	content: '\e900';
 }
 .icon-pva__info:before {
-  content: "\e901";
+	content: '\e901';
 }
 .icon-pva__eye_off:before {
-  content: "\e902";
+	content: '\e902';
 }
 .icon-pva__eye_on:before {
-  content: "\e903";
+	content: '\e903';
 }
 .icon-pva__download:before {
-  content: "\e904";
+	content: '\e904';
 }
 .icon-pva__profile:before {
-  content: "\e905";
+	content: '\e905';
 }
 .icon-pva__filter:before {
-  content: "\e906";
+	content: '\e906';
 }
 .icon-pva__bag:before {
-  content: "\e907";
+	content: '\e907';
 }
 .icon-pva__chenge:before {
-  content: "\e908";
+	content: '\e908';
 }
 .icon-pva__minus:before {
-  content: "\e909";
+	content: '\e909';
 }
 .icon-pva__back:before {
-  content: "\e90a";
+	content: '\e90a';
 }
 .icon-pva__copy:before {
-  content: "\e90b";
+	content: '\e90b';
 }
 .icon-pva__update:before {
-  content: "\e90c";
+	content: '\e90c';
 }
 .icon-pva__search:before {
-  content: "\e90d";
+	content: '\e90d';
 }
 .icon-pva__arrows:before {
-  content: "\e90e";
+	content: '\e90e';
 }
 .icon-pva__enter:before {
-  content: "\e90f";
+	content: '\e90f';
 }
 .icon-pva__check:before {
-  content: "\e910";
+	content: '\e910';
 }
 .icon-pva__close:before {
-  content: "\e911";
+	content: '\e911';
 }
 .icon-pva__plus:before {
-  content: "\e912";
+	content: '\e912';
 }
 .icon-pva__arrow_up:before {
-  content: "\e913";
+	content: '\e913';
 }
 .icon-pva__arrow_down:before {
-  content: "\e914";
+	content: '\e914';
 }

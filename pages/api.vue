@@ -1,11 +1,7 @@
-<template lang="pug">
-h1 api
+<template>
+  <h1>api</h1>
 </template>
 
-<script>
+<script></script>
 
-</script>
-
-<style scoped>
-
-</style>
+<style scoped></style>

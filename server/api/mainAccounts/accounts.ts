@@ -1,5 +1,5 @@
-import data from "./accounts.json";
+import data from './accounts.json';
 
-export default defineEventHandler( () => {
-    return {data}
-})
+export default defineEventHandler(() => {
+	return { data };
+});

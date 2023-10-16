@@ -1,11 +1,7 @@
-<template lang="pug">
-h1(v-html="$t('nav.personalInformation')")
+<template>
+  <h1 v-html="$t('nav.personalInformation')"></h1>
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

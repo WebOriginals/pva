@@ -1,11 +1,7 @@
-<template lang="pug">
-h1 free numbers
+<template>
+  <h1>free numbers</h1>
 </template>
 
-<script>
+<script></script>
 
-</script>
-
-<style scoped>
-
-</style>
+<style scoped></style>

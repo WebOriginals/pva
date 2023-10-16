@@ -1,26 +1,26 @@
-<template lang="pug">
-section.question
-  .question__container
-    h2 {{ $t('main.question.title') }}
-    UiTheAccordion(:question-items="$tm('main.question.questionItems')")
-
+<template>
+	<section class="question">
+		<div class="question__container">
+			<h2>{{ $t('main.question.title') }}</h2>
+			<UiTheAccordion
+				:question-items="$tm('main.question.questionItems')"
+			></UiTheAccordion>
+		</div>
+	</section>
 </template>
 
-<script setup>
-
-</script>
+<script setup></script>
 
 <style scoped lang="scss">
-@import "~/assets/css/mixins.scss";
+@import '~/assets/css/mixins.scss';
 
-.question{
-  @include adaptiveValue(padding-top, 60, 30);
-  @include adaptiveValue(padding-bottom, 60, 30);
+.question {
+	@include adaptiveValue(padding-top, 60, 30);
+	@include adaptiveValue(padding-bottom, 60, 30);
 
-  h2{
-    @include adaptiveValue(padding-bottom, 64, 32);
-    text-align: center;
-  }
+	h2 {
+		@include adaptiveValue(padding-bottom, 64, 32);
+		text-align: center;
+	}
 }
-
 </style>

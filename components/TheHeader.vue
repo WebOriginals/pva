@@ -19,7 +19,7 @@
 					<NuxtLink
 						class="header-nav__link"
 						:to="localePath('/service')"
-						v-if="store.getIsLoggedIn"
+						v-if="storeUser.getIsLoggedIn"
 					>
 						{{ $t('nav.service') }}
 					</NuxtLink>
@@ -47,11 +47,11 @@
 						size="lg"
 						:label="$t('logout')"
 						variant="soft"
-						@click="store.actionIsLoggedIn"
-						v-if="!store.getIsLoggedIn"
+						@click="storeUser.actionIsOpenModalRegistration"
+						v-if="!storeUser.getIsLoggedIn"
 					></UiBaseButton>
 
-          <TheHeaderDropdownForProfile v-if="store.getIsLoggedIn"></TheHeaderDropdownForProfile>
+          <TheHeaderDropdownForProfile v-if="storeUser.getIsLoggedIn"></TheHeaderDropdownForProfile>
 					<UiColorModeButton></UiColorModeButton>
 				</div>
 				<div
@@ -104,11 +104,15 @@
 <script setup>
 import { useUserStore } from '~/store/user.js';
 
+const storeUser = useUserStore();
+
+
+
 const emit = defineEmits();
 const { t } = useI18n();
 const localePath = useLocalePath();
 const { isDark } = useDarkMode();
-const store = useUserStore();
+
 
 const IsOpenMenu = ref(false);
 const width = ref(null);

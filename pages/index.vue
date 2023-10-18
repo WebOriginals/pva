@@ -5,6 +5,7 @@
   <MainTheNumberSales></MainTheNumberSales>
   <MainTheNews></MainTheNews>
   <MainTheQuestion></MainTheQuestion>
+  <ModalRegistration></ModalRegistration>
 </template>
 
 <script setup lang="ts">

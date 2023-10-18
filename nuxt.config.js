@@ -8,6 +8,7 @@ export default defineNuxtConfig({
 		'@nuxtjs/i18n',
 		'@nuxt/ui',
 		'@nuxtjs/eslint-module',
+		'@vueuse/nuxt',
 		'nuxt-swiper',
 	],
 	pinia: {

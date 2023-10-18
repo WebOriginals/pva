@@ -8,5 +8,20 @@ export const useUserStore = defineStore('user', () => {
 	function actionIsLoggedIn() {
 		return (isLoggedIn.value = !isLoggedIn.value);
 	}
-	return { isLoggedIn, getIsLoggedIn, actionIsLoggedIn };
+
+
+
+	// eslint-disable-next-line no-undef
+	const isOpenModalRegistration = ref(false);
+	// eslint-disable-next-line no-undef
+	const getIsOpenModalRegistration = computed(() => isOpenModalRegistration.value);
+	function actionIsOpenModalRegistration() {
+		return (isOpenModalRegistration.value = !isOpenModalRegistration.value);
+	};
+	function setIsOpenModalRegistration() {
+		return (isOpenModalRegistration.value = false);
+	}
+
+
+	return { isLoggedIn, isOpenModalRegistration, getIsLoggedIn, getIsOpenModalRegistration, actionIsLoggedIn, actionIsOpenModalRegistration, setIsOpenModalRegistration };
 });

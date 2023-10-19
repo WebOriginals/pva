@@ -11,8 +11,8 @@
         for="email"
     >{{props.label}}</label>
 
-    <UButton v-if="typeInput == 'password'"  icon="icon-pva__eye_off"  size="sm"  color="primary"  square  variant="ghost" type="password" @click.stop.prevent="switchVisibility"/>
-    <UButton v-else icon="icon-pva__eye_on"  size="sm"  color="primary"  square  variant="ghost" type="password" @click.stop.prevent="switchVisibility"/>
+    <UButton class='text-field__showText' v-if="typeInput == 'password'"  icon="icon-pva__eye_off"  size="sm"  color="primary"  square  variant="ghost" type="password" @click.stop.prevent="switchVisibility"/>
+    <UButton class='text-field__showText' v-else icon="icon-pva__eye_on"  size="sm"  color="primary"  square  variant="ghost" type="password" @click.stop.prevent="switchVisibility"/>
   </div>
 </template>
 
@@ -36,9 +36,8 @@ defineEmits(['update:modelValue']);
 
 const typeInput = ref('password');
 const switchVisibility = () => {
-  // eslint-disable-next-line no-unused-expressions
-  console.log(typeInput.value);
-  return typeInput.value = (typeInput.value === 'password' ? 'text' : 'password');
+  // eslint-disable-next-line no-return-assign
+	return typeInput.value = (typeInput.value === 'password' ? 'text' : 'password');
 };
 </script>
 
@@ -50,7 +49,7 @@ const switchVisibility = () => {
   }
 
   &__input {
-    @apply block w:calc(w-full-30px) h-14 py-2.5 px-5 text-black bg-white border border-sky-200 rounded-lg transition delay-150 duration-300 ease-in-out ;
+    @apply block w-full h-14 py-2.5 px-5 text-black bg-white border border-sky-200 rounded-lg transition delay-150 duration-300 ease-in-out ;
 
     &::placeholder {
       @apply text-sky-400;
@@ -65,7 +64,7 @@ const switchVisibility = () => {
     @apply relative;
 
     & .text-field__input {
-      @apply h-14 px-5 py-4 text-base;
+      @apply h-14 px-5 py-4 text-base pr-12;
 
       &::placeholder {
         @apply text-transparent;
@@ -82,6 +81,10 @@ const switchVisibility = () => {
 
     & .text-field__label {
       @apply text-sky-400 px-5 py-4 absolute top-0 left-0 h-full pointer-events-none border-transparent transition delay-150 duration-300 ease-in-out;
+    }
+
+    & .text-field__showText{
+      @apply absolute top-[50%] right-3 -translate-y-2/4;
     }
   }
 }

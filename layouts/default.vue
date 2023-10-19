@@ -25,6 +25,7 @@
 					<main class="page" :class="{ pb150: !store.getIsLoggedIn }">
 						<slot></slot>
 					</main>
+          <ModalRegistration></ModalRegistration>
 					<TheFooter></TheFooter>
 				</div>
 			</body>

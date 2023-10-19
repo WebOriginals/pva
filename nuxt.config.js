@@ -7,9 +7,8 @@ export default defineNuxtConfig({
 		'@pinia/nuxt',
 		'@nuxtjs/i18n',
 		'@nuxt/ui',
-		'@nuxtjs/eslint-module',
 		'@vueuse/nuxt',
-		'nuxt-swiper',
+		'nuxt-swiper'
 	],
 	pinia: {
 		autoImports: ['defineStore'],

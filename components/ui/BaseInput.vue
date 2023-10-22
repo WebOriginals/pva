@@ -1,16 +1,25 @@
 <template>
-  <div class="text-field text-field_floating">
-    <input
-        class="text-field__input"
-        :type="props.typeInput"
-        :placeholder="props.placeholder"
-        :value="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)">
-    <label
-        class="text-field__label"
-        for="email"
-    >{{props.label}}</label>
+  <div class="wrapper-input">
+    <div class="text-field text-field_floating">
+      <input
+          class="text-field__input"
+          :class="{'text-field__input-error': error}"
+          :type="props.typeInput"
+          :placeholder="props.placeholder"
+          :value="modelValue"
+          @input="$emit('update:modelValue', $event.target.value)">
+      <label
+          class="text-field__label"
+          for="email"
+      >{{props.label}}</label>
+    </div>
+    <div class="wrapper-input__mas" v-if="error">
+      <IconTheErrorMas></IconTheErrorMas>
+      <span class="text-xs text-red-600">{{ errors[0].$message }}</span>
+    </div>
+
   </div>
+
 </template>
 
 <script setup>
@@ -30,6 +39,13 @@ const props = defineProps({
   typeInput:{
     type: String,
     required: true,
+  },
+  error:{
+    type: String,
+  },
+  errors:{
+    type: Array,
+    default: [],
   }
 });
 
@@ -38,7 +54,6 @@ defineEmits(['update:modelValue']);
 
 <style scoped lang="scss">
 .text-field {
-
 
   &__label {
     @apply block;
@@ -53,6 +68,10 @@ defineEmits(['update:modelValue']);
 
     &:focus {
       @apply border-sky-600 outline-none;
+    }
+
+    &-error{
+      @apply border-red-500  focus:border-red-500 ;
     }
   }
 
@@ -78,6 +97,11 @@ defineEmits(['update:modelValue']);
     & .text-field__label {
       @apply text-sky-400 px-5 py-4 absolute top-0 left-0 h-full pointer-events-none border-transparent transition delay-150 duration-300 ease-in-out;
     }
+  }
+}
+.wrapper-input{
+  &__mas{
+    @apply flex items-center gap-2 mt-1.5;
   }
 }
 </style>

@@ -26,6 +26,9 @@
 						<slot></slot>
 					</main>
           <ModalRegistration></ModalRegistration>
+          <ModalRegistrationSuccessfully></ModalRegistrationSuccessfully>
+          <ModalChangePassword></ModalChangePassword>
+          <ModalChangePasswordSuccessfully></ModalChangePasswordSuccessfully>
 					<TheFooter></TheFooter>
 				</div>
 			</body>

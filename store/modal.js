@@ -8,5 +8,33 @@ export const useModalStore = defineStore('modal', () => {
 	function actionIsOpenModalRegistration() {
 		return (isOpenModalRegistration.value = !isOpenModalRegistration.value);
 	}
-	return { getIsOpenModalRegistration, actionIsOpenModalRegistration };
+
+	const isOpenModalRegistrationSuccessfully = ref(false);
+	const getIsOpenModalRegistrationSuccessfully = computed(() => isOpenModalRegistrationSuccessfully.value);
+	function actionIsOpenModalRegistrationSuccessfully() {
+		return (isOpenModalRegistrationSuccessfully.value = !isOpenModalRegistrationSuccessfully.value);
+	}
+
+	const isOpenModalChangePassword = ref(false);
+	const getIsOpenModalChangePassword = computed(() => isOpenModalChangePassword.value);
+	function actionIsOpenModalChangePassword() {
+		return (isOpenModalChangePassword.value = !isOpenModalChangePassword.value);
+	}
+
+	const isOpenModalChangePasswordSuccessfully = ref(false);
+	const getIsOpenModalChangePasswordSuccessfully = computed(() => isOpenModalChangePasswordSuccessfully.value);
+	function actionIsOpenModalChangePasswordSuccessfully() {
+		return (isOpenModalChangePasswordSuccessfully.value = !isOpenModalChangePasswordSuccessfully.value);
+	}
+
+	return {
+		getIsOpenModalRegistration,
+		actionIsOpenModalRegistration,
+		getIsOpenModalRegistrationSuccessfully,
+		actionIsOpenModalRegistrationSuccessfully,
+		getIsOpenModalChangePassword,
+		actionIsOpenModalChangePassword,
+		getIsOpenModalChangePasswordSuccessfully,
+		actionIsOpenModalChangePasswordSuccessfully
+	};
 });

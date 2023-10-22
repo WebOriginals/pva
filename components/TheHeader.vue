@@ -47,7 +47,7 @@
 						size="lg"
 						:label="$t('logout')"
 						variant="soft"
-						@click="storeUser.actionIsOpenModalRegistration"
+						@click="storeModal.actionIsOpenModalRegistration"
 						v-if="!storeUser.getIsLoggedIn"
 					></UiBaseButton>
 
@@ -103,8 +103,12 @@
 
 <script setup>
 import { useUserStore } from '~/store/user.js';
-
 const storeUser = useUserStore();
+
+import {useModalStore} from "~/store/modal";
+const storeModal = useModalStore()
+
+
 
 
 

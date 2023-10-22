@@ -20,7 +20,7 @@ export default defineNuxtConfig({
 		strategy: 'prefix_except_default',
 		dynamicRouteParams: true,
 		compilation: {
-			strictMessage: false,
+			strictMessage: false
 		},
 		locales: [
 			{
@@ -28,30 +28,30 @@ export default defineNuxtConfig({
 				code: 'ru',
 				iso: 'ru_RU',
 				name: 'Россия',
-				file: 'ru.json',
+				file: 'ru.json'
 			},
 			{
 				flag: '/_nuxt/assets/img/flag/uk.png',
 				code: 'en',
 				iso: 'en-US',
 				name: 'English',
-				file: 'en.json',
-			},
+				file: 'en.json'
+			}
 		],
 		defaultLocale: {
 			name: 'Россия',
 			code: 'ru',
-			flag: '/_nuxt/assets/img/flag/ru.png',
-		},
+			flag: '/_nuxt/assets/img/flag/ru.png'
+		}
 	},
 	tailwindcss: {
-		configPath: './tailwind.config.ts',
+		configPath: './tailwind.config.ts'
 	},
 	postcss: {
 		plugins: {
 			tailwindcss: {},
-			autoprefixer: {},
-		},
+			autoprefixer: {}
+		}
 	},
 	ui: {
 		// global: true,

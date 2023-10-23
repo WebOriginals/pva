@@ -1,7 +1,7 @@
 <template>
   <div class="grid gap-4 grid-cols-2">
     <UiBaseButton size="xxl" label="смена пароля" @click="storeModal.actionIsOpenModalChangePassword"></UiBaseButton>
-    <UiBaseButton size="xxl" label="смена пароля успешно"></UiBaseButton>
+    <UiBaseButton size="xxl" label="востановление ппароля" @click="storeModal.actionIsOpenModalRestorePassword"></UiBaseButton>
   </div>
   <MainTheFirst></MainTheFirst>
   <MainGetNumber></MainGetNumber>

@@ -12,16 +12,17 @@ export const useUserStore = defineStore('user', () => {
 
 
 	// eslint-disable-next-line no-undef
-	const isOpenModalRegistration = ref(false);
+	const userData = ref({
+		email: '',
+		password: '',
+		confirmPassword: '',
+	});
 	// eslint-disable-next-line no-undef
-	const getIsOpenModalRegistration = computed(() => isOpenModalRegistration.value);
-	function actionIsOpenModalRegistration() {
-		return (isOpenModalRegistration.value = !isOpenModalRegistration.value);
+	const getUserData = computed(() => userData.value);
+	function setUserData(event) {
+		return userData.value = event;
 	};
-	function setIsOpenModalRegistration() {
-		return (isOpenModalRegistration.value = false);
-	}
 
 
-	return { isLoggedIn, isOpenModalRegistration, getIsLoggedIn, getIsOpenModalRegistration, actionIsLoggedIn, actionIsOpenModalRegistration, setIsOpenModalRegistration };
+	return {isLoggedIn, getIsLoggedIn, actionIsLoggedIn, getUserData, setUserData, userData};
 });

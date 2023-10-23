@@ -36,10 +36,10 @@ const props = defineProps({
 const solid = {
   disabled:
       'disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 ',
-  dark: 'dark:text-red dark:bg-{color}-500 w-full sm:w-auto min-w-[240px]',
+  dark: 'dark:text-red dark:bg-{color}-500 w-full sm:w-auto ',
   darkFocus: 'dark:focus-visible:outline-{color}-400',
   darkHover: 'dark:hover:bg-{color}-600',
-  light: 'shadow-sm text-white bg-{color}-500 w-full sm:w-auto min-w-[240px]',
+  light: 'shadow-sm text-white bg-{color}-500 w-full sm:w-auto ',
   lightFocus:
       'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{color}-500',
   lightHover: 'hover:bg-{color}-600',

@@ -27,6 +27,18 @@ export const useModalStore = defineStore('modal', () => {
 		return (isOpenModalChangePasswordSuccessfully.value = !isOpenModalChangePasswordSuccessfully.value);
 	}
 
+	const isOpenModalRestorePassword = ref(false);
+	const getIsOpenModalRestorePassword = computed(() => isOpenModalRestorePassword.value);
+	function actionIsOpenModalRestorePassword() {
+		return (isOpenModalRestorePassword.value = !isOpenModalRestorePassword.value);
+	}
+
+	const isOpenModalRestorePasswordSuccessfully = ref(false);
+	const getIsOpenModalRestorePasswordSuccessfully = computed(() => isOpenModalRestorePasswordSuccessfully.value);
+	function actionIsOpenModalRestorePasswordSuccessfully() {
+		return (isOpenModalRestorePasswordSuccessfully.value = !isOpenModalRestorePasswordSuccessfully.value);
+	}
+
 	return {
 		getIsOpenModalRegistration,
 		actionIsOpenModalRegistration,
@@ -35,6 +47,10 @@ export const useModalStore = defineStore('modal', () => {
 		getIsOpenModalChangePassword,
 		actionIsOpenModalChangePassword,
 		getIsOpenModalChangePasswordSuccessfully,
-		actionIsOpenModalChangePasswordSuccessfully
+		actionIsOpenModalChangePasswordSuccessfully,
+		getIsOpenModalRestorePassword,
+		actionIsOpenModalRestorePassword,
+		getIsOpenModalRestorePasswordSuccessfully,
+		actionIsOpenModalRestorePasswordSuccessfully
 	};
 });

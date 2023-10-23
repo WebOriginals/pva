@@ -29,13 +29,8 @@ import {useModalStore} from "~/store/modal";
 const storeModal = useModalStore();
 
 const logIn = () => {
-
-
-
       storeModal.actionIsOpenModalChangePasswordSuccessfully()
       storeModal.actionIsOpenModalRegistrationSuccessfully()
-
-
 };
 </script>
 

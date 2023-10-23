@@ -29,6 +29,8 @@
           <ModalRegistrationSuccessfully></ModalRegistrationSuccessfully>
           <ModalChangePassword></ModalChangePassword>
           <ModalChangePasswordSuccessfully></ModalChangePasswordSuccessfully>
+          <ModalRestorePassword></ModalRestorePassword>
+          <ModalRestorePasswordSuccessfully></ModalRestorePasswordSuccessfully>
 					<TheFooter></TheFooter>
 				</div>
 			</body>

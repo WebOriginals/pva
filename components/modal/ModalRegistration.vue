@@ -11,8 +11,11 @@
                @click="storeModal.actionIsOpenModalRegistration"/>
 
       <div class="modelReg__title">
+        <h2 v-if="error"> проблемы на сервере попробуйте позже {{error}}</h2>
+        <h2 v-if="pending">loading</h2>
         <h3>Регистрация</h3>
         <p>Не используйте временную или одноразовую почту. Мы не восстанавливаем доступ к подобным аккаунтам.</p>
+
       </div>
 
       <UButton label="Регистрация через Google" color="black" size="xl" block class="mb-6">
@@ -24,11 +27,8 @@
       <div class="modelReg__alternative"><span>или зарегистрируйтесь с помощью email</span></div>
 
       <UForm class="modelReg__form">
-
-
         <UiBaseInput
-
-            v-model="formData.email"
+            v-model="userData.email"
             :type-input="'email'"
             :label="'Введите email'"
             :error="v$.email.$error"
@@ -37,18 +37,14 @@
             @change="v$.email.$touch"
             autocomplete="off"
         ></UiBaseInput>
-
-
         <UiBaseInputPassword
-            v-model="formData.password"
+            v-model="userData.password"
             :label="'Введите пароль'"
             :placeholder="'Введите пароль'"
             :error="v$.password.$error"
             :is-error="false"
             @change="v$.password.$touch"
         ></UiBaseInputPassword>
-
-
         <div class="passwordRequirements">
           <div class="flex gap-1 items-center">
             <IconTheCheck v-if="!v$.password.mustBeNumber.$invalid && !v$.password.leastOneSpecialCharacter.$invalid"></IconTheCheck>
@@ -66,18 +62,14 @@
             <span>Не менее 8 символов</span>
           </div>
         </div>
-
-
         <UiBaseInputPassword
-            v-model="formData.confirmPassword"
+            v-model="userData.confirmPassword"
             :label="'Повторите пароль'"
             :placeholder="'Повторите пароль'"
             :error="v$.confirmPassword.$error"
             :errors=" v$.confirmPassword.$errors"
             @change="v$.confirmPassword.$touch"
         ></UiBaseInputPassword>
-
-
         <UiBaseButton
             class="btn"
             size="xl"
@@ -94,21 +86,20 @@
 </template>
 
 <script setup>
+import { storeToRefs } from "pinia";
+import { useUserStore } from '~/store/user.js';
+const storeUser = useUserStore();
+const { userData } = storeToRefs(storeUser);
+
 import {useModalStore} from "~/store/modal";
-const storeModal = useModalStore()
+const storeModal = useModalStore();
+
 import { useVuelidate } from '@vuelidate/core';
 import { required, email, sameAs, minLength, helpers } from '@vuelidate/validators';
 
 const isCapitalLetter = helpers.regex(/[A-Z]/)
 const mustBeNumber = helpers.regex(/[0-9]/);
 const leastOneSpecialCharacter = helpers.regex(/[^a-zA-Z0-9]/);
-
-const formData = ref({
-  email: '',
-  password: '',
-  confirmPassword: '',
-});
-
 
 const rules = computed(() => {
   return {
@@ -125,23 +116,31 @@ const rules = computed(() => {
     },
     confirmPassword: {
       required: helpers.withMessage('Поле электронной почты обязательно', required),
-      sameAs: helpers.withMessage("Пароли не совпадают", sameAs(formData.value.password)),
+      sameAs: helpers.withMessage("Пароли не совпадают", sameAs(userData.value.password)),
     },
   };
 });
 
-const v$ = useVuelidate(rules, formData);
+const v$ = useVuelidate(rules, userData);
 
-
-const submitForm = () => {
+import {index} from '~/components/api/fetchRegistation'
+const submitForm = async ()  => {
   v$.value.$validate();
   if (!v$.value.$error) {
-    console.log("злпррос пошел")
+    console.log("запрос пошел")
 
-    setTimeout(() => {
+    const params = {
+          email: userData.value.email,
+          password: userData.value.password,
+          password_confirmation: userData.value.confirmPassword
+        }
+    const {error} = await index(params)
+
+    if(!error.value){
       storeModal.actionIsOpenModalRegistration()
       storeModal.actionIsOpenModalRegistrationSuccessfully()
-    }, 2000);
+    }
+
   }
 };
 </script>

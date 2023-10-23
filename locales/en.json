@@ -1,257 +1,154 @@
 {
-	"UiSearchServiceLabel": "Find a service",
-	"Title1": "Home",
-	"Title2": "About",
-	"Btn": "Test",
-	"nav": {
-		"service": "Service",
-		"freeNumbers": "Free Numbers",
-		"news": "News",
-		"api": "API",
-		"about": "About",
-		"publicOffer": "Public offer",
-		"personalInformation": "Personal Information",
-		"returnsPolicy": "Returns Policy",
-		"activationHistory": "Activation history",
-		"safety": "Safety",
-		"exit": "Exit"
-	},
-	"logout": "log in",
-	"main": {
-		"first": {
-			"title": "Receive SMS online to virtual numbers",
-			"subTitle": "Temporary, disposable numbers for more than a thousand services and two hundred countries. Choose leaders - PvaBoom is more than just a service!",
-			"btn": "Get a number"
-		},
-		"firstSub": {
-			"firstSubList": {
-				"elementOne": {
-					"title": "180+",
-					"description": "More than 180 countries. You will definitely find something for yourself"
-				},
-				"elementTwo": {
-					"title": "1000+",
-					"description": "Verification for more than a thousand different services"
-				},
-				"elementThree": {
-					"title": "5 years",
-					"description": "We have been a leader in the market for 5 years"
-				}
-			},
-			"firstSubListTwo": {
-				"elementOne": {
-					"description": "PvaBoom is your reliable friend for purchasing virtual phone numbers. We offer a simple and effective solution to ensure your anonymity and security in the online world."
-				},
-				"elementTwo": {
-					"description": "With PvaBoom you can get virtual numbers for registration and verification on various services, such as social networks, instant messengers, payment systems and others."
-				},
-				"elementThree": {
-					"description": "PvaBoom is a service that values its customers and offers high quality service. Our team of more than 100 people carefully monitors the performance of the service."
-				}
-			}
-		},
-		"getNumber": {
-			"titleH2": "Registration using a Virtual number",
-			"titleH3": "Savings and Convenience: PvaBoom - Your way to getting virtual numbers.",
-			"description": "<p>The PvaBoom service provides discounts, cashback and wholesale prices for its regular customers, allowing them to save money and get additional benefits.</p> <p>For software developers involved in auto registration, our service provides an API and excellent conditions for integrating the service into their own software.</p> <p>PvaBoom supports more than 1000 sites and applications for registering and verifying accounts. In addition, there is an “Any Other” option, which allows you to use virtual numbers for services not included in the standard list.</p>",
-			"btn": "Get a number"
-		},
-		"steps": {
-			"title": "Three steps to get your <br> Virtual number",
-			"list": [
-				{
-					"title": "Select service and country",
-					"description": "Go to the PvaBoom website and register (if you have not already done so). After that, select the country for which you need a number, as well as the specific service or site where you want to receive an SMS code. PvaBoom supports verification on many popular online platforms, such as social networks, instant messengers, payment systems and others."
-				},
-				{
-					"title": "Get number",
-					"description": "The system will then provide you with a temporary phone number that you can use to receive SMS. Simply copy it and paste the content (virtual number) into the request field in the service of your choice, and click on the confirm button."
-				},
-				{
-					"title": "Receive SMS",
-					"description": "Once you have confirmed the number, just wait for an SMS from the selected service. When the message arrives at the virtual number you specified, it will be automatically displayed on the PvaBoom website. You need to enter the received code on the website of the service for which you registered and confirm your account."
-				}
-			]
-		},
-		"numberSales": {
-			"title": "The number of virtual numbers that were sold today!",
-			"description": "Statistics of the total number of virtual numbers sold for the current day. We are proud that our PvaBoom service provides many users with unique virtual numbers to maintain anonymity and security across thousands of services."
-		},
-		"news": {
-			"title": "Last news",
-			"btn": "All news"
-		},
-		"question": {
-			"title": "FAQ",
-			"questionItems": [
-				{
-					"label": "What is a virtual number and what is it for?",
-					"icon": "icon-pva__plus",
-					"defaultOpen": true,
-					"content": "A virtual number is a temporary phone number that can be used to register and verify accounts in thousands of different services. It allows you to ensure anonymity and protect personal data when working across various platforms."
-				},
-				{
-					"label": "How can I use virtual numbers?",
-					"icon": "icon-pva__plus",
-					"defaultOpen": false,
-					"content": "Virtual numbers from PvaBoom can be used to register in social networks, instant messengers, payment systems, online trading platforms and many other services that require phone verification"
-				},
-				{
-					"label": "How long can I use the virtual number?",
-					"icon": "icon-pva__plus",
-					"defaultOpen": false,
-					"content": "We provide: one-time activations with a temporary number valid for 20 minutes."
-				},
-				{
-					"label": "How many countries does PvaBoom support?",
-					"icon": "icon-pva__plus",
-					"defaultOpen": false,
-					"content": "We support over 180 countries, allowing our users to work with virtual numbers in different regions of the world."
-				},
-				{
-					"label": "What payment methods are available?",
-					"icon": "icon-pva__plus",
-					"defaultOpen": false,
-					"content": "You can fund your account using e-wallets, bank cards or cryptocurrency. We offer a variety of convenient payment options."
-				},
-				{
-					"label": "Is it safe to use virtual numbers?",
-					"icon": "icon-pva__plus",
-					"defaultOpen": false,
-					"content": "Yes, using virtual numbers from PvaBoom is absolutely safe. Your data remains confidential, and the service allows you to ensure anonymity in any version."
-				},
-				{
-					"label": "How can I contact support if I have questions?",
-					"icon": "icon-pva__plus",
-					"defaultOpen": false,
-					"content": "You can contact our support team through the feedback form on our website, and we will answer all your questions as soon as possible."
-				},
-				{
-					"label": "Do you support API integration for automatic registration?",
-					"icon": "icon-pva__plus",
-					"defaultOpen": false,
-					"content": "Yes, we provide an API for developers who deal with auto-registration. Integrate PvaBoom into your software and automate the process of obtaining virtual numbers."
-				}
-			]
-		}
-	},
-	"form": {
-		"errorForInput": {
-			"email": {
-				"required": "Email field is required",
-				"email": "Invalid email format"
-			},
-			"password": {
-				"required": "The password field is required",
-				"leastOneSpecialCharacter": "The field must contain at least one special character",
-				"mustBeNumber": "The field must contain at least 1 digit",
-				"isCapitalLetter": "At least one capital letter",
-				"minLength": "At least 8 characters",
-				"symbolOrNumber": "Must contain a symbol or number"
-			},
-			"confirmPassword": {
-				"required": "Password confirmation field is required",
-				"sameAs": "Passwords do not match"
-			},
-			"twoFA": {
-				"required": "The Google Authenticator field is required"
-			},
-			"codeFromEmail": {
-				"required": "The code field is required"
-			}
-		},
-		"errorFromServer": {
-
-		}
-	},
-	"modal": {
-		"authModalState": {
-			"ChangePassword": {
-				"title": "Change password",
-				"input": "Enter your password"
-			},
-			"ChangePasswordSuccessfully": {
-				"title": "Change password",
-				"subTitle": "The password has been successfully changed, you can now log into your account"
-			},
-			"Login": {
-				"title": "Account Login",
-				"googleBtn": "Registration with Google",
-				"googleSubText": "or register using email",
-				"inputEmail": "Enter your email",
-				"inputPassword": "Enter your password",
-				"inputConfirmPassword": "Re-enter your password",
-				"forgotYourPassword": "Forgot your password?",
-				"formBtn": "Login",
-				"noAccount": "Don't have an account yet?",
-				"Register": "Register"
-			},
-			"CodeFromEmail": {
-				"title": "Set password",
-				"subTitle": "An email with a link to reset your password has been sent to your email address",
-				"input": "Enter code",
-				"btnResend": "Resend",
-				"btnFurther": "Next"
-			},
-			"GoogleTowFA": {
-				"title": "Account Login",
-				"subTitle": "Open the Google Authenticator app and enter the code from it or the recovery code",
-				"input": "Enter code"
-			},
-			"Registration": {
-				"title": "Registration",
-				"subTitle": "Do not use temporary or disposable email. We do not restore access to such accounts.",
-				"googleBtn": "Registration with Google",
-				"googleSubText": "or register using email",
-				"inputEmail": "Enter your email",
-				"inputPassword": "Enter your password",
-				"inputConfirmPassword": "Re-enter your password",
-				"btnRegistration": "Register"
-			},
-			"RegistrationSuccessfully": {
-				"title": "Registration",
-				"subTitle1": "Email",
-				"subTitle2": "a letter has been sent. Please follow the link from the letter.",
-				"btnResend": "Resend",
-				"btnChangeEmail": "Change email"
-			},
-			"RestorePassword": {
-				"title": "Password recovery",
-				"subTitle": "We will send an email with instructions for password recovery to the specified email",
-				"inputEmail": "Enter your email",
-				"btn": "Send email"
-			},
-			"RestorePasswordSuccessfully": {
-				"title": "Password recovery",
-				"subTitle": "An email with a link to reset your password has been sent to your email address",
-				"btnResend": "Resend",
-				"btnChangeEmail": "Change email"
-			},
-			"WelcomeBackInGoogle": {
-				"title": "Welcome back!",
-				"subTitle": "You were previously signed in with Google",
-				"googleBtn": "Registration with Google",
-				"btn": "Set password"
-			}
-		}
-	},
-	"pc": "pc.",
-	"services": {
-		"pageTitle": "Services",
-		"myNumber": {
-			"title": "My numbers",
-			"unauthorized": "All your active purchased numbers are located here. To access this information, please log in to your account or use registration if you have not already done so.",
-			"authorized": "This block contains all your active numbers. You currently have no active numbers, please select a service"
-		},
-		"filter": {
-			"popularity": "By popularity",
-			"cheaper": "Cheaper",
-			"expensive": "More expensive",
-			"count": "By count"
-		},
-		"tab": {
-			"titleServices": "Services",
-			"titleNumbers": "My numbers"
-		}
-	}
+  "UiSearchServiceLabel": "Find a service",
+  "Title1": "Home",
+  "Title2": "About",
+  "Btn": "Test",
+  "nav": {
+    "service": "Service",
+    "freeNumbers": "Free Numbers",
+    "news": "News",
+    "api": "API",
+    "about": "About",
+    "publicOffer": "Public offer",
+    "personalInformation": "Personal Information",
+    "returnsPolicy": "Returns Policy",
+    "activationHistory": "Activation history",
+    "safety": "Safety",
+    "exit": "Exit"
+  },
+  "logout": "log in",
+  "main": {
+    "first": {
+      "title": "Receive SMS online to virtual numbers",
+      "subTitle": "Temporary, disposable numbers for more than a thousand services and two hundred countries. Choose leaders - PvaBoom is more than just a service!",
+      "btn": "Get a number"
+    },
+    "firstSub": {
+      "firstSubList": {
+        "elementOne": {
+          "title": "180+",
+          "description": "More than 180 countries. You will definitely find something for yourself"
+        },
+        "elementTwo": {
+          "title": "1000+",
+          "description": "Verification for more than a thousand different services"
+        },
+        "elementThree": {
+          "title": "5 years",
+          "description": "We have been a leader in the market for 5 years"
+        }
+      },
+      "firstSubListTwo": {
+        "elementOne": {
+          "description": "PvaBoom is your reliable friend for purchasing virtual phone numbers. We offer a simple and effective solution to ensure your anonymity and security in the online world."
+        },
+        "elementTwo": {
+          "description": "With PvaBoom you can get virtual numbers for registration and verification on various services, such as social networks, instant messengers, payment systems and others."
+        },
+        "elementThree": {
+          "description": "PvaBoom is a service that values its customers and offers high quality service. Our team of more than 100 people carefully monitors the performance of the service."
+        }
+      }
+    },
+    "getNumber": {
+      "titleH2": "Registration using a Virtual number",
+      "titleH3": "Savings and Convenience: PvaBoom - Your way to getting virtual numbers.",
+      "description": "<p>The PvaBoom service provides discounts, cashback and wholesale prices for its regular customers, allowing them to save money and get additional benefits.</p> <p>For software developers involved in auto registration, our service provides an API and excellent conditions for integrating the service into their own software.</p> <p>PvaBoom supports more than 1000 sites and applications for registering and verifying accounts. In addition, there is an “Any Other” option, which allows you to use virtual numbers for services not included in the standard list.</p>",
+      "btn": "Get a number"
+    },
+    "steps": {
+      "title": "Three steps to get your <br> Virtual number",
+      "list": [
+        {
+          "title": "Select service and country",
+          "description": "Go to the PvaBoom website and register (if you have not already done so). After that, select the country for which you need a number, as well as the specific service or site where you want to receive an SMS code. PvaBoom supports verification on many popular online platforms, such as social networks, instant messengers, payment systems and others."
+        },
+        {
+          "title": "Get number",
+          "description": "The system will then provide you with a temporary phone number that you can use to receive SMS. Simply copy it and paste the content (virtual number) into the request field in the service of your choice, and click on the confirm button."
+        },
+        {
+          "title": "Receive SMS",
+          "description": "Once you have confirmed the number, just wait for an SMS from the selected service. When the message arrives at the virtual number you specified, it will be automatically displayed on the PvaBoom website. You need to enter the received code on the website of the service for which you registered and confirm your account."
+        }
+      ]
+    },
+    "numberSales": {
+      "title": "The number of virtual numbers that were sold today!",
+      "description": "Statistics of the total number of virtual numbers sold for the current day. We are proud that our PvaBoom service provides many users with unique virtual numbers to maintain anonymity and security across thousands of services."
+    },
+    "news": {
+      "title": "Last news",
+      "btn": "All news"
+    },
+    "question": {
+      "title": "FAQ",
+      "questionItems": [
+        {
+          "label": "What is a virtual number and what is it for?",
+          "icon": "icon-pva__plus",
+          "defaultOpen": true,
+          "content": "A virtual number is a temporary phone number that can be used to register and verify accounts in thousands of different services. It allows you to ensure anonymity and protect personal data when working across various platforms."
+        },
+        {
+          "label": "How can I use virtual numbers?",
+          "icon": "icon-pva__plus",
+          "defaultOpen": false,
+          "content": "Virtual numbers from PvaBoom can be used to register in social networks, instant messengers, payment systems, online trading platforms and many other services that require phone verification"
+        },
+        {
+          "label": "How long can I use the virtual number?",
+          "icon": "icon-pva__plus",
+          "defaultOpen": false,
+          "content": "We provide: one-time activations with a temporary number valid for 20 minutes."
+        },
+        {
+          "label": "How many countries does PvaBoom support?",
+          "icon": "icon-pva__plus",
+          "defaultOpen": false,
+          "content": "We support over 180 countries, allowing our users to work with virtual numbers in different regions of the world."
+        },
+        {
+          "label": "What payment methods are available?",
+          "icon": "icon-pva__plus",
+          "defaultOpen": false,
+          "content": "You can fund your account using e-wallets, bank cards or cryptocurrency. We offer a variety of convenient payment options."
+        },
+        {
+          "label": "Is it safe to use virtual numbers?",
+          "icon": "icon-pva__plus",
+          "defaultOpen": false,
+          "content": "Yes, using virtual numbers from PvaBoom is absolutely safe. Your data remains confidential, and the service allows you to ensure anonymity in any version."
+        },
+        {
+          "label": "How can I contact support if I have questions?",
+          "icon": "icon-pva__plus",
+          "defaultOpen": false,
+          "content": "You can contact our support team through the feedback form on our website, and we will answer all your questions as soon as possible."
+        },
+        {
+          "label": "Do you support API integration for automatic registration?",
+          "icon": "icon-pva__plus",
+          "defaultOpen": false,
+          "content": "Yes, we provide an API for developers who deal with auto-registration. Integrate PvaBoom into your software and automate the process of obtaining virtual numbers."
+        }
+      ]
+    }
+  },
+  "AboutPage": {
+    "title": "About us",
+    "info": "Welcome to the About Us page of the PvaBoom service! We specialize in providing virtual numbers for registering and receiving SMS online. Our products and services are designed to ensure your security and privacy on the Internet, as well as simplify registration in thousands of services around the world.",
+    "supportTitle": "24/7 support:",
+    "phone": "+7 (919) 914-95-11",
+    "managerTitle": "Managers working hours:",
+     "work": "Mon-Fri: 09:00 - 18:00",
+     "closed": "Sat, Sun: closed",
+     "companyTitle": "Company contacts:",
+     "companyAdress": "3336 Frick Rd, Houston (TX), 77086, United States"
+  },
+  "NotFoundPage": {
+    "title": "Page not found",
+    "info": "It seems we have lost this page in the virtual wilds. Please use the navigation above to find your way, or return to the main page to start over.",
+    "link": "To the main page"
+  }
 }

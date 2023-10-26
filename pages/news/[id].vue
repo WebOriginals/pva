@@ -1,7 +1,17 @@
 <template>
-  <p>{{$route.params.id}}</p>
+  <section class="news-card">
+    <div class="news-card__container">
+        <NuxtLink :to="localePath('/news')"> {{ $route.params.id }} </NuxtLink>
+    </div>
+  </section>
 </template>
 
-<script setup></script>
+<script setup>
+const localePath = useLocalePath()
+const route = useRoute()
 
-<style scoped lang="scss"></style>
+</script>
+
+<style scoped lang="scss">
+
+</style>

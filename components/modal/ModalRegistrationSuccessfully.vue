@@ -17,7 +17,7 @@
 
       <div class="modelReg__grid-btn">
         <UiBaseButton size="xxl" label="Отправить повторно" @click="fetchRegistrationAgain"></UiBaseButton>
-        <UiBaseButton size="xxl" label="Сменить email" variant="soft"></UiBaseButton>
+        <UiBaseButton size="xxl" label="Сменить email" variant="soft" @click="openModalRegistration"></UiBaseButton>
       </div>
 
 
@@ -30,8 +30,10 @@ import { storeToRefs } from "pinia";
 import { useUserStore } from '~/store/user.js';
 const storeUser = useUserStore();
 const { userData } = storeToRefs(storeUser);
+
 import {useModalStore} from "~/store/modal";
 const storeModal = useModalStore();
+
 import {index} from '~/components/api/fetchRegistation'
 const fetchRegistrationAgain = async () => {
   console.log("запрос пошел")
@@ -43,6 +45,11 @@ const fetchRegistrationAgain = async () => {
   }
   const {user, pending, status, refresh, error} = await index(params)
 };
+
+const openModalRegistration = () => {
+  storeModal.actionIsOpenModalRegistrationSuccessfully()
+  storeModal.actionIsOpenModalRegistration()
+}
 </script>
 
 <style scoped lang="scss">

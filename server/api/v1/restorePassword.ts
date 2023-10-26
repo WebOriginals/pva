@@ -5,13 +5,7 @@ export default defineEventHandler(async (event) => {
         successful: true,
         data: [
             {
-                title: "title",
-                longImg: "url",
-                longImgAlt: "text",
-                bigImgAlt: "text",
-                bigImg: "url",
-                desc1: "text",
-                desc2: "text",
+                title: "a letter was sent at the post"
             }
         ],
         status: 201

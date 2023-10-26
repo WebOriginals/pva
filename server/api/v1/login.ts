@@ -1,3 +1,5 @@
+import {f} from "ofetch/dist/shared/ofetch.441891d5";
+
 export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     setResponseStatus(event, 201)
@@ -5,13 +7,9 @@ export default defineEventHandler(async (event) => {
         successful: true,
         data: [
             {
-                title: "title",
-                longImg: "url",
-                longImgAlt: "text",
-                bigImgAlt: "text",
-                bigImg: "url",
-                desc1: "text",
-                desc2: "text",
+                title: "you have logged in successfully",
+                twoFA: false,
+                google: true
             }
         ],
         status: 201

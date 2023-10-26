@@ -1,5 +1,5 @@
 <template>
-  <UModal v-model="storeModal.getIsOpenModalRegistration" ref="modalRef" class="modelReg"
+  <UModal v-model="storeModal.getIsOpenModalLogin" ref="modalRef" class="modelReg"
           :ui="{width: 'sm:max-w-[608px]', rounded: 'rounded-lg lg:rounded-2xl',overlay:{background:'bg-stone-950/75 dark:bg-stone-950/75'},container:'items-center'}">
     <div class="modelReg__wrapper">
 
@@ -8,12 +8,10 @@
                icon="i-heroicons-x-mark-20-solid"
                class="modelReg__close"
                size="xl"
-               @click="storeModal.actionIsOpenModalRegistration"/>
+               @click="storeModal.actionIsOpenModalLogin"/>
 
       <div class="modelReg__title">
-        <h3>Регистрация</h3>
-        <p>Не используйте временную или одноразовую почту. Мы не восстанавливаем доступ к подобным аккаунтам.</p>
-
+        <h3>Вход в аккаунт</h3>
       </div>
 
       <UButton label="Регистрация через Google" color="black" size="xl" block class="mb-6">
@@ -40,43 +38,27 @@
             :label="'Введите пароль'"
             :placeholder="'Введите пароль'"
             :error="v$.password.$error"
+            :errors=" v$.password.$errors"
             :is-error="false"
             @change="v$.password.$touch"
         ></UiBaseInputPassword>
-        <div class="passwordRequirements">
-          <div class="flex gap-1 items-center">
-            <IconTheCheck v-if="!v$.password.mustBeNumber.$invalid && !v$.password.leastOneSpecialCharacter.$invalid"></IconTheCheck>
-            <IconTheError v-else></IconTheError>
-            <span>Должен содержать символ и цифру</span>
-          </div>
-          <div class="flex gap-1 items-center">
-            <IconTheCheck v-if="!v$.password.isCapitalLetter.$invalid"></IconTheCheck>
-            <IconTheError v-else></IconTheError>
-            <span>Как минимум одну заглавную букву</span>
-          </div>
-          <div class="flex gap-1 items-center">
-            <IconTheCheck v-if="!v$.password.minLength.$invalid"></IconTheCheck>
-            <IconTheError v-else></IconTheError>
-            <span>Не менее 8 символов</span>
-          </div>
+        <div class="flex justify-end">
+          <UButton color="primary" variant="link" label="Забыли пароль?" @click="openModalRestorePassword"/>
         </div>
-        <UiBaseInputPassword
-            v-model="userData.confirmPassword"
-            :label="'Повторите пароль'"
-            :placeholder="'Повторите пароль'"
-            :error="v$.confirmPassword.$error"
-            :errors=" v$.confirmPassword.$errors"
-            @change="v$.confirmPassword.$touch"
-        ></UiBaseInputPassword>
+
         <UiBaseButton
             class="btn"
             size="xl"
-            label="Зарегистрироваться"
+            label="Войти"
             block
             type="submit"
             :disabled="v$.$invalid"
-            @click.prevent="submitRegistrationForm"
+            @click.prevent="submitForm"
         ></UiBaseButton>
+        <div class="text-center">
+          <span>Ещё нет аккаунта? <UButton color="primary" variant="link" label="Зарегистрироваться" @click="openModalRegistration"/></span>
+        </div>
+
       </UForm>
 
     </div>
@@ -109,36 +91,49 @@ const rules = computed(() => {
       mustBeNumber: helpers.withMessage('Поле должно содержать хотя бы 1 цифру', mustBeNumber),
       leastOneSpecialCharacter: helpers.withMessage('Поле должно содержать хотя бы один специальный символ.', leastOneSpecialCharacter),
       minLength: helpers.withMessage('Поле должно содержать минимум 8 символов', minLength(8)),
-    },
-    confirmPassword: {
-      required: helpers.withMessage('Поле электронной почты обязательно', required),
-      sameAs: helpers.withMessage("Пароли не совпадают", sameAs(userData.value.password)),
-    },
+    }
   };
 });
 const v$ = useVuelidate(rules, userData);
 
-import {index} from '~/components/api/fetchRegistation'
-const submitRegistrationForm = async ()  => {
+import {index} from '~/components/api/fetchLogin'
+const submitForm = async ()  => {
   v$.value.$validate();
   if (!v$.value.$error) {
-    console.log("запрос пошел")
+
 
     const params = {
-          email: userData.value.email,
-          password: userData.value.password,
-          password_confirmation: userData.value.confirmPassword,
-          access_token: 'tyryrRerw456'
-        }
-    const {error} = await index(params)
+      email: userData.value.email,
+      password: userData.value.password
+    }
+    const {error, user} = await index(params)
 
     if(!error.value){
-      storeModal.actionIsOpenModalRegistration()
-      storeModal.actionIsOpenModalRegistrationSuccessfully()
-    }
+      storeModal.actionIsOpenModalLogin()
 
+      if(user.value[0].google){
+        storeModal.actionIsOpenModalWelcomeBackInGoogle()
+      }
+
+      if(user.value[0].twoFA){
+        storeModal.actionIsOpenModalTwoFA()
+      } else {
+        console.log("this")
+        storeUser.actionIsLoggedIn()
+      }
+    }
   }
 };
+
+const openModalRegistration = () => {
+  storeModal.actionIsOpenModalLogin()
+  storeModal.actionIsOpenModalRegistration()
+}
+const openModalRestorePassword = () => {
+  storeModal.actionIsOpenModalLogin()
+  storeModal.actionIsOpenModalRestorePassword()
+}
+
 </script>
 
 <style lang="scss">

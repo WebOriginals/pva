@@ -31,6 +31,9 @@
           <ModalChangePasswordSuccessfully></ModalChangePasswordSuccessfully>
           <ModalRestorePassword></ModalRestorePassword>
           <ModalRestorePasswordSuccessfully></ModalRestorePasswordSuccessfully>
+          <ModalLogin></ModalLogin>
+          <ModalTwoFA></ModalTwoFA>
+          <ModalWelcomeBackInGoogle></ModalWelcomeBackInGoogle>
 					<TheFooter></TheFooter>
 				</div>
 			</body>

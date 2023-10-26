@@ -30,7 +30,7 @@ const storeModal = useModalStore();
 
 const logIn = () => {
       storeModal.actionIsOpenModalChangePasswordSuccessfully()
-      storeModal.actionIsOpenModalRegistrationSuccessfully()
+      storeModal.actionIsOpenModalLogin()
 };
 </script>
 

@@ -39,6 +39,24 @@ export const useModalStore = defineStore('modal', () => {
 		return (isOpenModalRestorePasswordSuccessfully.value = !isOpenModalRestorePasswordSuccessfully.value);
 	}
 
+	const isOpenModalLogin = ref(false);
+	const getIsOpenModalLogin = computed(() => isOpenModalLogin.value);
+	function actionIsOpenModalLogin() {
+		return (isOpenModalLogin.value = !isOpenModalLogin.value);
+	}
+
+	const isOpenModalTwoFA = ref(false);
+	const getIsOpenModalTwoFA = computed(() => isOpenModalTwoFA.value);
+	function actionIsOpenModalTwoFA() {
+		return (isOpenModalTwoFA.value = !isOpenModalTwoFA.value);
+	}
+
+	const isOpenModalWelcomeBackInGoogle = ref(false);
+	const getIsOpenModalWelcomeBackInGoogle = computed(() => isOpenModalWelcomeBackInGoogle.value);
+	function actionIsOpenModalWelcomeBackInGoogle() {
+		return (isOpenModalWelcomeBackInGoogle.value = !isOpenModalWelcomeBackInGoogle.value);
+	}
+
 	return {
 		getIsOpenModalRegistration,
 		actionIsOpenModalRegistration,
@@ -51,6 +69,12 @@ export const useModalStore = defineStore('modal', () => {
 		getIsOpenModalRestorePassword,
 		actionIsOpenModalRestorePassword,
 		getIsOpenModalRestorePasswordSuccessfully,
-		actionIsOpenModalRestorePasswordSuccessfully
+		actionIsOpenModalRestorePasswordSuccessfully,
+		getIsOpenModalLogin,
+		actionIsOpenModalLogin,
+		getIsOpenModalTwoFA,
+		actionIsOpenModalTwoFA,
+		getIsOpenModalWelcomeBackInGoogle,
+		actionIsOpenModalWelcomeBackInGoogle
 	};
 });

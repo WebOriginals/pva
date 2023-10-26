@@ -1,7 +1,11 @@
 <template>
-  <div class="grid gap-4 grid-cols-2">
+  <div class="grid gap-4 grid-cols-6">
     <UiBaseButton size="xxl" label="смена пароля" @click="storeModal.actionIsOpenModalChangePassword"></UiBaseButton>
     <UiBaseButton size="xxl" label="востановление ппароля" @click="storeModal.actionIsOpenModalRestorePassword"></UiBaseButton>
+    <UiBaseButton size="xxl" label="войти" @click="storeModal.actionIsOpenModalLogin"></UiBaseButton>
+    <UiBaseButton size="xxl" label="регистрация" @click="storeModal.actionIsOpenModalRegistration"></UiBaseButton>
+    <UiBaseButton size="xxl" label="2fa" @click="storeModal.actionIsOpenModalTwoFA"></UiBaseButton>
+    <UiBaseButton size="xxl" label="С возвращением!" @click="storeModal.actionIsOpenModalWelcomeBackInGoogle"></UiBaseButton>
   </div>
   <MainTheFirst></MainTheFirst>
   <MainGetNumber></MainGetNumber>

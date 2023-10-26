@@ -1,5 +1,5 @@
 <template>
-  <UModal v-model="storeModal.getIsOpenModalRestorePassword"  class="modelReg"
+  <UModal v-model="storeModal.getIsOpenModalTwoFA"  class="modelReg"
           :ui="{width: 'sm:max-w-[608px]', rounded: 'rounded-lg lg:rounded-2xl',overlay:{background:'bg-stone-950/75 dark:bg-stone-950/75'},container:'items-center'}">
     <div class="modelReg__wrapper">
 
@@ -8,11 +8,10 @@
                icon="i-heroicons-x-mark-20-solid"
                class="modelReg__close"
                size="xl"
-               @click="storeModal.actionIsOpenModalRestorePassword"/>
+               @click="storeModal.actionIsOpenModalTwoFA"/>
 
       <div class="modelReg__title">
-        <h3>Восстановление пароля</h3>
-        <p>Мы отправим письмо с инструкцией для восстановления пароля на указанный email</p>
+        <h3>2 FA</h3>
       </div>
 
 
@@ -20,14 +19,13 @@
 
 
         <UiBaseInput
-
-            v-model="userData.email"
-            :type-input="'email'"
-            :label="'Введите email'"
-            :error="v$.email.$error"
-            :errors="v$.email.$errors"
+            v-model="userData.twoFA"
+            :type-input="'text'"
+            :label="'Код Google Authenticator или код восстановления'"
+            :error="v$.twoFA.$error"
+            :errors="v$.twoFA.$errors"
             :placeholder="'Введите email'"
-            @change="v$.email.$touch"
+            @change="v$.twoFA.$touch"
             autocomplete="off"
         ></UiBaseInput>
 
@@ -38,7 +36,7 @@
             block
             type="submit"
             :disabled="v$.$invalid"
-            @click.prevent="sendEmail"
+            @click.prevent="sendTwoFA"
         ></UiBaseButton>
       </UForm>
 
@@ -56,29 +54,28 @@ import {useModalStore} from "~/store/modal";
 const storeModal = useModalStore()
 
 import { useVuelidate } from '@vuelidate/core';
-import { required, email, helpers } from '@vuelidate/validators';
+import { required, helpers } from '@vuelidate/validators';
 const rules = computed(() => {
   return {
-    email: {
+    twoFA: {
       required: helpers.withMessage('Поле электронной почты обязательно', required),
-      email: helpers.withMessage('Неверный формат электронной почты', email),
     }
   };
 });
 const v$ = useVuelidate(rules, userData);
 
-import {index} from "~/components/api/fatchRestorePassword";
-const sendEmail = async () => {
+import {index} from "~/components/api/fetchTwoFA";
+const sendTwoFA = async () => {
   const params = {
-    email: userData.value.email,
+    twoFA: userData.value.twoFA,
   }
   v$.value.$validate();
   if (!v$.value.$error) {
     const {user, pending, status, refresh, error} = await index(params)
     console.log(status)
     if(!error.value){
-      storeModal.actionIsOpenModalRestorePassword()
-      storeModal.actionIsOpenModalRestorePasswordSuccessfully()
+      storeModal.actionIsOpenModalTwoFA()
+      storeUser.actionIsLoggedIn()
     }
   }
 };

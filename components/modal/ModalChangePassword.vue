@@ -17,7 +17,7 @@
       <UForm class="modelReg__form">
 
         <UiBaseInputPassword
-            v-model="formData.password"
+            v-model="userData.password"
             :label="'Введите пароль'"
             :placeholder="'Введите пароль'"
             :error="v$.password.$error"
@@ -45,7 +45,7 @@
         </div>
 
         <UiBaseInputPassword
-            v-model="formData.confirmPassword"
+            v-model="userData.confirmPassword"
             :label="'Повторите пароль'"
             :placeholder="'Повторите пароль'"
             :error="v$.confirmPassword.$error"
@@ -60,7 +60,7 @@
             block
             type="submit"
             :disabled="v$.$invalid"
-            @click.prevent="submitForm"
+            @click.prevent="sendChangedPassword"
         ></UiBaseButton>
       </UForm>
 
@@ -69,22 +69,19 @@
 </template>
 
 <script setup>
+import { storeToRefs } from "pinia";
+import { useUserStore } from '~/store/user';
+const storeUser = useUserStore();
+const { userData } = storeToRefs(storeUser);
+
 import { useModalStore } from "~/store/modal";
 const storeModal = useModalStore()
 
 import {useVuelidate} from '@vuelidate/core';
 import {required, sameAs, minLength, helpers} from '@vuelidate/validators';
-
 const isCapitalLetter = helpers.regex(/[A-Z]/)
 const mustBeNumber = helpers.regex(/[0-9]/);
 const leastOneSpecialCharacter = helpers.regex(/[^a-zA-Z0-9]/);
-
-const formData = ref({
-  password: '',
-  confirmPassword: '',
-});
-
-
 const rules = computed(() => {
   return {
 
@@ -97,25 +94,28 @@ const rules = computed(() => {
     },
     confirmPassword: {
       required: helpers.withMessage('Поле электронной почты обязательно', required),
-      sameAs: helpers.withMessage("Пароли не совпадают", sameAs(formData.value.password)),
+      sameAs: helpers.withMessage("Пароли не совпадают", sameAs(userData.value.password)),
     },
   };
 });
+const v$ = useVuelidate(rules, userData);
 
-const v$ = useVuelidate(rules, formData);
-
-
-const submitForm = () => {
+import {index} from "~/components/api/fetchСhangePassword";
+const sendChangedPassword = async () => {
+  const params = {
+    email: userData.value.email,
+  }
   v$.value.$validate();
   if (!v$.value.$error) {
-    console.log("запрос пошел")
-
-    setTimeout(() => {
+    const {user, pending, status, refresh, error} = await index(params)
+    console.log(status)
+    if(!error.value){
       storeModal.actionIsOpenModalChangePassword()
       storeModal.actionIsOpenModalChangePasswordSuccessfully()
-    }, 2000);
+    }
   }
 };
+
 </script>
 
 <style scoped lang="scss">

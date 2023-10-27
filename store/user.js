@@ -16,7 +16,8 @@ export const useUserStore = defineStore('user', () => {
 		email: '',
 		password: '',
 		confirmPassword: '',
-		twoFA: ''
+		twoFA: '',
+		codeFromEmail: ''
 	});
 	// eslint-disable-next-line no-undef
 	const getUserData = computed(() => userData.value);

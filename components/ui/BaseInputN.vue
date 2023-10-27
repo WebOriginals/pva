@@ -4,38 +4,56 @@
       <input
           class="text-field__input"
           :class="{'text-field__input-error': error}"
-          :type="props.typeInput"
+          :type="typeInput"
           :placeholder="props.placeholder"
           :value="modelValue"
           @input="$emit('update:modelValue', $event.target.value)">
       <label
           class="text-field__label"
-          for="email"
-      >{{props.label}}</label>
+      >{{ props.label }}</label>
+
+      <template v-if="props.typeInput == 'password'">
+        <UButton class='text-field__showText'
+                 v-if="typeInput == 'password'"
+                 icon="icon-pva__eye_off"
+                 size="sm"
+                 color="primary"
+                 square
+                 variant="ghost"
+                 type="password"
+                 @click.stop="switchVisibility"/>
+        <UButton class='text-field__showText'
+                 v-else
+                 icon="icon-pva__eye_on"
+                 size="sm" color="primary"
+                 square
+                 variant="ghost"
+                 type="password"
+                 @click.stop="switchVisibility"/>
+      </template>
+
     </div>
-    <div class="wrapper-input__mas" v-if="error">
+    <div class="wrapper-input__mas" v-if="error && showError">
       <IconTheErrorMas></IconTheErrorMas>
-      <span class="text-xs text-red-600">{{ errors[0].$message }}</span>
+      <span class="text-xs text-red-500">{{ errors[0].$message }}</span>
     </div>
-
   </div>
-
 </template>
 
 <script setup>
 const props = defineProps({
-	modelValue: {
-		type: String,
-		required: true,
-	},
-	placeholder: {
-		type: String,
-		required: true,
-	},
-	label:{
-		type: String,
-		required: true,
-	},
+  modelValue: {
+    type: String,
+    required: true,
+  },
+  placeholder: {
+    type: String,
+    required: true,
+  },
+  label:{
+    type: String,
+    required: true,
+  },
   typeInput:{
     type: String,
     required: true,
@@ -46,12 +64,21 @@ const props = defineProps({
   errors:{
     type: Array,
     default: [],
+  },
+  showError:{
+    type: Boolean,
+    default: true,
   }
 });
 defineEmits(['update:modelValue']);
+
+const typeInput = ref(props.typeInput);
+const switchVisibility = () => {
+  return typeInput.value = (typeInput.value === 'password' ? 'text' : 'password');
+};
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .text-field {
 
   &__label {
@@ -78,23 +105,27 @@ defineEmits(['update:modelValue']);
     @apply relative;
 
     & .text-field__input {
-      @apply h-14 px-5 py-4 text-base;
+      @apply h-14 px-5 py-4 text-base pr-12;
 
       &::placeholder {
         @apply text-transparent;
       }
 
-      &:focus, &:not(:placeholder-shown){
+      &:focus, &:not(:placeholder-shown) {
         @apply pt-7 pb-2.5;
       }
 
-      &:focus~.text-field__label, &:not(:placeholder-shown)~.text-field__label{
+      &:focus ~ .text-field__label, &:not(:placeholder-shown) ~ .text-field__label {
         @apply opacity-60 scale-75 -translate-y-2.5 -translate-x-3.5;
       }
     }
 
     & .text-field__label {
       @apply text-sky-400 px-5 py-4 absolute top-0 left-0 h-full pointer-events-none border-transparent transition delay-150 duration-300 ease-in-out;
+    }
+
+    & .text-field__showText {
+      @apply absolute top-[50%] right-3 -translate-y-2/4;
     }
   }
 }

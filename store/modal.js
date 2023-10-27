@@ -57,6 +57,18 @@ export const useModalStore = defineStore('modal', () => {
 		return (isOpenModalWelcomeBackInGoogle.value = !isOpenModalWelcomeBackInGoogle.value);
 	}
 
+	const isOpenModalCodeFromEmail = ref(false);
+	const getIsOpenModalCodeFromEmail = computed(() => isOpenModalCodeFromEmail.value);
+	function actionIsOpenModalCodeFromEmail() {
+		return (isOpenModalCodeFromEmail.value = !isOpenModalCodeFromEmail.value);
+	}
+
+	const isOpenModalAuthorization = ref(false);
+	const getIsOpenModalAuthorization = computed(() => isOpenModalAuthorization.value);
+	function actionIsOpenModalAuthorization() {
+		return (isOpenModalAuthorization.value = !isOpenModalAuthorization.value);
+	}
+
 	return {
 		getIsOpenModalRegistration,
 		actionIsOpenModalRegistration,
@@ -75,6 +87,11 @@ export const useModalStore = defineStore('modal', () => {
 		getIsOpenModalTwoFA,
 		actionIsOpenModalTwoFA,
 		getIsOpenModalWelcomeBackInGoogle,
-		actionIsOpenModalWelcomeBackInGoogle
+		actionIsOpenModalWelcomeBackInGoogle,
+		getIsOpenModalCodeFromEmail,
+		actionIsOpenModalCodeFromEmail,
+
+		getIsOpenModalAuthorization,
+		actionIsOpenModalAuthorization
 	};
 });

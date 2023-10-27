@@ -34,6 +34,8 @@
           <ModalLogin></ModalLogin>
           <ModalTwoFA></ModalTwoFA>
           <ModalWelcomeBackInGoogle></ModalWelcomeBackInGoogle>
+          <ModalCodeFromEmail></ModalCodeFromEmail>
+          <ModalAuthorization></ModalAuthorization>
 					<TheFooter></TheFooter>
 				</div>
 			</body>

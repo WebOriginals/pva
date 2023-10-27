@@ -39,8 +39,8 @@ import {useModalStore} from "~/store/modal";
 const storeModal = useModalStore();
 
 const setPassword = async () => {
-  console.log("setPassword")
-
+  storeModal.actionIsOpenModalWelcomeBackInGoogle()
+  storeModal.actionIsOpenModalCodeFromEmail()
 };
 </script>
 

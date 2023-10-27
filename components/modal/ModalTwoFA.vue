@@ -11,7 +11,8 @@
                @click="storeModal.actionIsOpenModalTwoFA"/>
 
       <div class="modelReg__title">
-        <h3>2 FA</h3>
+        <h3>Вход в аккаунт</h3>
+        <p>Откройте приложение Google Authenticator и введите код из него или код восстановления</p>
       </div>
 
 
@@ -82,6 +83,6 @@ const sendTwoFA = async () => {
 
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 
 </style>

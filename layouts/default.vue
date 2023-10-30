@@ -26,6 +26,7 @@
 						<slot></slot>
 					</main>
           <ModalAuthorization></ModalAuthorization>
+
 					<TheFooter></TheFooter>
 				</div>
 			</body>

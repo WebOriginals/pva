@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
             {
                 title: "you have logged in successfully",
                 twoFA: false,
-                google: true
+                google: false
             }
         ],
         status: 201

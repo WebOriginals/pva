@@ -20,7 +20,6 @@
 
 
         <UiBaseInput
-
             v-model="userData.email"
             :type-input="'email'"
             :label="'Введите email'"

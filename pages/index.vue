@@ -9,6 +9,7 @@
     <UiBaseButton size="xxl" label="код на посте" @click="storeModal.actionIsOpenModalCodeFromEmail"></UiBaseButton>
     <UiBaseButton size="xxl" label="главная " @click="storeModal.actionIsOpenModalAuthorization"></UiBaseButton>
   </div>
+
   <MainTheFirst></MainTheFirst>
   <MainGetNumber></MainGetNumber>
   <MainTheSteps></MainTheSteps>

@@ -15,10 +15,7 @@
         <p>Откройте приложение Google Authenticator и введите код из него или код восстановления</p>
       </div>
 
-
       <UForm class="modelReg__form">
-
-
         <UiBaseInput
             v-model="userData.twoFA"
             :type-input="'text'"

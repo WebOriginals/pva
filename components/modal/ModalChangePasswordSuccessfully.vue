@@ -14,7 +14,6 @@
         <h3>Смена пароля</h3>
         <p>Пароль успешно изменён, теперь вы можете войти в свой аккаунт</p>
       </div>
-
       <div class="modelReg__btn">
         <UiBaseButton class="btn" size="xxl" label="Войти" @click="logIn"></UiBaseButton>
       </div>

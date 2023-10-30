@@ -1,7 +1,7 @@
 <template >
 <section class="question">
   <div class="question__container">
-    <h2 @click="log($tm('main.question.questionItems'))"> {{ $t('main.question.title') }} </h2>
+    <h2> {{ $t('main.question.title') }} </h2>
     <div class="question__wrapper">
       <UiSpoilerCard
         v-for="(item, index) in $tm('main.question.questionItems')"

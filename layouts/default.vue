@@ -25,17 +25,8 @@
 					<main class="page" :class="{ pb150: !store.getIsLoggedIn }">
 						<slot></slot>
 					</main>
-          <ModalRegistration></ModalRegistration>
-          <ModalRegistrationSuccessfully></ModalRegistrationSuccessfully>
-          <ModalChangePassword></ModalChangePassword>
-          <ModalChangePasswordSuccessfully></ModalChangePasswordSuccessfully>
-          <ModalRestorePassword></ModalRestorePassword>
-          <ModalRestorePasswordSuccessfully></ModalRestorePasswordSuccessfully>
-          <ModalLogin></ModalLogin>
-          <ModalTwoFA></ModalTwoFA>
-          <ModalWelcomeBackInGoogle></ModalWelcomeBackInGoogle>
-          <ModalCodeFromEmail></ModalCodeFromEmail>
           <ModalAuthorization></ModalAuthorization>
+
 					<TheFooter></TheFooter>
 				</div>
 			</body>

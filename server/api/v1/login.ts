@@ -1,15 +1,15 @@
 export default defineEventHandler(async (event) => {
     const body = await readBody(event)
-    setResponseStatus(event, 201)
+    setResponseStatus(event, 401)
     return {
         successful: true,
         data: [
             {
                 title: "you have logged in successfully",
-                twoFA: true,
-                google: false
+                twoFA: false,
+                google: true
             }
         ],
-        status: 201
+        status: 401
     };
 });

@@ -17,7 +17,5 @@ export const useModalStore = defineStore('modal', () => {
 		getIsOpenModal,
 		actionIsOpenModal,
 		closeIsOpenModal,
-
-
 	};
 });

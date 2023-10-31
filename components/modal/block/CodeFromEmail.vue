@@ -17,7 +17,7 @@
         autocomplete="off"
     ></UiBaseInput>
     <div class="modelReg__grid-btn">
-      <UiBaseButton :disabled="v$.$invalid" size="xxl"  label=" Отправить повторно" variant="soft" @click="sendCodeFromEmailAgain"></UiBaseButton>
+      <UiBaseButton  size="xxl"  label=" Отправить повторно" variant="soft" @click="sendCodeFromEmailAgain"></UiBaseButton>
       <UiBaseButton :disabled="v$.$invalid" size="xxl" label="Далее"  @click="setPassword"></UiBaseButton>
     </div>
   </UForm>
@@ -26,6 +26,8 @@
 </template>
 
 <script setup>
+const {AuthModalState} = useAllUtils();
+const emit = defineEmits();
 import {storeToRefs} from "pinia";
 import { useUserStore } from '~/store/user.js';
 const storeUser = useUserStore();
@@ -54,8 +56,7 @@ const sendCodeFromEmailAgain = async () => {
 };
 
 const setPassword = () => {
-  storeModal.actionIsOpenModalCodeFromEmail()
-  storeModal.actionIsOpenModalChangePassword()
+  emit('getModalNeedState', AuthModalState.changePassword);
 }
 </script>
 

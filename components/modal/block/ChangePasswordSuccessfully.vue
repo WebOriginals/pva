@@ -11,12 +11,13 @@
 </template>
 
 <script setup>
+const {AuthModalState} = useAllUtils();
+const emit = defineEmits();
 import {useModalStore} from "~/store/modal";
 const storeModal = useModalStore();
 
 const logIn = () => {
-  storeModal.actionIsOpenModalChangePasswordSuccessfully()
-  storeModal.actionIsOpenModalLogin()
+  emit('getModalNeedState', AuthModalState.login);
 };
 </script>
 

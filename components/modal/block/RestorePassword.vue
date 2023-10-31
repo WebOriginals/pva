@@ -32,6 +32,8 @@
 </template>
 
 <script setup>
+const {AuthModalState} = useAllUtils();
+const emit = defineEmits();
 import { useUserStore } from '~/store/user';
 import { storeToRefs } from "pinia";
 const storeUser = useUserStore();
@@ -60,10 +62,8 @@ const sendEmail = async () => {
   v$.value.$validate();
   if (!v$.value.$error) {
     const {user, pending, status, refresh, error} = await index(params)
-    console.log(status)
     if(!error.value){
-      storeModal.actionIsOpenModalRestorePassword()
-      storeModal.actionIsOpenModalRestorePasswordSuccessfully()
+      emit('getModalNeedState', AuthModalState.RestorePasswordSuccessfully);
     }
   }
 };

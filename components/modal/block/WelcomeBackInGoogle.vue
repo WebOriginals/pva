@@ -19,6 +19,8 @@
 </template>
 
 <script setup>
+const {AuthModalState} = useAllUtils();
+const emit = defineEmits();
 import { storeToRefs } from "pinia";
 import { useUserStore } from '~/store/user.js';
 const storeUser = useUserStore();
@@ -27,9 +29,8 @@ const { userData } = storeToRefs(storeUser);
 import {useModalStore} from "~/store/modal";
 const storeModal = useModalStore();
 
-const setPassword = async () => {
-  storeModal.actionIsOpenModalWelcomeBackInGoogle()
-  storeModal.actionIsOpenModalCodeFromEmail()
+const setPassword = () => {
+  emit('getModalNeedState', AuthModalState.CodeFromEmail);
 };
 </script>
 

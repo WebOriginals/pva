@@ -72,6 +72,8 @@
 </template>
 
 <script setup>
+const {AuthModalState} = useAllUtils();
+const emit = defineEmits();
 import { storeToRefs } from "pinia";
 import { useUserStore } from '~/store/user.js';
 const storeUser = useUserStore();
@@ -110,8 +112,6 @@ import {index} from '~/components/api/fetchRegistation'
 const submitRegistrationForm = async ()  => {
   v$.value.$validate();
   if (!v$.value.$error) {
-    console.log("запрос пошел")
-
     const params = {
       email: userData.value.email,
       password: userData.value.password,
@@ -121,8 +121,7 @@ const submitRegistrationForm = async ()  => {
     const {error} = await index(params)
 
     if(!error.value){
-      storeModal.actionIsOpenModalRegistration()
-      storeModal.actionIsOpenModalRegistrationSuccessfully()
+      emit('getModalNeedState', AuthModalState.RegistrationSuccessfully);
     }
 
   }

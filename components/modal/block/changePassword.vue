@@ -56,6 +56,8 @@
 </template>
 
 <script setup>
+const {AuthModalState} = useAllUtils();
+const emit = defineEmits();
 import { storeToRefs } from "pinia";
 import { useUserStore } from '~/store/user';
 const storeUser = useUserStore();
@@ -95,10 +97,8 @@ const sendChangedPassword = async () => {
   v$.value.$validate();
   if (!v$.value.$error) {
     const {user, pending, status, refresh, error} = await index(params)
-    console.log(status)
     if(!error.value){
-      storeModal.actionIsOpenModalChangePassword()
-      storeModal.actionIsOpenModalChangePasswordSuccessfully()
+      emit('getModalNeedState', AuthModalState.ChangePasswordSuccessfully);
     }
   }
 };

@@ -12,6 +12,8 @@
 </template>
 
 <script setup>
+const {AuthModalState} = useAllUtils();
+const emit = defineEmits();
 import {storeToRefs} from "pinia";
 import { useUserStore } from '~/store/user.js';
 const storeUser = useUserStore();
@@ -29,8 +31,7 @@ const sendEmailAgain = async () => {
 };
 
 const changeEmail = () => {
-  storeModal.actionIsOpenModalRestorePasswordSuccessfully()
-  storeModal.actionIsOpenModalRestorePassword()
+  emit('getModalNeedState', AuthModalState.RestorePassword);
 }
 </script>
 

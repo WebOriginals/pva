@@ -9,8 +9,10 @@
                class="modelReg__close"
                size="xl"
                @click="closeModal"/>
+
               <slot></slot>
 
+      <modal-block-login v-if="storeModal.getIsOpenModalLogin"></modal-block-login>
       <modal-block-change-password v-else-if="storeModal.getIsOpenModalChangePassword"></modal-block-change-password>
       <modal-block-change-password-successfully v-else-if="storeModal.getIsOpenModalChangePasswordSuccessfully"></modal-block-change-password-successfully>
       <modal-block-code-from-email v-else-if="storeModal.getIsOpenModalCodeFromEmail"></modal-block-code-from-email>
@@ -18,10 +20,9 @@
       <modal-block-registration-successfully v-else-if="storeModal.getIsOpenModalRegistrationSuccessfully"></modal-block-registration-successfully>
       <modal-block-restore-password v-else-if="storeModal.getIsOpenModalRestorePassword"></modal-block-restore-password>
       <modal-block-restore-password-successfully v-else-if="storeModal.getIsOpenModalRestorePasswordSuccessfully"></modal-block-restore-password-successfully>
-
       <modal-block-welcome-back-in-google v-else-if="storeModal.getIsOpenModalWelcomeBackInGoogle"></modal-block-welcome-back-in-google>
+      <modal-block-google-tow-f-a></modal-block-google-tow-f-a>
 
-      <div  v-else></div>
     </div>
   </UModal>
 </template>

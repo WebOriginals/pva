@@ -2,6 +2,9 @@
 <div>
   <div class="modelReg__title">
     <h3>Смена пароля</h3>
+    <div class="modelReg__alert" v-if="error">
+      {{error}}
+    </div>
   </div>
   <UForm class="modelReg__form">
 
@@ -56,7 +59,7 @@
 </template>
 
 <script setup>
-const {AuthModalState} = useAllUtils();
+const {AuthModalState} = useAuthModalState();
 const emit = defineEmits();
 import { storeToRefs } from "pinia";
 import { useUserStore } from '~/store/user';

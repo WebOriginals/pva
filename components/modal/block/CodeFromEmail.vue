@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-const {AuthModalState} = useAllUtils();
+const {AuthModalState} = useAuthModalState();
 const emit = defineEmits();
 import {storeToRefs} from "pinia";
 import { useUserStore } from '~/store/user.js';

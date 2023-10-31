@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-const {AuthModalState} = useAllUtils();
+const {AuthModalState} = useAuthModalState();
 const emit = defineEmits();
 import { useUserStore } from '~/store/user';
 import { storeToRefs } from "pinia";

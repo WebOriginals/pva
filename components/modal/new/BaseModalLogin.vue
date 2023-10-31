@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-const { AuthModalState } = useAllUtils();
+const { AuthModalState } = useAuthModalState();
 import {useModalStore} from "~/store/modal";
 
 const storeModal = useModalStore()

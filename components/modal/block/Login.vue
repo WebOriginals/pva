@@ -2,6 +2,10 @@
   <div>
     <div class="modelReg__title">
       <h3>Вход в аккаунт</h3>
+
+      <div class="modelReg__alert">
+          {{alertGlobal.error}} {{alertGlobal.status}}
+      </div>
     </div>
 
     <UButton label="Регистрация через Google" color="black" size="xl" block class="mb-6">
@@ -61,7 +65,7 @@
 </template>
 
 <script setup>
-const {AuthModalState} = useAllUtils();
+const {AuthModalState} = useAuthModalState();
 import {storeToRefs} from "pinia";
 import {useUserStore} from '~/store/user';
 
@@ -97,7 +101,7 @@ const v$ = useVuelidate(rules, userData);
 
 const emit = defineEmits();
 import {index} from '~/components/api/fetchLogin'
-
+const alertGlobal = ref('');
 const submitForm = async () => {
   v$.value.$validate();
   if (!v$.value.$error) {
@@ -106,7 +110,8 @@ const submitForm = async () => {
       email: userData.value.email,
       password: userData.value.password
     }
-    const {error, user} = await index(params)
+    const {error, user, status} = await index(params)
+    alertGlobal.value = {error: error.value, status: status.value, data: user.value}
 
     if (!error.value) {
 
@@ -117,6 +122,7 @@ const submitForm = async () => {
       if (user.value[0].twoFA) {
         return emit('getModalNeedState', AuthModalState.GoogleTowFA);
       }
+
       storeModal.actionIsOpenModal()
     }
   }

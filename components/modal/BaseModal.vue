@@ -28,6 +28,10 @@ const storeModal = useModalStore()
     @apply grid justify-items-center text-center mb-8 gap-4;
   }
 
+  &__alert{
+    @apply py-4 px-5 bg-red-200 rounded-lg text-red-600 w-full mb-4;
+  }
+
   &__alternative {
     @apply flex justify-center relative mb-7;
 

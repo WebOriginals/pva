@@ -16,8 +16,8 @@
 	<section class="first-sub">
 		<div class="first-sub__wrapper"></div>
 		<div class="first-sub__container">
-			<div class="first-sub__img">
-				<img src="~/assets/img/iphone.png" alt="" />
+			<div class="first-sub__img rounded-[58px] overflow-hidden">
+				<img src="~/assets/img/iphone.gif" alt="" />
 			</div>
 			<ul class="first-sub__list first-sub-list">
 				<li class="first-sub-list__element">
@@ -137,7 +137,7 @@ const redirectAllArticles = () => {
 	&__img {
 		z-index: 6;
 		@include adaptiveValue(bottom, 210, 430);
-		@include adaptiveValue(width, 410, 200);
+		@include adaptiveValue(width, 360, 200);
 		@apply absolute hidden lg:block  right-0;
 
 		& img {

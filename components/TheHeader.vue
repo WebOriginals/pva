@@ -56,7 +56,7 @@
               v-if="!storeUser.getIsLoggedIn"
           ></UiBaseButton>
           <Teleport to="body">
-            <ModalNewBaseModalLogin></ModalNewBaseModalLogin>
+            <ModalAuthModalStateBaseModalLogin :modal-default-state="5"></ModalAuthModalStateBaseModalLogin>
           </Teleport>
           <!--вызов модалки-->
           <TheHeaderDropdownForProfile v-if="storeUser.getIsLoggedIn"></TheHeaderDropdownForProfile>

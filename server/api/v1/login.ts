@@ -1,6 +1,6 @@
 export default defineEventHandler(async (event) => {
     const body = await readBody(event)
-    setResponseStatus(event, 401)
+    setResponseStatus(event, 201)
     return {
         successful: true,
         data: [
@@ -10,6 +10,6 @@ export default defineEventHandler(async (event) => {
                 google: true
             }
         ],
-        status: 401
+        status: 201
     };
 });

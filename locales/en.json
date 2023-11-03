@@ -134,5 +134,80 @@
 				}
 			]
 		}
+	},
+	"form": {
+		"errorForInput": {
+			"email": {
+				"required": "Email field is required",
+				"email": "Invalid email format"
+			},
+			"password": {
+				"required": "The password field is required",
+				"leastOneSpecialCharacter": "The field must contain at least one special character",
+				"mustBeNumber": "The field must contain at least 1 digit",
+				"isCapitalLetter": "At least one capital letter",
+				"minLength": "At least 8 characters",
+				"symbolOrNumber": "Must contain a symbol or number"
+			},
+			"confirmPassword": {
+				"required": "Password confirmation field is required",
+				"sameAs": "Passwords do not match"
+			},
+			"twoFA": {
+				"required": "The Google Authenticator field is required"
+			},
+			"codeFromEmail": {
+				"required": "The code field is required"
+			}
+		},
+		"errorFromServer": {
+
+		}
+	},
+	"modal": {
+		"authModalState": {
+			"ChangePassword": {
+				"title": "Change password",
+				"input": "Enter your password"
+			},
+			"ChangePasswordSuccessfully": {
+				"title": "Change password",
+				"subTitle": "The password has been successfully changed, you can now log into your account"
+			},
+			"Login": {
+				"title": "Account Login",
+				"googleBtn": "Registration with Google",
+				"googleSubText": "or register using email",
+				"inputEmail": "Enter your email",
+				"inputPassword": "Enter your password",
+				"inputConfirmPassword": "Re-enter your password",
+				"forgotYourPassword": "Forgot your password?",
+				"formBtn": "Login",
+				"noAccount": "Don't have an account yet?",
+				"Register": "Register"
+			},
+			"CodeFromEmail": {
+				"title": "Set password",
+				"subTitle": "An email with a link to reset your password has been sent to your email address",
+				"input": "Enter code",
+				"btnResend": "Resend",
+				"btnFurther": "Next"
+			},
+			"GoogleTowFA": {
+				"title": "Account Login",
+				"subTitle": "Open the Google Authenticator app and enter the code from it or the recovery code",
+				"input": "Enter code"
+			},
+			"Registration": {
+				"title": "Registration",
+				"subTitle": "Do not use temporary or disposable email. We do not restore access to such accounts.",
+				"googleBtn": "Registration with Google",
+				"googleSubText": "or register using email",
+				"inputEmail": "Enter your email",
+				"inputPassword": "Enter your password",
+				"inputConfirmPassword": "Re-enter your password",
+				"btnRegistration": "Register"
+			}
+		}
 	}
 }

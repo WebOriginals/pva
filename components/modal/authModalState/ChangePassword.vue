@@ -63,6 +63,8 @@
 </template>
 
 <script setup>
+import {authModalState} from "~/utils/authModalState";
+
 const props = defineProps({
   userData: {
     type: Object,
@@ -77,7 +79,7 @@ const props = defineProps({
   }
 });
 const form = ref(props.userData);
-const {AuthModalState} = useAuthModalState();
+
 const emit = defineEmits();
 
 const {RulesForFormConfirmPassword, RulesForFormPassword} = useRulesForForm();
@@ -91,16 +93,16 @@ const rules = computed(() => {
 });
 const v$ = useVuelidate(rules, form);
 
-import {index} from "~/components/api/fetchСhangePassword";
+import {api} from "~/components/api/fetchСhangePassword";
 const sendChangedPassword = async () => {
   const params = {
     email: form.value.email,
   }
   v$.value.$validate();
   if (!v$.value.$error) {
-    const {user, pending, status, refresh, error} = await index(params)
+    const {user, pending, status, refresh, error} = await api(params)
     if(!error.value){
-      emit('getModalNeedState', AuthModalState.ChangePasswordSuccessfully);
+      emit('getModalNeedState', authModalState.ChangePasswordSuccessfully);
     }
   }
 };

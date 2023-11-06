@@ -69,11 +69,11 @@
 </template>
 
 <script setup>
-import {index} from '~/components/api/fetchLogin';
+
 import {useModalStore} from "~/store/modal";
 
 const {RulesForFormEmail, RulesForFormPassword} = useRulesForForm();
-const {AuthModalState} = useAuthModalState();
+import {authModalState} from "~/utils/authModalState";
 
 const props = defineProps({
   userData: {
@@ -104,6 +104,7 @@ const rules = computed(() => {
 const v$ = useVuelidate(rules, form);
 
 const alertGlobal = ref('');
+import {api} from '~/components/api/fetchLogin';
 const submitForm = async () => {
   v$.value.$validate();
   if (!v$.value.$error) {
@@ -112,17 +113,17 @@ const submitForm = async () => {
       email: form.value.email,
       password: form.value.password
     }
-    const {error, user, status} = await index(params)
+    const {error, user, status} = await api(params)
     alertGlobal.value = {error: error.value, status: status.value, data: user.value}
 
     if (!error.value) {
 
       if (user.value[0].google) {
-       return  emit('getModalNeedState', AuthModalState.WelcomeBackInGoogle);
+       return  emit('getModalNeedState', authModalState.WelcomeBackInGoogle);
       }
 
       if (user.value[0].twoFA) {
-        return emit('getModalNeedState', AuthModalState.GoogleTowFA);
+        return emit('getModalNeedState', authModalState.GoogleTowFA);
       }
 
       storeModal.actionIsOpenModal()
@@ -131,9 +132,9 @@ const submitForm = async () => {
 };
 
 const openModalRegistration = () => {
-  emit('getModalNeedState', AuthModalState.Registration);
+  emit('getModalNeedState', authModalState.Registration);
 }
 const openModalRestorePassword = () => {
-  emit('getModalNeedState', AuthModalState.RestorePassword);
+  emit('getModalNeedState', authModalState.RestorePassword);
 }
 </script>

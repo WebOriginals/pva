@@ -10,52 +10,52 @@
     </template>
     <template #body>
       <ModalAuthModalStateLogin
-          v-if="modalState === AuthModalState.login"
+          v-if="modalState === authModalState.login"
           @getModalNeedState="getModalNeedState"
           :userData="userData"
       ></ModalAuthModalStateLogin>
       <ModalAuthModalStateGoogleTowFA
-          v-else-if="modalState === AuthModalState.GoogleTowFA"
+          v-else-if="modalState === authModalState.GoogleTowFA"
           @getModalNeedState="getModalNeedState"
           :userData="userData"
       ></ModalAuthModalStateGoogleTowFA>
       <ModalAuthModalStateChangePassword
-          v-else-if="modalState === AuthModalState.changePassword"
+          v-else-if="modalState === authModalState.changePassword"
           @getModalNeedState="getModalNeedState"
           :userData="userData"
       ></ModalAuthModalStateChangePassword>
       <ModalAuthModalStateChangePasswordSuccessfully
-          v-else-if="modalState === AuthModalState.ChangePasswordSuccessfully"
+          v-else-if="modalState === authModalState.ChangePasswordSuccessfully"
           @getModalNeedState="getModalNeedState"
           :userData="userData"
       ></ModalAuthModalStateChangePasswordSuccessfully>
       <ModalAuthModalStateCodeFromEmail
-          v-else-if="modalState === AuthModalState.CodeFromEmail"
+          v-else-if="modalState === authModalState.CodeFromEmail"
           @getModalNeedState="getModalNeedState"
           :userData="userData"
       ></ModalAuthModalStateCodeFromEmail>
       <ModalAuthModalStateRegistration
-          v-else-if="modalState === AuthModalState.Registration"
+          v-else-if="modalState === authModalState.Registration"
           @getModalNeedState="getModalNeedState"
           :userData="userData"
       ></ModalAuthModalStateRegistration>
       <ModalAuthModalStateRegistrationSuccessfully
-          v-else-if="modalState === AuthModalState.RegistrationSuccessfully"
+          v-else-if="modalState === authModalState.RegistrationSuccessfully"
           @getModalNeedState="getModalNeedState"
           :userData="userData"
       ></ModalAuthModalStateRegistrationSuccessfully>
       <ModalAuthModalStateRestorePassword
-          v-else-if="modalState === AuthModalState.RestorePassword"
+          v-else-if="modalState === authModalState.RestorePassword"
           @getModalNeedState="getModalNeedState"
           :userData="userData"
       ></ModalAuthModalStateRestorePassword>
       <ModalAuthModalStateRestorePasswordSuccessfully
-          v-else-if="modalState === AuthModalState.RestorePasswordSuccessfully"
+          v-else-if="modalState === authModalState.RestorePasswordSuccessfully"
           @getModalNeedState="getModalNeedState"
           :userData="userData"
       ></ModalAuthModalStateRestorePasswordSuccessfully>
       <ModalAuthModalStateWelcomeBackInGoogle
-          v-else-if="modalState === AuthModalState.WelcomeBackInGoogle"
+          v-else-if="modalState === authModalState.WelcomeBackInGoogle"
           @getModalNeedState="getModalNeedState"
           :userData="userData"
       ></ModalAuthModalStateWelcomeBackInGoogle>
@@ -65,8 +65,9 @@
 </template>
 
 <script setup>
-const {AuthModalState} = useAuthModalState();
+import {authModalState} from "~/utils/authModalState";
 import {useModalStore} from "~/store/modal";
+
 
 const storeModal = useModalStore()
 const props = defineProps({
@@ -90,7 +91,7 @@ const userData = ref({
 });
 
 const modalState = ref(props.modalDefaultState)
-const getModalNeedState = (ev = AuthModalState.login) => {
+const getModalNeedState = (ev = authModalState.login) => {
   modalState.value = ev
 }
 
@@ -99,7 +100,3 @@ const closeModal = () => {
   storeModal.closeIsOpenModal()
 }
 </script>
-
-<style scoped lang="scss">
-
-</style>

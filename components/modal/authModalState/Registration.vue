@@ -81,7 +81,7 @@
 
 <script setup>
 const {RulesForFormEmail, RulesForFormPassword, RulesForFormConfirmPassword} = useRulesForForm();
-const {AuthModalState} = useAuthModalState();
+import {authModalState} from "~/utils/authModalState";
 const emit = defineEmits();
 const props = defineProps({
   userData: {
@@ -98,9 +98,6 @@ const props = defineProps({
 });
 const form = ref(props.userData)
 
-import {useModalStore} from "~/store/modal";
-const storeModal = useModalStore();
-
 import { useVuelidate } from '@vuelidate/core';
 
 const rules = computed(() => {
@@ -112,7 +109,7 @@ const rules = computed(() => {
 });
 const v$ = useVuelidate(rules, form);
 
-import {index} from '~/components/api/fetchRegistation'
+import {api} from '~/components/api/fetchRegistation'
 const submitRegistrationForm = async ()  => {
   v$.value.$validate();
   if (!v$.value.$error) {
@@ -122,10 +119,10 @@ const submitRegistrationForm = async ()  => {
       password_confirmation: form.value.confirmPassword,
       access_token: 'tyryrRerw456'
     }
-    const {error} = await index(params)
+    const {error} = await api(params)
 
     if(!error.value){
-      emit('getModalNeedState', AuthModalState.RegistrationSuccessfully);
+      emit('getModalNeedState', authModalState.RegistrationSuccessfully);
     }
 
   }

@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-const {AuthModalState} = useAuthModalState();
+import {authModalState} from "~/utils/authModalState";
 const emit = defineEmits();
 const props = defineProps({
   userData: {
@@ -30,18 +30,18 @@ const props = defineProps({
 });
 const form = ref(props.userData)
 
-import {index} from '~/components/api/fetchRegistation'
+import {api} from '~/components/api/fetchRegistation'
 const fetchRegistrationAgain = async () => {
   const params = {
     email: form.value.email,
     password: form.value.password,
     password_confirmation: form.value.confirmPassword
   }
-  const {user, pending, status, refresh, error} = await index(params)
+  const {user, pending, status, refresh, error} = await api(params)
 };
 
 const openModalRegistration = () => {
-  emit('getModalNeedState', AuthModalState.Registration);
+  emit('getModalNeedState', authModalState.Registration);
 }
 </script>
 

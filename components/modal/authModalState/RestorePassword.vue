@@ -1,27 +1,26 @@
 <template>
 <div>
   <div class="modelReg__title">
-    <h3>Восстановление пароля</h3>
-    <p>Мы отправим письмо с инструкцией для восстановления пароля на указанный email</p>
+    <h3>{{$t('modal.authModalState.RestorePassword.title')}}</h3>
+    <p>{{$t('modal.authModalState.RestorePassword.subTitle')}}</p>
   </div>
   <UForm class="modelReg__form">
 
-
-    <UiBaseInput
-        v-model="userData.email"
-        :type-input="'email'"
-        :label="'Введите email'"
+    <UiBaseInputN
+        v-model="form.email"
+        type-input="text"
+        :label="$t('modal.authModalState.RestorePassword.inputEmail')"
+        :placeholder="$t('modal.authModalState.RestorePassword.inputEmail')"
         :error="v$.email.$error"
-        :errors="v$.email.$errors"
-        :placeholder="'Введите email'"
+        :errors=" v$.email.$errors"
+        :show-error="true"
         @change="v$.email.$touch"
-        autocomplete="off"
-    ></UiBaseInput>
+    ></UiBaseInputN>
 
     <UiBaseButton
         class="btn"
         size="xl"
-        label="Отправить письмо"
+        :label="$t('modal.authModalState.RestorePassword.btn')"
         block
         type="submit"
         :disabled="v$.$invalid"
@@ -32,32 +31,37 @@
 </template>
 
 <script setup>
+const {RulesForFormEmail} = useRulesForForm();
 const {AuthModalState} = useAuthModalState();
 const emit = defineEmits();
-import { useUserStore } from '~/store/user';
-import { storeToRefs } from "pinia";
-const storeUser = useUserStore();
-const { userData } = storeToRefs(storeUser);
-
-import {useModalStore} from "~/store/modal";
-const storeModal = useModalStore()
+const props = defineProps({
+  userData: {
+    type: Object,
+    required: true,
+    default: {
+      email: '',
+      password: '',
+      confirmPassword: '',
+      twoFA: '',
+      codeFromEmail: ''
+    }
+  }
+});
+const form = ref(props.userData)
 
 import { useVuelidate } from '@vuelidate/core';
-import { required, email, helpers } from '@vuelidate/validators';
+
 const rules = computed(() => {
   return {
-    email: {
-      required: helpers.withMessage('Поле электронной почты обязательно', required),
-      email: helpers.withMessage('Неверный формат электронной почты', email),
-    }
+    email: RulesForFormEmail()
   };
 });
-const v$ = useVuelidate(rules, userData);
+const v$ = useVuelidate(rules, form);
 
 import {index} from "~/components/api/fatchRestorePassword";
 const sendEmail = async () => {
   const params = {
-    email: userData.value.email,
+    email: form.value.email,
   }
   v$.value.$validate();
   if (!v$.value.$error) {
@@ -68,7 +72,3 @@ const sendEmail = async () => {
   }
 };
 </script>
-
-<style scoped lang="scss">
-
-</style>

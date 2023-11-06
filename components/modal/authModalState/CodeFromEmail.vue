@@ -6,16 +6,17 @@
   </div>
   <UForm class="modelReg__form">
 
-    <UiBaseInput
+    <UiBaseInputN
         v-model="form.codeFromEmail"
-        :type-input="'text'"
+        type-input="text"
         :label="$t('modal.authModalState.CodeFromEmail.input')"
-        :error="v$.codeFromEmail.$error"
-        :errors="v$.codeFromEmail.$errors"
         :placeholder="$t('modal.authModalState.CodeFromEmail.input')"
+        :error="v$.codeFromEmail.$error"
+        :errors=" v$.codeFromEmail.$errors"
+        :show-error="true"
         @change="v$.codeFromEmail.$touch"
-        autocomplete="off"
-    ></UiBaseInput>
+    ></UiBaseInputN>
+
     <div class="modelReg__grid-btn">
       <UiBaseButton  size="xxl"  :label="$t('modal.authModalState.CodeFromEmail.btnResend')" variant="soft" @click="sendCodeFromEmailAgain"></UiBaseButton>
       <UiBaseButton :disabled="v$.$invalid" size="xxl" :label="$t('modal.authModalState.CodeFromEmail.btnFurther')"  @click="setPassword"></UiBaseButton>

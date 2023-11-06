@@ -1,12 +1,12 @@
 <template>
 <div>
   <div class="modelReg__title">
-    <h3>Восстановление пароля</h3>
-    <p>Письмо со ссылкой на сброс пароля было отправлено на почту {{ userData.email }}</p>
+    <h3>{{$t('modal.authModalState.RestorePasswordSuccessfully.title')}}</h3>
+    <p>{{$t('modal.authModalState.RestorePasswordSuccessfully.subTitle')}} {{ form.email }}</p>
   </div>
   <div class="modelReg__grid-btn">
-    <UiBaseButton size="xxl" label="Отправить повторно" @click="sendEmailAgain"></UiBaseButton>
-    <UiBaseButton size="xxl" label="Сменить email" variant="soft" @click="changeEmail"></UiBaseButton>
+    <UiBaseButton size="xxl" :label="$t('modal.authModalState.RestorePasswordSuccessfully.btnResend')" @click="sendEmailAgain"></UiBaseButton>
+    <UiBaseButton size="xxl" :label="$t('modal.authModalState.RestorePasswordSuccessfully.btnChangeEmail')" variant="soft" @click="changeEmail"></UiBaseButton>
   </div>
 </div>
 </template>
@@ -14,18 +14,25 @@
 <script setup>
 const {AuthModalState} = useAuthModalState();
 const emit = defineEmits();
-import {storeToRefs} from "pinia";
-import { useUserStore } from '~/store/user.js';
-const storeUser = useUserStore();
-const { userData } = storeToRefs(storeUser);
-
-import {useModalStore} from "~/store/modal";
-const storeModal = useModalStore();
+const props = defineProps({
+  userData: {
+    type: Object,
+    required: true,
+    default: {
+      email: '',
+      password: '',
+      confirmPassword: '',
+      twoFA: '',
+      codeFromEmail: ''
+    }
+  }
+});
+const form = ref(props.userData)
 
 import {index} from '~/components/api/fatchRestorePassword';
 const sendEmailAgain = async () => {
   const params = {
-    email: userData.value.email,
+    email: form.value.email,
   }
   const {status, error} = await index(params)
 };

@@ -14,24 +14,28 @@
   <div class="modelReg__alternative"><span>{{$t('modal.authModalState.Registration.googleSubText')}}</span></div>
 
   <UForm class="modelReg__form">
-    <UiBaseInput
+    <UiBaseInputN
         v-model="form.email"
-        :type-input="'email'"
+        type-input="text"
         :label="$t('modal.authModalState.Registration.inputEmail')"
-        :error="v$.email.$error"
-        :errors="v$.email.$errors"
         :placeholder="$t('modal.authModalState.Registration.inputEmail')"
+        :error="v$.email.$error"
+        :errors=" v$.email.$errors"
+        :show-error="true"
         @change="v$.email.$touch"
-        autocomplete="off"
-    ></UiBaseInput>
-    <UiBaseInputPassword
+    ></UiBaseInputN>
+
+    <UiBaseInputN
         v-model="form.password"
+        :type-input="'password'"
         :label="$t('modal.authModalState.Registration.inputPassword')"
         :placeholder="$t('modal.authModalState.Registration.inputPassword')"
         :error="v$.password.$error"
-        :is-error="false"
+        :errors=" v$.password.$errors"
+        :show-error="false"
         @change="v$.password.$touch"
-    ></UiBaseInputPassword>
+    ></UiBaseInputN>
+
     <div class="passwordRequirements">
       <div class="flex gap-1 items-center">
         <IconTheCheck
@@ -50,14 +54,18 @@
         <span>{{$t('form.errorForInput.password.minLength')}}</span>
       </div>
     </div>
-    <UiBaseInputPassword
+
+    <UiBaseInputN
         v-model="form.confirmPassword"
+        :type-input="'password'"
         :label="$t('modal.authModalState.Registration.inputConfirmPassword')"
         :placeholder="$t('modal.authModalState.Registration.inputConfirmPassword')"
         :error="v$.confirmPassword.$error"
         :errors=" v$.confirmPassword.$errors"
+        :show-error="true"
         @change="v$.confirmPassword.$touch"
-    ></UiBaseInputPassword>
+    ></UiBaseInputN>
+
     <UiBaseButton
         class="btn"
         size="xl"

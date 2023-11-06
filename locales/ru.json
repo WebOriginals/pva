@@ -207,6 +207,31 @@
 				"inputPassword": "Введите пароль",
 				"inputConfirmPassword": "Введите повторно пароль",
 				"btnRegistration": "Зарегистрироваться"
+			},
+			"RegistrationSuccessfully": {
+				"title": "Регистрация",
+				"subTitle1": "На почту",
+				"subTitle2": "было отправлено письмо. Пожалуйста перейдите по ссылке из письма.",
+				"btnResend": "Отправить повторно",
+				"btnChangeEmail": "Сменить email"
+			},
+			"RestorePassword": {
+				"title": "Восстановление пароля",
+				"subTitle": "Мы отправим письмо с инструкцией для восстановления пароля на указанный email",
+				"inputEmail": "Введите email",
+				"btn": "Отправить письмо"
+			},
+			"RestorePasswordSuccessfully": {
+				"title": "Восстановление пароля",
+				"subTitle": "Письмо со ссылкой на сброс пароля было отправлено на почту",
+				"btnResend": "Отправить повторно",
+				"btnChangeEmail": "Сменить email"
+			},
+			"WelcomeBackInGoogle": {
+				"title": "С возвращением!",
+				"subTitle": "Ранее вы вошли в систему с помощью Google",
+				"googleBtn": "Регистрация через Google",
+				"btn": "Установить пароль"
 			}
 		}
 	}

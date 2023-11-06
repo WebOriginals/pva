@@ -207,6 +207,31 @@
 				"inputPassword": "Enter your password",
 				"inputConfirmPassword": "Re-enter your password",
 				"btnRegistration": "Register"
+			},
+			"RegistrationSuccessfully": {
+				"title": "Registration",
+				"subTitle1": "Email",
+				"subTitle2": "a letter has been sent. Please follow the link from the letter.",
+				"btnResend": "Resend",
+				"btnChangeEmail": "Change email"
+			},
+			"RestorePassword": {
+				"title": "Password recovery",
+				"subTitle": "We will send an email with instructions for password recovery to the specified email",
+				"inputEmail": "Enter your email",
+				"btn": "Send email"
+			},
+			"RestorePasswordSuccessfully": {
+				"title": "Password recovery",
+				"subTitle": "An email with a link to reset your password has been sent to your email address",
+				"btnResend": "Resend",
+				"btnChangeEmail": "Change email"
+			},
+			"WelcomeBackInGoogle": {
+				"title": "Welcome back!",
+				"subTitle": "You were previously signed in with Google",
+				"googleBtn": "Registration with Google",
+				"btn": "Set password"
 			}
 		}
 	}

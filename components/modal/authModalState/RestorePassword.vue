@@ -67,7 +67,7 @@ const sendEmail = async () => {
   if (!v$.value.$error) {
     const {user, pending, status, refresh, error} = await api(params)
     if(!error.value){
-      emit('getModalNeedState', authModalState.RestorePasswordSuccessfully);
+      emit('changeModalNeedState', authModalState.RestorePasswordSuccessfully);
     }
   }
 };

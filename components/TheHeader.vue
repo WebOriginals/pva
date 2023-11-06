@@ -126,7 +126,7 @@ const storeModal = useModalStore()
 const emit = defineEmits();
 const {t} = useI18n();
 const localePath = useLocalePath();
-const {isDark} = useAllUtils();
+const {isDark} = useDarkMode();
 
 
 const IsOpenMenu = ref(false);

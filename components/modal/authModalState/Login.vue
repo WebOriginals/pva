@@ -119,11 +119,11 @@ const submitForm = async () => {
     if (!error.value) {
 
       if (user.value[0].google) {
-       return  emit('getModalNeedState', authModalState.WelcomeBackInGoogle);
+       return  emit('changeModalNeedState', authModalState.WelcomeBackInGoogle);
       }
 
       if (user.value[0].twoFA) {
-        return emit('getModalNeedState', authModalState.GoogleTowFA);
+        return emit('changeModalNeedState', authModalState.GoogleTowFA);
       }
 
       storeModal.actionIsOpenModal()
@@ -132,9 +132,9 @@ const submitForm = async () => {
 };
 
 const openModalRegistration = () => {
-  emit('getModalNeedState', authModalState.Registration);
+  emit('changeModalNeedState', authModalState.Registration);
 }
 const openModalRestorePassword = () => {
-  emit('getModalNeedState', authModalState.RestorePassword);
+  emit('changeModalNeedState', authModalState.RestorePassword);
 }
 </script>

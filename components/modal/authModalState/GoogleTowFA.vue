@@ -72,7 +72,7 @@ const sendTwoFA = async () => {
 
     if(!error.value){
       storeModal.actionIsOpenModal()
-      emit('getModalNeedState', authModalState.login);
+      emit('changeModalNeedState', authModalState.login);
     }
   }
 };

@@ -41,7 +41,7 @@ const fetchRegistrationAgain = async () => {
 };
 
 const openModalRegistration = () => {
-  emit('getModalNeedState', authModalState.Registration);
+  emit('changeModalNeedState', authModalState.Registration);
 }
 </script>
 

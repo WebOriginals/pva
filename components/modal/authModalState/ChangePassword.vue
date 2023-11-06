@@ -102,7 +102,7 @@ const sendChangedPassword = async () => {
   if (!v$.value.$error) {
     const {user, pending, status, refresh, error} = await api(params)
     if(!error.value){
-      emit('getModalNeedState', authModalState.ChangePasswordSuccessfully);
+      emit('changeModalNeedState', authModalState.ChangePasswordSuccessfully);
     }
   }
 };

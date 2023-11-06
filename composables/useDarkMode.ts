@@ -1,4 +1,4 @@
-export function useAllUtils() {
+export function useDarkMode() {
 	const colorMode = useColorMode();
 	const isDark = computed({
 		get() {

@@ -122,7 +122,7 @@ const submitRegistrationForm = async ()  => {
     const {error} = await api(params)
 
     if(!error.value){
-      emit('getModalNeedState', authModalState.RegistrationSuccessfully);
+      emit('changeModalNeedState', authModalState.RegistrationSuccessfully);
     }
 
   }

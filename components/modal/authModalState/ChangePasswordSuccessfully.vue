@@ -15,6 +15,6 @@ import {authModalState} from "~/utils/authModalState";
 const emit = defineEmits();
 
 const logIn = () => {
-  emit('getModalNeedState', authModalState.login);
+  emit('changeModalNeedState', authModalState.login);
 };
 </script>

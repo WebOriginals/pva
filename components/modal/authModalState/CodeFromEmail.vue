@@ -63,7 +63,7 @@ const sendCodeFromEmailAgain = async () => {
 };
 
 const setPassword = () => {
-  emit('getModalNeedState', authModalState.changePassword);
+  emit('changeModalNeedState', authModalState.changePassword);
 }
 </script>
 

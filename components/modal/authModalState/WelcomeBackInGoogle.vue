@@ -42,6 +42,6 @@ const props = defineProps({
 const form = ref(props.userData);
 
 const setPassword = () => {
-  emit('getModalNeedState', authModalState.CodeFromEmail);
+  emit('changeModalNeedState', authModalState.CodeFromEmail);
 };
 </script>

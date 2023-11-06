@@ -14,5 +14,5 @@
 </template>
 
 <script setup>
-const { isDark } = useAllUtils();
+const { isDark } = useDarkMode();
 </script>

@@ -38,7 +38,7 @@ const sendEmailAgain = async () => {
 };
 
 const changeEmail = () => {
-  emit('getModalNeedState', authModalState.RestorePassword);
+  emit('changeModalNeedState', authModalState.RestorePassword);
 }
 </script>
 

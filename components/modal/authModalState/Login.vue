@@ -69,8 +69,11 @@
 </template>
 
 <script setup>
+import {useUserStore} from "~/store/user";
+const storeUser = useUserStore();
 
 import {useModalStore} from "~/store/modal";
+const storeModal = useModalStore();
 
 const {RulesForFormEmail, RulesForFormPassword} = useRulesForForm();
 import {authModalState} from "~/utils/authModalState";
@@ -90,7 +93,6 @@ const props = defineProps({
 });
 const emit = defineEmits();
 
-const storeModal = useModalStore();
 
 import {useVuelidate} from '@vuelidate/core';
 const form = ref(props.userData)
@@ -127,6 +129,7 @@ const submitForm = async () => {
       }
 
       storeModal.actionIsOpenModal()
+      storeUser.actionIsLoggedIn()
     }
   }
 };

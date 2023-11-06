@@ -11,20 +11,5 @@ export const useUserStore = defineStore('user', () => {
 
 
 
-	// eslint-disable-next-line no-undef
-	const userData = ref({
-		email: '',
-		password: '',
-		confirmPassword: '',
-		twoFA: '',
-		codeFromEmail: ''
-	});
-	// eslint-disable-next-line no-undef
-	const getUserData = computed(() => userData.value);
-	function setUserData(event) {
-		return userData.value = event;
-	};
-
-
-	return {isLoggedIn, getIsLoggedIn, actionIsLoggedIn, getUserData, setUserData, userData};
+	return {isLoggedIn, getIsLoggedIn, actionIsLoggedIn};
 });

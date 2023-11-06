@@ -116,10 +116,9 @@
 
 <script setup>
 import {useUserStore} from '~/store/user.js';
-
 const storeUser = useUserStore();
-import {useModalStore} from "~/store/modal";
 
+import {useModalStore} from "~/store/modal";
 const storeModal = useModalStore()
 
 

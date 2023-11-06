@@ -1,4 +1,4 @@
-export async function index(params) {
+export async function api(params) {
     const url = '/api/v1/register';
     const {data: user, status, error, refresh, pending} = await useFetch(url, {
         method: 'POST',

@@ -28,7 +28,7 @@
 
 <script setup>
 const {RulesForFormCodeFromEmail} = useRulesForForm();
-const {AuthModalState} = useAuthModalState();
+import {authModalState} from "~/utils/authModalState";
 const emit = defineEmits();
 
 const props = defineProps({
@@ -54,16 +54,16 @@ const rules = computed(() => {
 });
 const v$ = useVuelidate(rules, form);
 
-import {index} from '~/components/api/fetchCodeFromEmail';
+import {api} from '~/components/api/fetchCodeFromEmail';
 const sendCodeFromEmailAgain = async () => {
   const params = {
     codeFromEmail: form.value.codeFromEmail,
   }
-  const {status, error} = await index(params)
+  const {status, error} = await api(params)
 };
 
 const setPassword = () => {
-  emit('getModalNeedState', AuthModalState.changePassword);
+  emit('getModalNeedState', authModalState.changePassword);
 }
 </script>
 

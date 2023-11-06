@@ -44,7 +44,7 @@ const props = defineProps({
     }
   }
 });
-const {AuthModalState} = useAuthModalState();
+import {authModalState} from "~/utils/authModalState";
 const emit = defineEmits();
 
 const form = ref(props.userData)
@@ -61,18 +61,18 @@ const rules = computed(() => {
 });
 const v$ = useVuelidate(rules, form);
 
-import {index} from "~/components/api/fetchTwoFA";
+import {api} from "~/components/api/fetchTwoFA";
 const sendTwoFA = async () => {
   const params = {
     twoFA: form.value.twoFA,
   }
   v$.value.$validate();
   if (!v$.value.$error) {
-    const { error } = await index(params)
+    const { error } = await api(params)
 
     if(!error.value){
       storeModal.actionIsOpenModal()
-      emit('getModalNeedState', AuthModalState.login);
+      emit('getModalNeedState', authModalState.login);
     }
   }
 };

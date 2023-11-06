@@ -32,7 +32,7 @@
 
 <script setup>
 const {RulesForFormEmail} = useRulesForForm();
-const {AuthModalState} = useAuthModalState();
+import {authModalState} from "~/utils/authModalState";
 const emit = defineEmits();
 const props = defineProps({
   userData: {
@@ -58,16 +58,16 @@ const rules = computed(() => {
 });
 const v$ = useVuelidate(rules, form);
 
-import {index} from "~/components/api/fatchRestorePassword";
+import {api} from "~/components/api/fatchRestorePassword";
 const sendEmail = async () => {
   const params = {
     email: form.value.email,
   }
   v$.value.$validate();
   if (!v$.value.$error) {
-    const {user, pending, status, refresh, error} = await index(params)
+    const {user, pending, status, refresh, error} = await api(params)
     if(!error.value){
-      emit('getModalNeedState', AuthModalState.RestorePasswordSuccessfully);
+      emit('getModalNeedState', authModalState.RestorePasswordSuccessfully);
     }
   }
 };

@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-const {AuthModalState} = useAuthModalState();
+import {authModalState} from "~/utils/authModalState";
 const emit = defineEmits();
 
 const props = defineProps({
@@ -41,10 +41,7 @@ const props = defineProps({
 });
 const form = ref(props.userData);
 
-import {useModalStore} from "~/store/modal";
-const storeModal = useModalStore();
-
 const setPassword = () => {
-  emit('getModalNeedState', AuthModalState.CodeFromEmail);
+  emit('getModalNeedState', authModalState.CodeFromEmail);
 };
 </script>

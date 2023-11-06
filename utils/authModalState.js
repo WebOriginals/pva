@@ -1,6 +1,4 @@
-export function useAuthModalState() {
-
-    const AuthModalState = Object.freeze({
+export const authModalState = Object.freeze({
         login: 0,
         GoogleTowFA: 1,
         changePassword: 2,
@@ -12,8 +10,3 @@ export function useAuthModalState() {
         RestorePasswordSuccessfully: 8,
         WelcomeBackInGoogle: 9,
     })
-
-    return {
-        AuthModalState
-    };
-}

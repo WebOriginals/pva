@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-const {AuthModalState} = useAuthModalState();
+import {authModalState} from "~/utils/authModalState";
 const emit = defineEmits();
 const props = defineProps({
   userData: {
@@ -29,16 +29,16 @@ const props = defineProps({
 });
 const form = ref(props.userData)
 
-import {index} from '~/components/api/fatchRestorePassword';
+import {api} from '~/components/api/fatchRestorePassword';
 const sendEmailAgain = async () => {
   const params = {
     email: form.value.email,
   }
-  const {status, error} = await index(params)
+  const {status, error} = await api(params)
 };
 
 const changeEmail = () => {
-  emit('getModalNeedState', AuthModalState.RestorePassword);
+  emit('getModalNeedState', authModalState.RestorePassword);
 }
 </script>
 

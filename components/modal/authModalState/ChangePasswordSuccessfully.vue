@@ -11,10 +11,10 @@
 </template>
 
 <script setup>
-const {AuthModalState} = useAuthModalState();
+import {authModalState} from "~/utils/authModalState";
 const emit = defineEmits();
 
 const logIn = () => {
-  emit('getModalNeedState', AuthModalState.login);
+  emit('getModalNeedState', authModalState.login);
 };
 </script>

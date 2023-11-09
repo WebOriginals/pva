@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="modelReg__title">
-      <h3>{{$t('modal.authModalState.Login.title')}}</h3>
+      <h3>{{ $t('modal.authModalState.Login.title') }}</h3>
     </div>
 
     <div class="modelReg__alert" v-if="alertGlobal.error">
-      {{alertGlobal.error}} {{alertGlobal.status}}
+      {{ alertGlobal.error }} {{ alertGlobal.status }}
     </div>
 
     <UButton :label="$t('modal.authModalState.Login.googleBtn')" color="black" size="xl" block class="mb-6">
@@ -14,7 +14,7 @@
       </template>
     </UButton>
 
-    <div class="modelReg__alternative"><span>{{$t('modal.authModalState.Login.googleSubText')}}</span></div>
+    <div class="modelReg__alternative"><span>{{ $t('modal.authModalState.Login.googleSubText') }}</span></div>
 
     <UForm class="modelReg__form">
 
@@ -41,7 +41,8 @@
       ></UiBaseInputN>
 
       <div class="flex justify-end">
-        <UButton color="primary" variant="link" :label="$t('modal.authModalState.Login.forgotYourPassword')" @click="openModalRestorePassword"/>
+        <UButton color="primary" variant="link" :label="$t('modal.authModalState.Login.forgotYourPassword')"
+                 @click="openModalRestorePassword"/>
       </div>
 
       <UiBaseButton
@@ -55,7 +56,7 @@
       ></UiBaseButton>
 
       <div class="text-center">
-        <span> {{$t('modal.authModalState.Login.noAccount')}}
+        <span> {{ $t('modal.authModalState.Login.noAccount') }}
           <UButton
               color="primary"
               variant="link"
@@ -70,9 +71,11 @@
 
 <script setup>
 import {useUserStore} from "~/store/user";
+
 const storeUser = useUserStore();
 
 import {useModalStore} from "~/store/modal";
+
 const storeModal = useModalStore();
 
 const {RulesForFormEmail, RulesForFormPassword} = useRulesForForm();
@@ -95,6 +98,7 @@ const emit = defineEmits();
 
 
 import {useVuelidate} from '@vuelidate/core';
+
 const form = ref(props.userData)
 
 const rules = computed(() => {
@@ -107,6 +111,7 @@ const v$ = useVuelidate(rules, form);
 
 const alertGlobal = ref('');
 import {api} from '~/components/api/fetchLogin';
+
 const submitForm = async () => {
   v$.value.$validate();
   if (!v$.value.$error) {
@@ -115,16 +120,17 @@ const submitForm = async () => {
       email: form.value.email,
       password: form.value.password
     }
-    const {error, user, status} = await api(params)
-    alertGlobal.value = {error: error.value, status: status.value, data: user.value}
+    const {error, login, status} = await api(params)
+
+    alertGlobal.value = {error: error.value, status: status.value, data: login.value}
 
     if (!error.value) {
 
-      if (user.value[0].google) {
+      if (login.value[0].google) {
        return  emit('changeModalNeedState', authModalState.WelcomeBackInGoogle);
       }
 
-      if (user.value[0].twoFA) {
+      if (login.value[0].twoFA) {
         return emit('changeModalNeedState', authModalState.GoogleTowFA);
       }
 

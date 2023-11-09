@@ -1,0 +1,53 @@
+[
+  {
+    "id": 281496,
+    "service": "am",
+    "servName": "Amazon"
+  },
+  {
+    "id": 281488,
+    "service": "fb",
+    "servName": "facebook"
+  },
+  {
+    "id": 281490,
+    "service": "hw",
+    "servName": "Alipay/Alibaba/1688"
+  },
+  {
+    "id": 92,
+    "service": "go",
+    "servName": "Google,youtube,Gmail"
+  },
+  {
+    "id": 108018,
+    "service": "ig",
+    "servName": "Instagram+Threads"
+  },
+  {
+    "id": 281493,
+    "service": "mm",
+    "servName": "Microsoft"
+  },
+  {
+    "id": 108017,
+    "service": "mt",
+    "servName": "Steam"
+  },
+  {
+    "id": 281495,
+    "service": "oi",
+    "servName": "Tinder"
+  },
+  {
+    "id": 281491,
+    "service": "wa",
+    "servName": "Whatsapp"
+  },
+  {
+    "id": 2814954,
+    "service": "wa",
+    "servName": "Whatsapp"
+  }
+]
+

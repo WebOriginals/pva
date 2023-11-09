@@ -18,7 +18,7 @@
         <nav class="header__nav header-nav">
           <NuxtLink
               class="header-nav__link"
-              :to="localePath('/service')"
+              :to="localePath('/services')"
               v-if="storeUser.getIsLoggedIn"
           >
             {{ $t('nav.service') }}
@@ -70,7 +70,7 @@
           <nav class="header-mobile__nav header-mobile-nav">
             <NuxtLink
                 class="header-mobile-nav__link"
-                :to="localePath('/service')"
+                :to="localePath('/services')"
                 v-if="store.getIsLoggedIn"
             >
               {{ $t('nav.service') }}

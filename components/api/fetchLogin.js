@@ -1,9 +1,9 @@
+const URL_LOGIN ='/api/v1/login';
 export async function api(params) {
-    const url = '/api/v1/login';
-    const {data: user, status, error, refresh, pending} = await useFetch(url, {
+    const {data: login, status, error, refresh, pending} = await useFetch(URL_LOGIN, {
         method: 'POST',
         body: params,
-        transform: (_user) => _user.data,
+        transform: (_login) => _login.data,
     })
-    return {user, pending, status, refresh, error}
+    return {login, pending, status, refresh, error}
 }

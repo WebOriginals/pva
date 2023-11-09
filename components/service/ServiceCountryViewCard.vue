@@ -17,7 +17,7 @@
           size="lg"
           :label="labelService"
           variant="outline"
-          @click="() => $router.push(`${locale}/service/${account.servName}`)"
+          @click="() => console.log('bay')"
       ></UiBaseButton>
     </template>
 
@@ -33,12 +33,8 @@ const props = defineProps({
   },
 });
 
-const labelService = computed(() =>  {
-  if(props.account.prices) {
-   return `от $ ${props.account.prices.def}`
-  }
-})
-const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/${props.account.service}0.webp`;
+const labelService =  `от $ ${props.account.prices.def}`;
+const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/country/${props.account.country}.svg`;
 </script>
 
 <style scoped lang="scss">
@@ -54,7 +50,7 @@ const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico
   }
 
   &__img {
-    @apply bg-sky-50 rounded-full overflow-hidden w-6 h-6 md:w-8 md:h-8 shrink-0;
+    @apply bg-sky-50 rounded overflow-hidden w-6 h-6 md:w-8 md:h-8 shrink-0;
 
     img {
       @apply max-w-full;

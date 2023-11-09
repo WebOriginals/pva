@@ -1,0 +1,125 @@
+[
+  {
+    "id": 281496,
+    "country": 16,
+    "service": "am",
+    "forward": 0,
+    "operator": "any",
+    "count": 57931,
+    "prices": {
+      "def": 8
+    },
+    "servName": "Англия +89"
+  },
+  {
+    "id": 281488,
+    "country": 6,
+    "service": "fb",
+    "forward": 0,
+    "operator": "any",
+    "count": 68862,
+    "prices": {
+      "def": 9
+    },
+    "servName": "Швеция +96"
+  },
+  {
+    "id": 281490,
+    "country": 16,
+    "service": "hw",
+    "forward": 0,
+    "operator": "any",
+    "count": 27154,
+    "prices": {
+      "def": 4
+    },
+
+    "servName": "Англия +89"
+  },
+  {
+    "id": 92,
+    "country": 16,
+    "service": "go",
+    "forward": 0,
+    "operator": "any",
+    "count": 29280,
+
+    "prices": {
+      "def": 23
+    },
+
+    "servName": "Англия +89"
+  },
+  {
+    "id": 108018,
+    "country": 6,
+    "service": "ig",
+    "forward": 0,
+    "operator": "any",
+    "count": 28957,
+    "prices": {
+      "def": 3
+    },
+    "servName": "Швеция +96"
+  },
+  {
+    "id": 281493,
+    "country": 16,
+    "service": "mm",
+    "forward": 0,
+    "operator": "any",
+    "count": 52837,
+    "prices": {
+      "def": 2.5
+    },
+    "servName": "Англия +89"
+  },
+  {
+    "id": 108017,
+    "country": 73,
+    "service": "mt",
+    "forward": 0,
+    "operator": "any",
+    "count": 25040,
+    "prices": {
+      "def": 2.75
+    },
+    "servName": "Бразилия +6"
+  },
+  {
+    "id": 281495,
+    "country": 6,
+    "service": "oi",
+    "forward": 0,
+    "operator": "any",
+    "count": 107100,
+    "prices": {
+      "def": 5
+    },
+    "servName": "Швеция +96"
+  },
+  {
+    "id": 281491,
+    "country": 16,
+    "service": "wa",
+    "forward": 0,
+    "operator": "any",
+    "count": 10201,
+    "prices": {
+      "def": 95
+    },
+    "servName": "Англия +89"
+  },
+  {
+    "id": 2814954,
+    "country": 16,
+    "service": "wa",
+    "forward": 0,
+    "operator": "any",
+    "count": 10201,
+    "prices": {
+      "def": 95
+    },
+    "servName": "Англия +89"
+  }
+]

@@ -41,7 +41,7 @@
 				<nav class="footer__nav footer-nav">
 					<NuxtLink
 						class="footer-nav__link"
-						:to="localePath('/service')"
+						:to="localePath('/services')"
 						v-if="store.getIsLoggedIn"
 						>{{ $t('nav.service') }}</NuxtLink
 					>

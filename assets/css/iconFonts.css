@@ -55,6 +55,13 @@
 .icon-pva__chenge:before {
 	content: '\e908';
 }
+.icon-pva__minus{
+	display: flex;
+	align-items: center;
+	font-size: 2px;
+	justify-content: center;
+}
+
 .icon-pva__minus:before {
 	content: '\e909';
 }
@@ -82,6 +89,14 @@
 .icon-pva__close:before {
 	content: '\e911';
 }
+.icon-pva__plus{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+}
+
+
 .icon-pva__plus:before {
 	content: '\e912';
 }

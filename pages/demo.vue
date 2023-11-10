@@ -21,10 +21,10 @@
           <UiBaseButton disabled="disabled" label="Button"></UiBaseButton>
         </div>
         <div class="grid grid-cols-4 gap-4 mb-8 w-52">
-          <UiBaseButton size="sm" icon="icon-pva__plus" rounded="rounded-full"></UiBaseButton>
-          <UiBaseButton disabled="disabled" icon="icon-pva__plus" rounded="rounded-full"></UiBaseButton>
-          <UiBaseButton size="lg" icon="icon-pva__update"></UiBaseButton>
-          <UiBaseButton disabled="disabled" icon="icon-pva__update"></UiBaseButton>
+          <UiBaseButton size="2xs" icon="icon-pva__plus" rounded="rounded-full"></UiBaseButton>
+<!--          <UiBaseButton disabled="disabled" icon="icon-pva__plus" rounded="rounded-full"></UiBaseButton>-->
+<!--          <UiBaseButton size="lg" icon="icon-pva__update"></UiBaseButton>-->
+<!--          <UiBaseButton disabled="disabled" icon="icon-pva__update"></UiBaseButton>-->
         </div>
         <div class="grid grid-cols-2 gap-4 mb-8 w-2/3">
           <UiBaseButton size="xxl" label="Button" variant="outline"></UiBaseButton>

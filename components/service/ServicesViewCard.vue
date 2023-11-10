@@ -1,5 +1,5 @@
 <template>
-  <div class="services-el">
+  <div class="services-el" :class="{'bg': background}">
 
     <div class="services-el__img">
       <img :src="imgService" />
@@ -31,6 +31,10 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  background:{
+    type: Boolean,
+    required: true,
+  }
 });
 
 const labelService = computed(() =>  {
@@ -47,10 +51,14 @@ const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico
 .services-el {
   @include adaptiveValue(padding-top, 12, 8);
   @include adaptiveValue(padding-bottom, 12, 8);
-  @apply bg-sky-50 rounded-lg px-3 md:px-5 flex flex items-center gap-2;
+  @apply cursor-pointer rounded-lg px-3 md:px-5 flex flex items-center gap-2;
+
+  &.bg{
+    @apply bg-sky-50;
+  }
 
   &.active{
-    @apply bg-sky-600 text-white;
+    @apply lg:bg-sky-600 lg:text-white;
   }
 
   &__img {
@@ -62,7 +70,7 @@ const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico
   }
 
   &__name {
-    @apply truncate text-xs mr-2  md:mr-0 md:text-base dark:text-stone-500;
+    @apply truncate  mr-2  md:mr-0 text-base dark:text-stone-500;
   }
 
   &__quantity {

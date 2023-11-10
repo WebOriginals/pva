@@ -9,7 +9,5 @@ export const useUserStore = defineStore('user', () => {
 		return (isLoggedIn.value = !isLoggedIn.value);
 	}
 
-
-
 	return {isLoggedIn, getIsLoggedIn, actionIsLoggedIn};
 });

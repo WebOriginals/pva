@@ -235,12 +235,23 @@
 			}
 		}
 	},
+	"pc": "pc.",
 	"services": {
-		"serviceName": "Buy Twitter",
+		"pageTitle": "Services",
 		"myNumber": {
 			"title": "My numbers",
 			"unauthorized": "All your active purchased numbers are located here. To access this information, please log in to your account or use registration if you have not already done so.",
 			"authorized": "This block contains all your active numbers. You currently have no active numbers, please select a service"
+		},
+		"filter": {
+			"popularity": "By popularity",
+			"cheaper": "Cheaper",
+			"expensive": "More expensive",
+			"count": "By count"
+		},
+		"tab": {
+			"titleServices": "Services",
+			"titleNumbers": "My numbers"
 		}
 	}
 }

@@ -115,7 +115,7 @@
 </template>
 
 <script setup>
-import {useUserStore} from '~/store/user.js';
+import {useUserStore} from '~/store/user';
 const storeUser = useUserStore();
 
 import {useModalStore} from "~/store/modal";
@@ -129,22 +129,12 @@ const {isDark} = useDarkMode();
 
 
 const IsOpenMenu = ref(false);
-const width = ref(null);
 const openMenu = () => {
   IsOpenMenu.value = !IsOpenMenu.value;
   emit('lockScroll', IsOpenMenu);
 };
-const onResize = () => {
-  width.value = window.innerWidth;
-};
-onMounted(() => {
-  onResize();
-  window.addEventListener('resize', onResize);
-});
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', onResize);
-});
 
+const { width } = useGetWidth();
 
 const isSticky = ref(false);
 const handleScroll = () => {

@@ -1,22 +1,21 @@
 <template>
   <div class="services-el">
-
-    <div class="services-el__img">
-      <img :src="imgService" />
+    <div class="flex gap-2">
+      <div class="services-el__img">
+        <img :src="imgService" />
+      </div>
+      <span class="services-el__name">{{ account.servName }}</span>
     </div>
-
-    <span class="services-el__name">{{ account.servName }}</span>
-
     <template v-if="account.count">
-      <span class="services-el__quantity"> {{ account.count }} шт.</span>
+      <span class="services-el__quantity"> {{ account.count }} {{ $t('pc') }}</span>
     </template>
-
+    <UiBaseCounter size="sm"/>
     <template v-if="account.prices">
       <UiBaseButton
           class="services-el__btn"
           size="lg"
+          icon="icon-pva__bag"
           :label="labelService"
-          variant="outline"
           @click="() => console.log('bay')"
       ></UiBaseButton>
     </template>
@@ -33,7 +32,7 @@ const props = defineProps({
   },
 });
 
-const labelService =  `от $ ${props.account.prices.def}`;
+const labelService =  `$${props.account.prices.def}`;
 const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/country/${props.account.country}.svg`;
 </script>
 
@@ -41,9 +40,8 @@ const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico
 @import '~/assets/css/mixins.scss';
 
 .services-el {
-  @include adaptiveValue(padding-top, 12, 8);
-  @include adaptiveValue(padding-bottom, 12, 8);
-  @apply bg-sky-50 rounded-lg px-3 md:px-5 flex flex items-center gap-2;
+
+  @apply bg-sky-50 rounded-lg p-5  grid gap-x-2 gap-y-4 justify-between grid-cols-[141px_100px] sm:gap-4 sm:grid-cols-[1fr_auto_auto_auto] items-center;
 
   &.active{
     @apply bg-sky-600 text-white;
@@ -58,15 +56,15 @@ const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico
   }
 
   &__name {
-    @apply truncate text-xs mr-2  md:mr-0 md:text-base dark:text-stone-500;
+    @apply truncate  mr-2  md:mr-0 text-base dark:text-stone-500;
   }
 
   &__quantity {
-    @apply hidden md:block ml-[auto] shrink-0;
+    @apply block text-xs ml-[auto] shrink-0 text-stone-500;
   }
 
   &__btn {
-    @apply ml-[auto] text-xs min-w-[78px] md:ml-0 md:text-base md:min-w-[94px];
+    @apply ml-[auto]  min-w-[78px] md:ml-0 text-base md:min-w-[94px] h-full;
   }
 }
 </style>

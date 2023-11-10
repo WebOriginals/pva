@@ -68,13 +68,15 @@ const soft = {
 const btnStyle = {
   base: 'focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed justify-center',
   size: {
+    '2sm': 'text-sm',
     sm: 'text-sm',
     lg: 'text-base',
     xl: 'text-base',
     xxl: 'text-base',
   },
   padding: {
-    sm: 'py-0.5 px-1',
+    '2sm': 'py-0.5 px-0.5',
+    sm: 'py-0.5 px-0.5',
     md: 'p-1 px-2',
     lg: 'py-2 px-4',
     xl: 'py-3 px-6',
@@ -86,6 +88,17 @@ const btnStyle = {
     solid: `${solid.light} ${solid.lightFocus} ${solid.lightHover} ${solid.dark} ${solid.darkFocus} ${solid.darkHover} ${solid.disabled}`,
     outline: `${outline.light} ${outline.lightFocus} ${outline.lightHover} ${outline.dark} ${outline.darkFocus} ${outline.darkHover} ${outline.disabled}`,
     soft: `${soft.light} ${soft.lightFocus} ${soft.lightHover} ${soft.dark} ${soft.darkFocus} ${soft.darkHover} ${soft.disabled}`,
+  },
+  icon: {
+    base: "flex-shrink-0",
+    size: {
+      "2xs": "h-4 w-4",
+      "xs": "h-4 w-4",
+      "sm": "h-5 w-5",
+      "md": "h-5 w-5",
+      "lg": "h-5 w-5",
+      "xl": "h-6 w-6"
+    }
   },
 };
 </script>

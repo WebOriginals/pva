@@ -10,9 +10,10 @@
                 </div>
                 <div class="alert__time-ago">10 минут назад</div>
             </div>
-            <div class="alert__message">
+            <div class="alert__message mb-4">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi laboriosam voluptatum quidem impedit dolores nam vitae pariatur molestias ducimus perferendis veritatis cum tempora quia, ipsa doloremque deleniti dicta corrupti ad deserunt? Omnis nisi nesciunt esse tempora est labore magnam reiciendis fugiat, ad quaerat consequatur, quia soluta doloremque, id nulla incidunt.
             </div>
+            <UiBaseButton size="lg" icon="icon-pva__copy" label="СМС код: 320640"></UiBaseButton>
         </div>
     </div>
 </template>

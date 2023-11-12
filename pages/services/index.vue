@@ -43,6 +43,52 @@
               </div>
             </div>
           </div>
+          <div class="use-free-number">
+
+            <h3>{{$t('services.pageTitleH2')}}</h3>
+            <div class="use-free-number__wrapper">
+              <div class="use-free-number__aside">
+                <UiCardAsideCard/>
+                <UiCardAsideCard/>
+                <UiCardAsideCard/>
+              </div>
+              <div class="use-free-number__content">
+                <div class="use-free-number__controls">
+                  <div class="use-free-number__choise-number">
+                    <div class="aside-card">
+                      <div class="aside-card__label">
+
+                        <div class="aside-card__service">
+                          <img :src="imgService" alt="" />
+                        </div>
+
+                        <div class="aside-card__country">
+                          <img :src="imgCountry" alt="" />
+                        </div>
+
+                        <div class="aside-card__title font-semibold">
+                          {{ country }}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="use-free-number__btns">
+                      <UiBaseButton size="lg" icon="icon-pva__copy" variant="soft"/>
+                      <UiBaseButton size="lg" icon="icon-pva__check" variant="soft"/>
+                      <UiBaseButton size="lg" icon="icon-pva__update" variant="soft"/>
+                    </div>
+                  </div>
+                  <div class="use-free-number__time-add">
+                    Номер добавлен: 2 дня назад
+                  </div>
+                </div>
+                <div class="use-free-number__messages">
+                  <UiAttentionsAlert/>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </template>
       <template v-else>
@@ -172,6 +218,12 @@ const items = computed(() => [
   }
 ])
 
+
+
+
+const imgCountry = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/country/6.svg`;
+const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/hw0.webp`;
+const country = "+7 (880) 80-80-80";
 </script>
 
 <style scoped lang="scss">
@@ -185,7 +237,7 @@ const items = computed(() => [
 
 .all-services {
 
-  @apply bg-white rounded-2xl grid  divide-x divide-sky-200 lg:grid-cols-[370px_1fr];
+  @apply bg-white rounded-2xl grid  divide-x divide-sky-200 lg:grid-cols-[370px_1fr] mb-16;
 
   &-menu {
     @apply divide-y divide-sky-200;
@@ -231,4 +283,81 @@ const items = computed(() => [
     }
   }
 }
+
+.use-free-number {
+  @apply py-8;
+  &__wrapper {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 16px;
+    background-color: #fff;
+  }
+  & .title {
+    max-width: 46.5625rem;
+    @apply mb-8;
+  }
+  &__aside {
+    width: 32%;
+    padding: 32px;
+    border-right: 1px solid #cde2ff;
+    flex-shrink: 0;
+  }
+  &__content {
+    width: 100%;
+  }
+  &__controls {
+    @apply flex justify-between items-center gap-x-6 pb-6 border-b border-solid border-sky-200 px-8 py-6;
+  }
+  &__choise-number {
+    @apply flex items-center gap-x-4;
+  }
+  &__select {
+    width: 17.5rem;
+  }
+  &__btns {
+    @apply flex items-center gap-x-2;
+  }
+  &__time-add {
+    @apply text-stone-500;
+  }
+  &__messages {
+    @apply px-8 py-6;
+  }
+}
+
+
+.aside-card{
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #eef5ff;
+    padding: 16px 20px;
+
+  }
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__service{
+    @apply h-6 w-6 rounded-full overflow-hidden;
+  }
+  &__country {
+    width: 22px;
+    margin-right: 8px;
+    & img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  &__title {
+    font-size: 16px;
+  }
+}
+
 </style>

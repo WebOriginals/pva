@@ -28,9 +28,9 @@
       <h2 class="title">Бесплатные временные номера</h2>
       <div class="use-free-number__wrapper">
         <div class="use-free-number__aside">
-          <AsideCard></AsideCard>
-          <AsideCard></AsideCard>
-          <AsideCard></AsideCard>
+          <UiCardAsideCard/>
+          <UiCardAsideCard/>
+          <UiCardAsideCard/>
         </div>
         <div class="use-free-number__content">
           <div class="use-free-number__controls">
@@ -39,8 +39,8 @@
                 <SelectDefault :avatar="true" :items="numbers"></SelectDefault>
               </div>
               <div class="use-free-number__btns">
-                <BtnBlue size="lg" icon="icon-pva__copy" variant="soft"></BtnBlue>
-                <BtnBlue size="lg" icon="icon-pva__update" variant="soft"></BtnBlue>
+                <UiBaseButton size="lg" icon="icon-pva__copy" variant="soft"/>
+                <UiBaseButton size="lg" icon="icon-pva__update" variant="soft"/>
               </div>
             </div>
             <div class="use-free-number__time-add">
@@ -48,9 +48,9 @@
             </div>
           </div>
           <div class="use-free-number__messages">
-            <Alert></Alert>
-            <Alert></Alert>
-            <Alert></Alert>
+            <UiAttentionsAlert/>
+            <UiAttentionsAlert/>
+            <UiAttentionsAlert/>
           </div>
         </div>
       </div>
@@ -59,10 +59,7 @@
 </template>
 
 <script setup>
-import AsideCard from "~/components/ui/Card/AsideCard.vue";
 import SelectDefault from "~/components/ui/Form/SelectDefault.vue";
-import BtnBlue from "~/components/ui/BtnBlue.vue";
-import Alert from "~/components/ui/Attentions/Alert.vue";
 
 useHead({
   title: "Бесплатные номера",

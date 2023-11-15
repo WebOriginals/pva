@@ -33,6 +33,10 @@ const props = defineProps({
 
 const labelService =  `$${props.account.prices.def}`;
 const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/country/${props.account.country}.svg`;
+
+const buyService = () => {
+
+}
 </script>
 
 <style scoped lang="scss">
@@ -63,7 +67,7 @@ const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico
   }
 
   &__btn {
-    @apply ml-[auto]  min-w-[78px] md:ml-0 text-base md:min-w-[94px] h-full;
+    @apply ml-[auto]  min-w-[78px] md:ml-0 text-base md:min-w-[94px] md:max-w-[96px] h-full;
   }
 }
 </style>

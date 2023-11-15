@@ -73,6 +73,9 @@ const phone = computed(() => {
   &.bg{
     @apply bg-sky-50;
   }
+  &.cardTop{
+    @apply px-3 py-2;
+  }
 
   &.active{
     @apply lg:bg-sky-600 lg:text-white;

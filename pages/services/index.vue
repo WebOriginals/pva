@@ -77,10 +77,11 @@
                       <UiBaseButton size="lg" icon="icon-pva__check" variant="soft"/>
                       <UiBaseButton size="lg" icon="icon-pva__update" variant="soft"/>
                     </div>
+                    <div class="use-free-number__time-add">
+                      Активация: 16:32
+                    </div>
                   </div>
-                  <div class="use-free-number__time-add">
-                    Номер добавлен: 2 дня назад
-                  </div>
+
                 </div>
                 <div class="use-free-number__messages">
                   <div class="use-free-number__scroll-sms scrollCust">
@@ -104,7 +105,7 @@
           <template #account="{ item }">
 
             <div class="services__all-services all-services">
-              <div v-if="mobileCountries " class="all-services__menu all-services-menu">
+              <div v-if="mobileCountries" class="all-services__menu all-services-menu">
                 <div class="all-services-menu__search">
                   <ServiceServicesSearchByProduct size="xl" v-model="searchServiceValue"/>
                 </div>
@@ -127,6 +128,7 @@
                 <div class="all-services-country__nav">
                   <UiBaseButton size="lg" icon="icon-pva__back" variant="soft" @click="mobileCountries = true"/>
                   <ServiceCardWithCountryAndNumber
+                      class="cardTop"
                       :background="false"
                       :account="serviceActive"
                       :show-background="false"
@@ -156,16 +158,62 @@
           </template>
 
           <template #password="{ item }">
-            <UCard>
-              <template #header>
-                <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
-                  {{ item.label }}
-                </h3>
-                <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                  Change your password here. After saving, you'll be logged out.
-                </p>
-              </template>
-            </UCard>
+            <div class="use-free-number">
+
+              <div class="use-free-number__grid">
+                <div v-if="mobileNumber" class="use-free-number__wrapper">
+                  <div class="use-free-number__scroll scrollCust">
+                    <div class="use-free-number__list">
+                      <ServiceCardWithCountryAndNumber
+                          :class="{ 'active': account.id === myNumberActive.id }"
+                          v-for="account in myNumbers"
+                          :key="account.id"
+                          :account="account"
+                          :show-logo-service="true"
+                          :show-country="true"
+                          @click="fetchMyNumber(account)"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div v-else class="use-free-number__content">
+                  <div class="use-free-number__controls">
+                    <div class="use-free-number__choise-number">
+                      <UiBaseButton size="lg" icon="icon-pva__back" variant="soft" @click="mobileNumber = true"/>
+                      <ServiceCardWithCountryAndNumber
+                          class="cardTop"
+                          :account="myNumberActive"
+                          :show-logo-service="true"
+                          :show-country="true"
+                          :show-background="false"
+                      />
+                      <div class="use-free-number__btns">
+                        <UiBaseButton size="lg" icon="icon-pva__copy" variant="soft"/>
+                        <UiBaseButton size="lg" icon="icon-pva__check" variant="soft"/>
+                        <UiBaseButton size="lg" icon="icon-pva__update" variant="soft"/>
+                      </div>
+                      <div class="use-free-number__time-add">
+                        Активация: 16:32
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="use-free-number__messages">
+                    <div class="use-free-number__scroll-sms scrollCust">
+                      <div class="use-free-number__list">
+                        <ServiceCardWithSMS
+                            v-for="sms in AllSms"
+                            :key="sms.id"
+                            :sms="sms"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </template>
         </UTabs>
       </template>
@@ -183,6 +231,7 @@ const { width } = useGetWidth();
 const sizeSearchInputInCountry = computed(() => (width.value > 640) ? "xl" : "md");
 
 const mobileCountries = ref(true)
+const mobileNumber = ref(true)
 const searchServiceValue = ref('')
 const searchCountryValue = ref('')
 
@@ -238,8 +287,9 @@ const myNumberActive = ref(myNumbers.value[0])
 const AllSms = ref([])
 const fetchMyNumber = async (account) => {
   myNumberActive.value = toRaw(account)
+
   if(width.value < 1024){
-    mobileCountries.value = false;
+    mobileNumber.value = false;
   }
   const {pending: penSms, data: sms} = await useLazyFetch('/api/v1/sms', {
     transform: (_sms) => _sms.data,
@@ -315,10 +365,9 @@ AllSms.value = sms.value
 }
 
 .use-free-number {
-  @apply py-8;
 
   &__grid {
-    @apply bg-white rounded-2xl grid  divide-x divide-sky-200 lg:grid-cols-[370px_1fr] mb-16 mt-8;
+    @apply bg-white rounded-2xl grid  divide-x divide-sky-200 lg:grid-cols-[370px_1fr] md:mt-8;
   }
   & .title {
     @apply mb-8;
@@ -333,7 +382,7 @@ AllSms.value = sms.value
     @apply overflow-y-auto max-h-[390px] lg:max-h-[616px];
   }
   &__scroll-sms {
-    @apply overflow-y-auto max-h-[390px] lg:max-h-[516px];
+    @apply overflow-y-auto max-h-[590px] lg:max-h-[516px];
   }
 
   &__list {
@@ -346,20 +395,24 @@ AllSms.value = sms.value
     @apply w-full;
   }
   &__controls {
-    @apply flex justify-between items-center gap-x-6 pb-6 border-b border-solid border-sky-200 px-8 py-6;
+    @apply  border-b border-solid border-sky-200 px-4 py-4 md:px-8 md:py-6;
   }
   &__choise-number {
-    @apply flex items-center gap-x-4;
+    @apply grid grid-cols-[40px_40px_40px_1fr] lg:grid-cols-[245px_136px_1fr] gap-2 items-center;
+
+    .cardTop{
+      @apply col-start-2 col-span-3 lg:col-auto lg:col-auto;
+    }
   }
 
   &__btns {
-    @apply flex items-center gap-x-2;
+    @apply flex items-center gap-x-2 col-start-1 col-span-3 lg:col-start-2 lg:col-auto;
   }
   &__time-add {
-    @apply text-stone-500;
+    @apply text-stone-500 text-right;
   }
   &__messages {
-    @apply px-8 py-6;
+    @apply px-4 py-4 md:px-8 md:py-6;
   }
 }
 

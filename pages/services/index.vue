@@ -12,13 +12,14 @@
               <div class="all-services-menu__wrapper">
                 <div class="all-services-menu__scroll scrollCust">
                   <div class="all-services-menu__list">
-                    <ServiceServicesViewCard
+                    <ServiceCardWithCountryAndNumber
                         :class="{ 'active': account.id === serviceActive }"
                         v-for="account in filteredService"
                         :key="account.id"
                         :account="account"
+                        :show-logo-service="true"
                         @click="fetchProduct(account.id)"
-                    ></ServiceServicesViewCard>
+                    />
                   </div>
                 </div>
               </div>
@@ -31,14 +32,12 @@
               <div class="all-services-country__wrapper">
                 <div class="all-services-country__scroll scrollCust">
                   <div class="all-services-country__list">
-
-                    <ServiceCountryViewCard
+                    <ServiceCardWithCountryAndBuy
                         v-for="country in filteredCountries"
                         :key="country.id"
                         :account="country"
-                    ></ServiceCountryViewCard>
+                    />
                   </div>
-
                 </div>
               </div>
             </div>
@@ -46,31 +45,32 @@
           <div class="use-free-number">
 
             <h3>{{$t('services.pageTitleH2')}}</h3>
-            <div class="use-free-number__wrapper">
-              <div class="use-free-number__aside">
-                <UiCardAsideCard/>
-                <UiCardAsideCard/>
-                <UiCardAsideCard/>
+            <div class="use-free-number__grid">
+              <div class="use-free-number__wrapper">
+                <div class="use-free-number__scroll scrollCust">
+                  <div class="use-free-number__list">
+                    <ServiceCardWithCountryAndNumber
+                        :class="{ 'active': account.id === myNumberActive.id }"
+                        v-for="account in myNumbers"
+                        :key="account.id"
+                        :account="account"
+                        :show-logo-service="true"
+                        :show-country="true"
+                        @click="fetchMyNumber(account)"
+                    />
+                  </div>
+                </div>
               </div>
+
               <div class="use-free-number__content">
                 <div class="use-free-number__controls">
                   <div class="use-free-number__choise-number">
-                    <div class="aside-card">
-                      <div class="aside-card__label">
-
-                        <div class="aside-card__service">
-                          <img :src="imgService" alt="" />
-                        </div>
-
-                        <div class="aside-card__country">
-                          <img :src="imgCountry" alt="" />
-                        </div>
-
-                        <div class="aside-card__title font-semibold">
-                          {{ country }}
-                        </div>
-                      </div>
-                    </div>
+                    <ServiceCardWithCountryAndNumber
+                        :account="myNumberActive"
+                        :show-logo-service="true"
+                        :show-country="true"
+                        :show-background="false"
+                    />
 
                     <div class="use-free-number__btns">
                       <UiBaseButton size="lg" icon="icon-pva__copy" variant="soft"/>
@@ -83,7 +83,15 @@
                   </div>
                 </div>
                 <div class="use-free-number__messages">
-                  <UiAttentionsAlert/>
+                  <div class="use-free-number__scroll-sms scrollCust">
+                    <div class="use-free-number__list">
+                  <ServiceCardWithSMS
+                      v-for="sms in AllSms"
+                      :key="sms.id"
+                      :sms="sms"
+                  />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -103,13 +111,14 @@
                 <div class="all-services-menu__wrapper">
                   <div class="all-services-menu__scroll scrollCust">
                     <div class="all-services-menu__list">
-                      <ServiceServicesViewCard
+                      <ServiceCardWithCountryAndNumber
                           :class="{ 'active': account.id === serviceActive.id }"
                           v-for="account in filteredService"
                           :key="account.id"
                           :account="account"
+                          :show-logo-service="true"
                           @click="fetchProduct(account)"
-                      ></ServiceServicesViewCard>
+                      />
                     </div>
                   </div>
                 </div>
@@ -117,10 +126,13 @@
               <div v-else class="all-services__country all-services-country">
                 <div class="all-services-country__nav">
                   <UiBaseButton size="lg" icon="icon-pva__back" variant="soft" @click="mobileCountries = true"/>
-                  <ServiceServicesViewCard
+                  <ServiceCardWithCountryAndNumber
                       :background="false"
                       :account="serviceActive"
-                  ></ServiceServicesViewCard>
+                      :show-background="false"
+                      :show-logo-service="true"
+                  />
+
                 </div>
                 <div class="all-services-country__head">
                   <ServiceServicesSearchByProduct :size="sizeSearchInputInCountry" v-model="searchCountryValue"/>
@@ -185,7 +197,6 @@ const filteredService = computed(() => {
 const serviceActive = ref(filteredService.value[0])
 const fetchProduct = async (account) => {
   serviceActive.value = account
-  console.log(`запрос ${account.id}`)
 
   if(width.value < 1024){
     mobileCountries.value = false;
@@ -220,10 +231,29 @@ const items = computed(() => [
 
 
 
+const {pending: penMyNumbers, data: myNumbers} = await useLazyFetch('/api/v1/myNumber', {
+  transform: (_myNumbers) => _myNumbers.data,
+});
+const myNumberActive = ref(myNumbers.value[0])
+const AllSms = ref([])
+const fetchMyNumber = async (account) => {
+  myNumberActive.value = toRaw(account)
+  if(width.value < 1024){
+    mobileCountries.value = false;
+  }
+  const {pending: penSms, data: sms} = await useLazyFetch('/api/v1/sms', {
+    transform: (_sms) => _sms.data,
+  });
+  AllSms.value = sms.value
+}
 
-const imgCountry = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/country/6.svg`;
-const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/hw0.webp`;
-const country = "+7 (880) 80-80-80";
+
+const {pending: penSms, data: sms} = await useLazyFetch('/api/v1/sms', {
+  transform: (_sms) => _sms.data,
+});
+AllSms.value = sms.value
+
+
 </script>
 
 <style scoped lang="scss">
@@ -286,25 +316,34 @@ const country = "+7 (880) 80-80-80";
 
 .use-free-number {
   @apply py-8;
-  &__wrapper {
-    margin-top: 32px;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 16px;
-    background-color: #fff;
+
+  &__grid {
+    @apply bg-white rounded-2xl grid  divide-x divide-sky-200 lg:grid-cols-[370px_1fr] mb-16 mt-8;
   }
   & .title {
-    max-width: 46.5625rem;
     @apply mb-8;
   }
-  &__aside {
-    width: 32%;
-    padding: 32px;
-    border-right: 1px solid #cde2ff;
-    flex-shrink: 0;
+
+
+  &__wrapper {
+    @apply py-8 px-8 pr-4;
   }
+
+  &__scroll {
+    @apply overflow-y-auto max-h-[390px] lg:max-h-[616px];
+  }
+  &__scroll-sms {
+    @apply overflow-y-auto max-h-[390px] lg:max-h-[516px];
+  }
+
+  &__list {
+    @apply grid gap-2 pr-4;
+  }
+
+
   &__content {
-    width: 100%;
+
+    @apply w-full;
   }
   &__controls {
     @apply flex justify-between items-center gap-x-6 pb-6 border-b border-solid border-sky-200 px-8 py-6;
@@ -312,9 +351,7 @@ const country = "+7 (880) 80-80-80";
   &__choise-number {
     @apply flex items-center gap-x-4;
   }
-  &__select {
-    width: 17.5rem;
-  }
+
   &__btns {
     @apply flex items-center gap-x-2;
   }
@@ -323,40 +360,6 @@ const country = "+7 (880) 80-80-80";
   }
   &__messages {
     @apply px-8 py-6;
-  }
-}
-
-
-.aside-card{
-  &__btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    border-radius: 8px;
-    background-color: #eef5ff;
-    padding: 16px 20px;
-
-  }
-  &__label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  &__service{
-    @apply h-6 w-6 rounded-full overflow-hidden;
-  }
-  &__country {
-    width: 22px;
-    margin-right: 8px;
-    & img {
-      width: 100%;
-      object-fit: contain;
-    }
-  }
-  &__title {
-    font-size: 16px;
   }
 }
 

@@ -13,11 +13,11 @@
 						<div class="services">
 							<p v-if="pending">"идет загрузка"</p>
 							<template v-else>
-                <ServiceServicesViewCard
+                <ServiceCardWithCountryAndNumber
                     v-for="account in filteredItems"
                     :key="account.id"
                     :account="account"
-                ></ServiceServicesViewCard>
+                />
 							</template>
 						</div>
 					</div>

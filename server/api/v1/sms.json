@@ -1,0 +1,62 @@
+[
+  {
+    "phoneFrom": "900",
+    "text": "Ваша карта уже в офисе: г.Москва, ул.Арбат, 33/12, стр.1. Она хранится 6 месяцев. Чтобы получить карту, возьмите паспорт и телефон. Информация о получении sberbank.com/v/r/?p=Nn6hR",
+    "service": "md",
+    "date": "2023-11-15 21:45:24",
+    "type": "sms",
+    "cost": 0,
+    "accepted": "1",
+    "passedSeconds": 0
+  },
+  {
+    "phoneFrom": "CIAN.RU",
+    "text": "Код: 7982",
+    "service": "adv",
+    "date": "2023-11-15 17:35:27",
+    "type": "sms",
+    "cost": 0,
+    "accepted": "1",
+    "passedSeconds": 0
+  },
+  {
+    "phoneFrom": "Winline_RU",
+    "text": "Твой SMS код 51609",
+    "service": "ft",
+    "date": "2023-11-15 17:33:46",
+    "type": "sms",
+    "cost": 0,
+    "accepted": "1",
+    "passedSeconds": 0
+  },
+  {
+    "phoneFrom": "CIAN.RU",
+    "text": "Код: 1621",
+    "service": "adv",
+    "date": "2023-11-15 17:33:10",
+    "type": "sms",
+    "cost": 0,
+    "accepted": "1",
+    "passedSeconds": 0
+  },
+  {
+    "phoneFrom": "SOKOLOV",
+    "text": "6882 - ваш код для авторизации в магазине SOKOLOV",
+    "service": "abw",
+    "date": "2023-11-15 17:29:03",
+    "type": "sms",
+    "cost": 0,
+    "accepted": "1",
+    "passedSeconds": 0
+  },
+  {
+    "phoneFrom": "PARI.RU",
+    "text": "Восстановление пароля. Код: 290535 Pari.ru",
+    "service": "ft",
+    "date": "2023-11-15 17:28:03",
+    "type": "sms",
+    "cost": 0,
+    "accepted": "1",
+    "passedSeconds": 0
+  }
+]

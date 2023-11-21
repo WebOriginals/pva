@@ -9,14 +9,14 @@
     <template v-if="account.count">
       <span class="services-el__quantity"> {{ account.count }} {{ $t('pc') }}</span>
     </template>
-    <UiBaseCounter size="sm"/>
+    <UiBaseCounter size="sm" @count="count"/>
     <template v-if="account.prices">
       <UiBaseButton
           class="services-el__btn"
           size="lg"
           icon="icon-pva__bag"
           :label="labelService"
-          @click="() => console.log('bay')"
+          @click="buyService"
       ></UiBaseButton>
     </template>
   </div>
@@ -31,11 +31,28 @@ const props = defineProps({
   },
 });
 
+
 const labelService =  `$${props.account.prices.def}`;
 const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/country/${props.account.country}.svg`;
+const amount = ref(1)
+const count = (ev) => {
+  amount.value = ev.value
+}
 
-const buyService = () => {
 
+import { buyActivation } from '~/components/api/fetchBuyActivation';
+const buyService = async () => {
+  const params = {
+    service: props.account.service, // service short name
+    retail_price: props.account.prices.def, // int
+    country_code: props.account.country, // country code int
+    amount: amount.value
+  }
+  const {error, login, status} = await buyActivation(params)
+
+  if (!error.value) {
+    console.log("покупка прошла", params)
+  }
 }
 </script>
 

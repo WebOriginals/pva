@@ -1,4 +1,4 @@
-import data from './listProduct.json';
+import data from '../json/listProduct.json';
 
 export default defineEventHandler(() => {
     return { data };

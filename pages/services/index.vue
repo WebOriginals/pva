@@ -45,6 +45,9 @@
           <div class="use-free-number">
 
             <h3>{{$t('services.pageTitleH2')}}</h3>
+            <template v-if="myNumbers.length > 0">
+
+            </template>
             <div class="use-free-number__grid">
               <div class="use-free-number__wrapper">
                 <div class="use-free-number__scroll scrollCust">

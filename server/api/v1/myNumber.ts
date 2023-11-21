@@ -1,4 +1,4 @@
-import data from './myNumber.json';
+import data from '../json/myNumber.json';
 
 export default defineEventHandler(() => {
     return { data };

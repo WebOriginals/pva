@@ -8,10 +8,10 @@
           @click.stop="dec()"
       />
 
-<!--      <div class="counter__input">-->
-<!--&lt;!&ndash;        <input type="number" v-model="count">&ndash;&gt;-->
-<!--        <span class="currency-symbol"> {{count}} {{ $t('pc') }}</span>-->
-<!--      </div>-->
+      <div class="counter__input">
+        <!--<input type="number" v-model="count">-->
+        <span class="currency-symbol"> {{count}} {{ $t('pc') }}</span>
+      </div>
 
       <UiBaseButton
           size="lg"
@@ -32,7 +32,7 @@
       />
 
       <div class="counter__input">
-<!--        <input type="number" v-model="count">-->
+        <!--<input type="number" v-model="count">-->
         <span class="currency-symbol"> {{count}} {{ $t('pc') }}</span>
       </div>
 
@@ -56,8 +56,15 @@ const props = defineProps({
     default: "md"
   },
 });
+const emit = defineEmits();
 import { useCounter } from '@vueuse/core'
 const { count, inc, dec, set, reset } = useCounter(1, { min: 1, max: 10 })
+
+
+watch(count, (newValue) => {
+  emit('count', count);
+})
+
 </script>
 
 <style scoped lang="scss">

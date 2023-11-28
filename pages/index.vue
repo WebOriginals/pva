@@ -1,10 +1,10 @@
 <template>
-  <MainTheFirst></MainTheFirst>
-  <MainGetNumber></MainGetNumber>
-  <MainTheSteps></MainTheSteps>
-  <MainTheNumberSales></MainTheNumberSales>
-  <MainTheNews></MainTheNews>
-  <MainTheQuestion></MainTheQuestion>
+  <MainTheFirst/>
+  <MainBuyServices/>
+  <MainTheSteps/>
+  <MainTheNumberSales/>
+  <MainTheNews/>
+  <MainTheQuestion/>
 </template>
 
 <script setup lang="ts">

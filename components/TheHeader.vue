@@ -138,11 +138,7 @@ const { width } = useGetWidth();
 
 const isSticky = ref(false);
 const handleScroll = () => {
-  if (window.scrollY > 0) {
-    isSticky.value = true;
-  } else {
-    isSticky.value = false;
-  }
+  isSticky.value = window.scrollY > 0;
 };
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);

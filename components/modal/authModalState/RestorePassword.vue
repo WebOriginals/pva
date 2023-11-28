@@ -58,15 +58,15 @@ const rules = computed(() => {
 });
 const v$ = useVuelidate(rules, form);
 
-import {api} from "~/components/api/fatchRestorePassword";
+import apiAuth from '~/components/api/AuthAPI';
 const sendEmail = async () => {
   const params = {
     email: form.value.email,
   }
   v$.value.$validate();
   if (!v$.value.$error) {
-    const {user, pending, status, refresh, error} = await api(params)
-    if(!error.value){
+    const restorePasswordResult = await apiAuth.restorePassword(params);
+    if(!restorePasswordResult.error.value){
       emit('changeModalNeedState', authModalState.RestorePasswordSuccessfully);
     }
   }

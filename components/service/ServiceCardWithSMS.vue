@@ -4,7 +4,7 @@
       <div class="alert__info">
         <div class="alert__title-wrapper">
           <div class="alert__logo">
-            <img src="https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/tg0.webp" alt="tg">
+            <img :src="imgService" :alt="imgService">
           </div>
           <div class="alert__title">{{props.sms.phoneFrom}}</div>
         </div>
@@ -29,6 +29,11 @@ const props = defineProps({
   }
 })
 
+const urlAmazonService = 'https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/';
+
+const imgService = computed(() => {
+  return `${urlAmazonService}${props.sms.service}0.webp`
+});
 const timePassedFromNow = computed(() => {
   const startDate = new Date(props.sms.date);
   const now = new Date();

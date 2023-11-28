@@ -30,14 +30,14 @@ const props = defineProps({
 });
 const form = ref(props.userData)
 
-import {api} from '~/components/api/fetchRegistation'
+import apiAuth from '~/components/api/AuthAPI';
 const fetchRegistrationAgain = async () => {
   const params = {
     email: form.value.email,
     password: form.value.password,
     password_confirmation: form.value.confirmPassword
   }
-  const {user, pending, status, refresh, error} = await api(params)
+  const registrationResult = await apiAuth.registration(params);
 };
 
 const openModalRegistration = () => {

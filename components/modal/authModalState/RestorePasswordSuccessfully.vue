@@ -29,12 +29,12 @@ const props = defineProps({
 });
 const form = ref(props.userData)
 
-import {api} from '~/components/api/fatchRestorePassword';
+import apiAuth from '~/components/api/AuthAPI';
 const sendEmailAgain = async () => {
   const params = {
     email: form.value.email,
   }
-  const {status, error} = await api(params)
+  const restorePasswordResult = await apiAuth.restorePassword(params);
 };
 
 const changeEmail = () => {

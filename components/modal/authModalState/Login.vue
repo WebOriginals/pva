@@ -40,9 +40,12 @@
           @change="v$.password.$touch"
       ></UiBaseInputN>
 
-      <div class="flex justify-end">
-        <UButton color="primary" variant="link" :label="$t('modal.authModalState.Login.forgotYourPassword')"
-                 @click="openModalRestorePassword"/>
+      <div class="modelReg__centerEl ">
+        <UButton
+            color="primary"
+            variant="link"
+            :label="$t('modal.authModalState.Login.forgotYourPassword')"
+            @click="openModalRestorePassword"/>
       </div>
 
       <UiBaseButton
@@ -110,8 +113,8 @@ const rules = computed(() => {
 const v$ = useVuelidate(rules, form);
 
 const alertGlobal = ref('');
-import {api} from '~/components/api/fetchLogin';
 
+import apiAuth from '~/components/api/AuthAPI'
 const submitForm = async () => {
   v$.value.$validate();
   if (!v$.value.$error) {
@@ -120,17 +123,17 @@ const submitForm = async () => {
       email: form.value.email,
       password: form.value.password
     }
-    const {error, login, status} = await api(params)
 
-    alertGlobal.value = {error: error.value, status: status.value, data: login.value}
+    const loginResult = await apiAuth.login(params);
+    alertGlobal.value = {error: loginResult.error.value, status: loginResult.status.value, data: loginResult.data.value}
 
-    if (!error.value) {
+    if (!loginResult.error.value) {
 
-      if (login.value[0].google) {
+      if (loginResult.data.value[0].google) {
        return  emit('changeModalNeedState', authModalState.WelcomeBackInGoogle);
       }
 
-      if (login.value[0].twoFA) {
+      if (loginResult.data.value[0].twoFA) {
         return emit('changeModalNeedState', authModalState.GoogleTowFA);
       }
 
@@ -147,3 +150,9 @@ const openModalRestorePassword = () => {
   emit('changeModalNeedState', authModalState.RestorePassword);
 }
 </script>
+
+<style scoped lang="scss">
+.modelReg__centerEl{
+  @apply flex justify-end;
+}
+</style>

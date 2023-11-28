@@ -54,16 +54,22 @@ const rules = computed(() => {
 });
 const v$ = useVuelidate(rules, form);
 
-import {api} from '~/components/api/fetchCodeFromEmail';
+
+import apiAuth from '~/components/api/AuthAPI';
 const sendCodeFromEmailAgain = async () => {
+  console.log('отправить письмо на почту')
+
+};
+
+const setPassword = async () => {
   const params = {
     codeFromEmail: form.value.codeFromEmail,
   }
-  const {status, error} = await api(params)
-};
+  const codeFromEmailResult = await apiAuth.codeFromEmail(params);
+  if (!codeFromEmailResult.error.value) {
+    emit('changeModalNeedState', authModalState.changePassword);
+  }
 
-const setPassword = () => {
-  emit('changeModalNeedState', authModalState.changePassword);
 }
 </script>
 

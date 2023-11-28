@@ -61,16 +61,17 @@ const rules = computed(() => {
 });
 const v$ = useVuelidate(rules, form);
 
-import {api} from "~/components/api/fetchTwoFA";
+import apiAuth from '~/components/api/AuthAPI';
 const sendTwoFA = async () => {
   const params = {
     twoFA: form.value.twoFA,
   }
   v$.value.$validate();
   if (!v$.value.$error) {
-    const { error } = await api(params)
 
-    if(!error.value){
+    const twoFactorAuthenticationResult = await apiAuth.twoFactorAuthentication(params);
+
+    if(!twoFactorAuthenticationResult.error.value){
       storeModal.actionIsOpenModal()
       emit('changeModalNeedState', authModalState.login);
     }

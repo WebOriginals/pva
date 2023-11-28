@@ -109,7 +109,7 @@ const rules = computed(() => {
 });
 const v$ = useVuelidate(rules, form);
 
-import {api} from '~/components/api/fetchRegistation'
+import apiAuth from '~/components/api/AuthAPI';
 const submitRegistrationForm = async ()  => {
   v$.value.$validate();
   if (!v$.value.$error) {
@@ -119,9 +119,9 @@ const submitRegistrationForm = async ()  => {
       password_confirmation: form.value.confirmPassword,
       access_token: 'tyryrRerw456'
     }
-    const {error} = await api(params)
+    const registrationResult = await apiAuth.registration(params);
 
-    if(!error.value){
+    if(!registrationResult.error.value){
       emit('changeModalNeedState', authModalState.RegistrationSuccessfully);
     }
 

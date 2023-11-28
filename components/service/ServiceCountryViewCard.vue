@@ -24,6 +24,7 @@
 
 <script setup>
 const { locale } = useI18n();
+const urlAmazonCountry = 'https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/country/';
 const props = defineProps({
   account: {
     type: Object,
@@ -32,7 +33,7 @@ const props = defineProps({
 });
 
 const labelService =  `$${props.account.prices.def}`;
-const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/country/${props.account.country}.svg`;
+const imgService = `${urlAmazonCountry}${props.account.country}.svg`;
 </script>
 
 <style scoped lang="scss">

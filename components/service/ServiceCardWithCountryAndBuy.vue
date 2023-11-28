@@ -31,9 +31,9 @@ const props = defineProps({
   },
 });
 
-
+const urlAmazonCountry = 'https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/country/';
 const labelService =  `$${props.account.prices.def}`;
-const imgService = `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/country/${props.account.country}.svg`;
+const imgService = `${urlAmazonCountry}${props.account.country}.svg`;
 const amount = ref(1)
 const count = (ev) => {
   amount.value = ev.value

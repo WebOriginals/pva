@@ -8,9 +8,8 @@
           :placeholder="props.placeholder"
           :value="modelValue"
           @input="$emit('update:modelValue', $event.target.value)">
-      <label
-          class="text-field__label"
-      >{{ props.label }}</label>
+
+      <label class="text-field__label">{{ props.label }}</label>
 
       <template v-if="props.typeInput == 'password'">
         <UButton class='text-field__showText'
@@ -33,10 +32,12 @@
       </template>
 
     </div>
+
     <div class="wrapper-input__mas" v-if="error && showError">
-      <IconTheErrorMas></IconTheErrorMas>
+      <IconTheErrorMas/>
       <span class="text-xs text-red-500">{{ errors[0].$message }}</span>
     </div>
+
   </div>
 </template>
 
@@ -50,22 +51,22 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  label:{
+  label: {
     type: String,
     required: true,
   },
-  typeInput:{
+  typeInput: {
     type: String,
     required: true,
   },
-  error:{
+  error: {
     type: String,
   },
-  errors:{
+  errors: {
     type: Array,
     default: [],
   },
-  showError:{
+  showError: {
     type: Boolean,
     default: true,
   }
@@ -96,7 +97,7 @@ const switchVisibility = () => {
       @apply border-sky-600 outline-none;
     }
 
-    &-error{
+    &-error {
       @apply border-red-500  focus:border-red-500 ;
     }
   }
@@ -129,8 +130,9 @@ const switchVisibility = () => {
     }
   }
 }
-.wrapper-input{
-  &__mas{
+
+.wrapper-input {
+  &__mas {
     @apply flex items-center gap-2 mt-1.5;
   }
 }

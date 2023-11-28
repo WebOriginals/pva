@@ -1,7 +1,13 @@
 <template>
 	<footer class="footer">
 		<div class="footer__container" v-if="!store.getIsLoggedIn">
-      <TheFooterCallToAction></TheFooterCallToAction>
+      <div class="footer__callToAction">
+        <p>
+          Регистрируйтесь в соцсетях, на торговых площадках, биржах и
+          онлайн-сервисах без спама и разглашения личных данных.
+        </p>
+        <UiBaseButton size="xxl" label="Получить номер" variant="soft"></UiBaseButton>
+      </div>
 		</div>
 		<div class="footer__top">
 			<div class="footer__container top">
@@ -112,6 +118,8 @@ const store = useUserStore();
 </script>
 
 <style scoped lang="scss">
+@import '~/assets/css/mixins.scss';
+
 .footer {
 	@apply text-white  bg-gradient-to-r from-sky-950 to-sky-900;
 
@@ -192,5 +200,18 @@ const store = useUserStore();
 	&__paymentSystems {
 		@apply flex gap-2 justify-center;
 	}
+
+  &__callToAction {
+    @include adaptiveValue(padding-top, 92, 64);
+    @include adaptiveValue(padding-bottom, 92, 64);
+    @include adaptiveValue(padding-left, 64, 24);
+    @include adaptiveValue(padding-right, 64, 24);
+    @apply grid md:grid-cols-[1fr_240px] gap-8 bg-sky-500 rounded-[32px] -mt-36;
+
+    p {
+      @apply text-white;
+    }
+  }
 }
+
 </style>

@@ -56,7 +56,7 @@
               v-if="!storeUser.getIsLoggedIn"
           ></UiBaseButton>
           <Teleport to="body">
-            <ModalAuthModalStateBaseModalLogin :modal-default-state="0"></ModalAuthModalStateBaseModalLogin>
+            <ModalAuthModalStateBaseModalLogin :modal-default-state="4"></ModalAuthModalStateBaseModalLogin>
           </Teleport>
           <!--вызов модалки-->
           <TheHeaderDropdownForProfile v-if="storeUser.getIsLoggedIn"></TheHeaderDropdownForProfile>
@@ -138,11 +138,7 @@ const { width } = useGetWidth();
 
 const isSticky = ref(false);
 const handleScroll = () => {
-  if (window.scrollY > 0) {
-    isSticky.value = true;
-  } else {
-    isSticky.value = false;
-  }
+  isSticky.value = window.scrollY > 0;
 };
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);

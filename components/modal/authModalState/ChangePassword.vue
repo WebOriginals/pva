@@ -93,15 +93,16 @@ const rules = computed(() => {
 });
 const v$ = useVuelidate(rules, form);
 
-import {api} from "~/components/api/fetchСhangePassword";
+
+import apiAuth from '~/components/api/AuthAPI'
 const sendChangedPassword = async () => {
   const params = {
-    email: form.value.email,
+    password: form.value.password,
   }
   v$.value.$validate();
   if (!v$.value.$error) {
-    const {user, pending, status, refresh, error} = await api(params)
-    if(!error.value){
+    const changePasswordResult = await apiAuth.changePassword(params);
+    if(!changePasswordResult.error.value){
       emit('changeModalNeedState', authModalState.ChangePasswordSuccessfully);
     }
   }

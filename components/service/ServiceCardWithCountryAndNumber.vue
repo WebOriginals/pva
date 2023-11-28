@@ -49,14 +49,15 @@ const props = defineProps({
     default: true,
   }
 })
-
+const urlAmazonCountry = 'https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/country/';
+const urlAmazonService = 'https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/';
 import {phoneFormatV2} from "~/utils/phoneFormarV2";
 
 const serviceCountry = computed(() => {
- return `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/country/${props.account.country}.svg`
+ return `${urlAmazonCountry}${props.account.country}.svg`
 });
 const serviceLogo = computed(() => {
-  return `https://smsactivate.s3.eu-central-1.amazonaws.com/assets/ico/${props.account.service}0.webp`
+  return `${urlAmazonService}${props.account.service}0.webp`
 });
 
 const phone = computed(() => {

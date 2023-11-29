@@ -31,7 +31,7 @@
               $t('nav.news')
             }}
           </NuxtLink>
-          <NuxtLink class="header-nav__link" :to="localePath('/api')">{{
+          <NuxtLink class="header-nav__link" :to="localePath('/apiPage')">{{
               $t('nav.api')
             }}
           </NuxtLink>

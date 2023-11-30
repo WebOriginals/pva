@@ -116,8 +116,7 @@ const submitRegistrationForm = async ()  => {
     const params = {
       email: form.value.email,
       password: form.value.password,
-      password_confirmation: form.value.confirmPassword,
-      access_token: 'tyryrRerw456'
+      password_confirmation: form.value.confirmPassword
     }
     const registrationResult = await apiAuth.registration(params);
 

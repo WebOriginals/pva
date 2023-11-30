@@ -1,5 +1,5 @@
 class BuyServiceAPI  {
-    async request(url,authorization, params) {
+    async request(url, params, authorization) {
         const { data, status, error, refresh, pending } = await useFetch(url, {
             headers: {
                 "Authorization": authorization,

@@ -1,5 +1,5 @@
 class AuthAPI  {
-    async request(url,authorization, params) {
+    async request(url, params, authorization = '',) {
         const { data, status, error, refresh, pending } = await useFetch(url, {
             headers: {
                 "Authorization": authorization,
@@ -34,13 +34,13 @@ class AuthAPI  {
 
     async changePassword(params, token) {
         const URL_CHANGE_PASSWORD = '/api/v1/changePassword';
-        return await this.request(URL_CHANGE_PASSWORD, token, params);
+        return await this.request(URL_CHANGE_PASSWORD, params, token );
     }
 
 
     async codeFromEmail(params, token) {
         const URL_CODE_FROM_EMAIL = '/api/v1/codeFromEmail';
-        return await this.request(URL_CODE_FROM_EMAIL, token, params);
+        return await this.request(URL_CODE_FROM_EMAIL, params, token,);
     }
 
     async sendToken(params) {

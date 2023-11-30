@@ -39,9 +39,7 @@ const count = (ev) => {
   amount.value = ev.value
 }
 
-
-import { buyActivation } from '~/components/api/fetchBuyActivation';
-import apiBuyService from '~/components/api/AuthAPI'
+import apiBuyService from '~/components/api/BuyServiceAPI'
 const buyService = async () => {
   const params = {
     service: props.account.service, // service short name
@@ -53,7 +51,7 @@ const buyService = async () => {
   const buyActivationResult = await apiBuyService.buyActivation(params, token)
 
   if (!buyActivationResult.error.value) {
-    console.log("покупка прошла", params)
+    console.log("покупка прошла", buyActivationResult.data)
   }
 }
 </script>

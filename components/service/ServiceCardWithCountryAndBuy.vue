@@ -41,6 +41,7 @@ const count = (ev) => {
 
 
 import { buyActivation } from '~/components/api/fetchBuyActivation';
+import apiBuyService from '~/components/api/AuthAPI'
 const buyService = async () => {
   const params = {
     service: props.account.service, // service short name
@@ -48,9 +49,10 @@ const buyService = async () => {
     country_code: props.account.country, // country code int
     amount: amount.value
   }
-  const {error, login, status} = await buyActivation(params)
+  const token = localStorage.getItem('authToken')
+  const buyActivationResult = await apiBuyService.buyActivation(params, token)
 
-  if (!error.value) {
+  if (!buyActivationResult.error.value) {
     console.log("покупка прошла", params)
   }
 }

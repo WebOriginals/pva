@@ -114,6 +114,7 @@ const v$ = useVuelidate(rules, form);
 
 const alertGlobal = ref('');
 
+
 import apiAuth from '~/components/api/AuthAPI'
 const submitForm = async () => {
   v$.value.$validate();
@@ -121,7 +122,7 @@ const submitForm = async () => {
 
     const params = {
       email: form.value.email,
-      password: form.value.password
+      password: form.value.password,
     }
 
     const loginResult = await apiAuth.login(params);

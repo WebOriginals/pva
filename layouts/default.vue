@@ -46,6 +46,8 @@ const lockScrollValue = ref(false);
 const lockScroll = (value) => {
 	lockScrollValue.value = value.value;
 };
+
+
 </script>
 
 <style lang="scss">
